@@ -26,5 +26,7 @@ jobs:
           port: 21
           protocol: ftp
           security: loose
+          timeout: 600000
+          retries: 5
           local-dir: ./          
           server-dir: ./
