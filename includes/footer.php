@@ -53,15 +53,15 @@
 
     <div class="footer-menu">
       <h3>
-        <a href="../index.php">Home</a>
+        <a href="<?php echo $base_path; ?>">Home</a>
       </h3>
       <ul>
-        <li><a href="/about.php">About Us</a></li>
-        <li><a href="/gallery.php">Gallery</a></li>
-        <li><a href="/contact.php">Contact</a></li>
-        <li><a href="/blog">Blog</a></li>
+        <li><a href="<?php echo $base_path; ?>about.php">About Us</a></li>
+        <li><a href="<?php echo $base_path; ?>gallery.php">Gallery</a></li>
+        <li><a href="<?php echo $base_path; ?>contact.php">Contact</a></li>
+        <li><a href="<?php echo $base_path; ?>blog">Blog</a></li>
         <li>
-          <a href="/locations/290-earle-st-central.islip-ny-11722.php">Location</a>
+          <a href="<?php echo $base_path; ?>locations/290-earle-st-central.islip-ny-11722.php">Location</a>
         </li>
       </ul>
     </div>
@@ -69,53 +69,53 @@
     <div class="footer-menu">
       
         <h3>
-          <a href="../services.php">Services</a>
+          <a href="<?php echo $base_path; ?>services.php">Services</a>
         </h3>
 
       
       <div class="separador-servicios">
         <div class="footer-menu">
           <ul>
-            <li><a href="../masonry-contractors-long-island-ny.php">Masonry</a></li>
+            <li><a href="<?php echo $base_path; ?>masonry-contractors-long-island-ny.php">Masonry</a></li>
             <li>
-              <a href="../trim-carpentry-services-long-island-ny.php">Trim Carpentry</a>
+              <a href="<?php echo $base_path; ?>trim-carpentry-services-long-island-ny.php">Trim Carpentry</a>
             </li>
             <li>
-              <a href="../replacement-windows-long-island-ny.php">Window Replacement</a>
+              <a href="<?php echo $base_path; ?>replacement-windows-long-island-ny.php">Window Replacement</a>
             </li>
             <li>
-              <a href="../door-installation-long-island-ny.php">Door Installation</a>
+              <a href="<?php echo $base_path; ?>door-installation-long-island-ny.php">Door Installation</a>
             </li>
             <li>
-              <a href="../house-painting-long-island-ny.php">House painting</a>
+              <a href="<?php echo $base_path; ?>house-painting-long-island-ny.php">House painting</a>
             </li>
             <li>
-              <a href="../power-washing-long-island-ny.php">Power Washing</a>
+              <a href="<?php echo $base_path; ?>power-washing-long-island-ny.php">Power Washing</a>
             </li>
             <li>
-              <a href="../basement-solutions-long-island-ny.php">Basement Solutions</a>
+              <a href="<?php echo $base_path; ?>basement-solutions-long-island-ny.php">Basement Solutions</a>
             </li>
           </ul>
         </div>
         <div class="footer-menu">
           <ul>
             <li>
-              <a href="../kitchen-remodeling-long-island-ny.php">Kitchen Remodeling</a>
+              <a href="<?php echo $base_path; ?>kitchen-remodeling-long-island-ny.php">Kitchen Remodeling</a>
             </li>
             <li>
-              <a href="../deck-builders-long-island-ny.php">Deck Building</a>
+              <a href="<?php echo $base_path; ?>deck-builders-long-island-ny.php">Deck Building</a>
             </li>
             <li>
-              <a href="../crown-molding-long-island-ny.php">Crown Molding</a>
+              <a href="<?php echo $base_path; ?>crown-molding-long-island-ny.php">Crown Molding</a>
             </li>
             <li>
-              <a href="../portico-contractor-long-island-ny.php">Portico Construction</a>
+              <a href="<?php echo $base_path; ?>portico-contractor-long-island-ny.php">Portico Construction</a>
             </li>
             <li>
-              <a href="../tile-installation-service-long-island-ny.php">Tile Installation</a>
+              <a href="<?php echo $base_path; ?>tile-installation-service-long-island-ny.php">Tile Installation</a>
             </li>
             <li>
-              <a href="../bathroom-renovation-long-island-ny.php">Bathroom Remodeling</a>
+              <a href="<?php echo $base_path; ?>bathroom-renovation-long-island-ny.php">Bathroom Remodeling</a>
             </li>
 
             <li>
@@ -131,21 +131,21 @@
       <div class="privacy-logos">
   <div class="logos-row">
     
-    <img class="logo-1" src="/media/png/certified%20wolf%20pro_f3%20construction.png" alt="Certification 1" loading="lazy" width="387" height="388">
+    <img class="logo-1" src="<?php echo $base_path; ?>media/png/certified%20wolf%20pro_f3%20construction.png" alt="Certification 1" loading="lazy" width="387" height="388">
 
     <a href="https://trexrainescape.com/installers/olman-flores/" target="_blank">
-      <img class="logo-2" src="/media/png/trex_rain_escape_certified_olman_flores_f3-.png" alt="Certification 2" loading="lazy" width="580" height="430">
+      <img class="logo-2" src="<?php echo $base_path; ?>media/png/trex_rain_escape_certified_olman_flores_f3-.png" alt="Certification 2" loading="lazy" width="580" height="430">
     </a>
 
-    <a href="/media/pdf/certrebel-olman_flores-f3.pdf" target="_blank" download>
-      <img class="logo-3" src="/media/png/certrebel-logo3.png" alt="Certification 3" loading="lazy" width="350" height="103">
+    <a href="<?php echo $base_path; ?>media/pdf/certrebel-olman_flores-f3.pdf" target="_blank" download>
+      <img class="logo-3" src="<?php echo $base_path; ?>media/png/certrebel-logo3.png" alt="Certification 3" loading="lazy" width="350" height="103">
     </a>
 
   </div>
 </div>
-      <a href="/privacy.php">Privacy Policy</a>
-      <a href="/terms.php">Terms and Conditions</a>
-      <a href="/sitemap.xml">Sitemap</a>
+      <a href="<?php echo $base_path; ?>privacy.php">Privacy Policy</a>
+      <a href="<?php echo $base_path; ?>terms.php">Terms and Conditions</a>
+      <a href="<?php echo $base_path; ?>sitemap.xml">Sitemap</a>
     </div>
 
   </div>

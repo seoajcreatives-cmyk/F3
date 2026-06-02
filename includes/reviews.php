@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/style/review.css">
+<link rel="stylesheet" href="<?php echo $base_path; ?>style/review.css">
 
 <!-- Font Awesome -->
 <script src="https://kit.fontawesome.com/a2e0c6e6f0.js" crossorigin="anonymous"></script>
@@ -15,7 +15,7 @@
         <div class="swiper-slide review-card">
             <div class="review-header">
                 <div class="review-avatar">
-                    <img src="/media/png/review-1.png" alt="Review 1" loading="lazy" width="500" height="500">
+                    <img src="<?php echo $base_path; ?>media/png/review-1.png" alt="Review 1" loading="lazy" width="500" height="500">
                 </div>
                 <div>
                     <h3 class="review-name">Jeanette Lutin</h3>
@@ -41,7 +41,7 @@
         <div class="swiper-slide review-card">
             <div class="review-header">
                 <div class="review-avatar">
-                    <img src="/media/png/review-2.png" alt="Review 2" loading="lazy" width="500" height="500">
+                    <img src="<?php echo $base_path; ?>media/png/review-2.png" alt="Review 2" loading="lazy" width="500" height="500">
                 </div>
                 <div>
                     <h3 class="review-name">John Penza</h3>
@@ -67,7 +67,7 @@
         <div class="swiper-slide review-card">
             <div class="review-header">
                 <div class="review-avatar">
-                    <img src="/media/png/review-3.png" alt="Review 3" loading="lazy" width="500" height="500">
+                    <img src="<?php echo $base_path; ?>media/png/review-3.png" alt="Review 3" loading="lazy" width="500" height="500">
                 </div>
                 <div>
                     <h3 class="review-name">George Macrelli</h3>
@@ -93,7 +93,7 @@
         <div class="swiper-slide review-card">
             <div class="review-header">
                 <div class="review-avatar">
-                    <img src="/media/png/review-4.png" alt="Review 4" loading="lazy" width="500" height="500">
+                    <img src="<?php echo $base_path; ?>media/png/review-4.png" alt="Review 4" loading="lazy" width="500" height="500">
                 </div>
                 <div>
                     <h3 class="review-name">Laura Parker</h3>
@@ -119,7 +119,7 @@
         <div class="swiper-slide review-card">
             <div class="review-header">
                 <div class="review-avatar">
-                    <img src="/media/png/review-5.png" alt="Review 5" loading="lazy" width="500" height="500">
+                    <img src="<?php echo $base_path; ?>media/png/review-5.png" alt="Review 5" loading="lazy" width="500" height="500">
                 </div>
                 <div>
                     <h3 class="review-name">Paul Anderson</h3>
@@ -145,7 +145,7 @@
         <div class="swiper-slide review-card">
             <div class="review-header">
                 <div class="review-avatar">
-                    <img src="/media/png/review-6.png" alt="Review 6" loading="lazy" width="500" height="500">
+                    <img src="<?php echo $base_path; ?>media/png/review-6.png" alt="Review 6" loading="lazy" width="500" height="500">
                 </div>
                 <div>
                     <h3 class="review-name">Edward Freudenberg</h3>
@@ -169,7 +169,7 @@
         <div class="swiper-slide review-card">
             <div class="review-header">
                 <div class="review-avatar">
-                    <img src="/media/png/review-7.png" alt="Review 7" loading="lazy" width="500" height="500">
+                    <img src="<?php echo $base_path; ?>media/png/review-7.png" alt="Review 7" loading="lazy" width="500" height="500">
                 </div>
                 <div>
                     <h3 class="review-name">Karen Obrien</h3>

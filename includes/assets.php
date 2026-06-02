@@ -1,3 +1,6 @@
+<?php
+$base_path = (basename(dirname($_SERVER['SCRIPT_NAME'])) === 'locations') ? '../' : './';
+?>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -40,7 +43,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.defer=true;j.sr
 <link rel="apple-touch-icon" sizes="120x120" href="./media/iconified/apple-touch-icon-120x120.png" />
 <link rel="apple-touch-icon" sizes="144x144" href="./media/iconified/apple-touch-icon-144x144.png" />
 <link rel="apple-touch-icon" sizes="152x152" href="./media/iconified/apple-touch-icon-152x152.png" />
-<link rel="apple-touch-icon" sizes="180x180" href="./media/iconified/apple-touch-icon-180x180.png"   />
+<link rel="apple-touch-icon" sizes="180x180" href="./media/iconified/apple-touch-icon-180x180.png"   />
 
 <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
@@ -54,6 +57,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.defer=true;j.sr
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" defer></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'" />
-<script src="/js/contact-handler.js" defer></script>
-<link rel="preload" href="/style/global.css?v=1.2" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="/style/global.css?v=1.2"></noscript>
+<script src="<?php echo $base_path; ?>js/contact-handler.js" defer></script>
+<link rel="preload" href="<?php echo $base_path; ?>style/global.css?v=1.3" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="<?php echo $base_path; ?>style/global.css?v=1.3"></noscript>

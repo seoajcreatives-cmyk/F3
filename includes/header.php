@@ -21,39 +21,39 @@
     <div class="header-desktop">
         <div class="header-left">
             <div class="logo" style="width: 160px; flex-shrink: 0;">
-                <a href="/" aria-label="logo" style="display: block; width: 100%;"><img class="primary-logo" src="/media/webp/png/logo.webp" onerror="this.onerror=null;this.src='/media/png/logo.png';this.width=300;this.height=300;this.style.aspectRatio='1/1';" alt="F3 Construction" width="300" height="205" style="width: 100%; height: auto; display: block;"></a>
+                <a href="<?php echo $base_path; ?>" aria-label="logo" style="display: block; width: 100%;"><img class="primary-logo" src="<?php echo $base_path; ?>media/webp/png/logo.webp" onerror="this.onerror=null;this.src='<?php echo $base_path; ?>media/png/logo.png';this.width=300;this.height=300;this.style.aspectRatio='1/1';" alt="F3 Construction" width="300" height="205" style="width: 100%; height: auto; display: block;"></a>
             </div>
             <div class="menu">
                 <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/about.php">About Us</a></li>
+                    <li><a href="<?php echo $base_path; ?>">Home</a></li>
+                    <li><a href="<?php echo $base_path; ?>about.php">About Us</a></li>
 
                     <li class="dropdown">
-                        <a href="/services.php">Services <i class="fa-solid fa-angle-down"></i></a>
+                        <a href="<?php echo $base_path; ?>services.php">Services <i class="fa-solid fa-angle-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="/kitchen-remodeling-long-island-ny.php">Kitchen Remodeling</a></li>
-                            <li><a href="/deck-builders-long-island-ny.php">Deck Building</a></li>
-                            <li><a href="/crown-molding-long-island-ny.php">Crown Molding</a></li>
-                            <li><a href="/portico-contractor-long-island-ny.php">Portico Construction</a></li>
-                            <li><a href="/tile-installation-service-long-island-ny.php">Tile Installation</a></li>
-                            <li><a href="/siding-installation-long-island-ny.php">Siding Installation</a></li>
-                            <li><a href="/bathroom-renovation-long-island-ny.php">Bathroom Renovation</a></li>
-                            <li><a href="/masonry-contractors-long-island-ny.php">Masonry Contractor</a></li>
-                            <li><a href="/trim-carpentry-services-long-island-ny.php">Trim Carpentry</a></li>
-                            <li><a href="/replacement-windows-long-island-ny.php">Window Replacement</a></li>
-                            <li><a href="/door-installation-long-island-ny.php">Door Installation</a></li>
-                            <li><a href="/house-painting-long-island-ny.php">House Painting</a></li>
-                            <li><a href="/power-washing-long-island-ny.php">Power Washing</a></li>
-                            <li><a href="/basement-solutions-long-island-ny.php">Basement Solutions</a></li>
+                            <li><a href="<?php echo $base_path; ?>kitchen-remodeling-long-island-ny.php">Kitchen Remodeling</a></li>
+                            <li><a href="<?php echo $base_path; ?>deck-builders-long-island-ny.php">Deck Building</a></li>
+                            <li><a href="<?php echo $base_path; ?>crown-molding-long-island-ny.php">Crown Molding</a></li>
+                            <li><a href="<?php echo $base_path; ?>portico-contractor-long-island-ny.php">Portico Construction</a></li>
+                            <li><a href="<?php echo $base_path; ?>tile-installation-service-long-island-ny.php">Tile Installation</a></li>
+                            <li><a href="<?php echo $base_path; ?>siding-installation-long-island-ny.php">Siding Installation</a></li>
+                            <li><a href="<?php echo $base_path; ?>bathroom-renovation-long-island-ny.php">Bathroom Renovation</a></li>
+                            <li><a href="<?php echo $base_path; ?>masonry-contractors-long-island-ny.php">Masonry Contractor</a></li>
+                            <li><a href="<?php echo $base_path; ?>trim-carpentry-services-long-island-ny.php">Trim Carpentry</a></li>
+                            <li><a href="<?php echo $base_path; ?>replacement-windows-long-island-ny.php">Window Replacement</a></li>
+                            <li><a href="<?php echo $base_path; ?>door-installation-long-island-ny.php">Door Installation</a></li>
+                            <li><a href="<?php echo $base_path; ?>house-painting-long-island-ny.php">House Painting</a></li>
+                            <li><a href="<?php echo $base_path; ?>power-washing-long-island-ny.php">Power Washing</a></li>
+                            <li><a href="<?php echo $base_path; ?>basement-solutions-long-island-ny.php">Basement Solutions</a></li>
                             <li><a href="https://f3constructionny.com/patio-contractor-long-island-ny.php">Patio Contractor</a></li>
                         </ul>
                     </li>
 
-                    <li><a href="/gallery.php">Gallery</a></li>
-                    <li><a href="/contact.php">Contact</a></li>
+                    <li><a href="<?php echo $base_path; ?>gallery.php">Gallery</a></li>
+                    <li><a href="<?php echo $base_path; ?>contact.php">Contact</a></li>
 
                     <li class="dropdown">
-                        <a href="/blog">Blog <i class="fa-solid fa-angle-down"></i></a>
+                        <a href="<?php echo $base_path; ?>blog">Blog <i class="fa-solid fa-angle-down"></i></a>
                         <ul class="dropdown-menu">
                             <!-- <li><a href="https://f3constructionny.com/blog/category/uncategorized/">Uncategorized</a></li> -->
                             <li><a href="https://f3constructionny.com/blog/category/kitchen-renovation-guides/">Kitchen Renovation Guides</a></li>
@@ -64,24 +64,19 @@
                             <li><a href="https://f3constructionny.com/blog/category/home-siding-improvement/">Home Siding Improvement</a></li>
                             <li><a href="https://f3constructionny.com/blog/category/bath-remodeling-tips/">Bath Remodeling Tips</a></li>
                             <li><a href="https://f3constructionny.com/blog/category/masonry-craftsmanship-tutorials/">Masonry Craftsmanship Tutorials</a></li>
-                            <!-- <li><a href="https://f3constructionny.com/blog/category/finish-carpentry-ideas/">Finish Carpentry Ideas</a></li>
-                            <li><a href="https://f3constructionny.com/blog/category/window-renovation-tips/">Window Renovation Tips</a></li>
-                            <li><a href="https://f3constructionny.com/blog/category/door-maintenance/">Door Maintenance</a></li>
-                            <li><a href="https://f3constructionny.com/blog/category/professional-painting-tips/">Professional Painting Tips</a></li>
-                            <li><a href="https://f3constructionny.com/blog/category/pressure-washing-advice/">Pressure Washing Advice</a></li> -->
                         </ul>
                     </li>
                 </ul>
             </div>
             <div class="bbb-logo" style="width: 150px; flex-shrink: 0;">
-                <a href="https://www.bbb.org/us/ny/central-islip/profile/home-improvement/f3-constructions-corp-0121-87182765" style="display: block; width: 100%;"><img src="/media/png/acreditation-f3-2.png" alt="BBB" width="689" height="261" style="width: 100%; height: auto; display: block;"></a>
+                <a href="https://www.bbb.org/us/ny/central-islip/profile/home-improvement/f3-constructions-corp-0121-87182765" style="display: block; width: 100%;"><img src="<?php echo $base_path; ?>media/png/acreditation-f3-2.png" alt="BBB" width="689" height="261" style="width: 100%; height: auto; display: block;"></a>
             </div>
         </div>
 
         <div class="header-right">
 
             <div class="contact-button">
-                <a href="/contact.php">Free Quote Service</a>
+                <a href="<?php echo $base_path; ?>contact.php">Free Quote Service</a>
             </div>
         </div>
     </div>
@@ -89,7 +84,7 @@
     <div class="mobile-header" id="mobile-header">
         <div class="mobile-header-container">
             <div class="logo">
-                <a href="/" aria-label="logo"><img class="primary-logo" src="/media/webp/png/logo.webp" onerror="this.onerror=null;this.src='/media/png/logo.png';this.width=300;this.height=300;this.style.aspectRatio='1/1';" alt="F3 Construction" width="300" height="205"></a>
+                <a href="<?php echo $base_path; ?>" aria-label="logo"><img class="primary-logo" src="<?php echo $base_path; ?>media/webp/png/logo.webp" onerror="this.onerror=null;this.src='<?php echo $base_path; ?>media/png/logo.png';this.width=300;this.height=300;this.style.aspectRatio='1/1';" alt="F3 Construction" width="300" height="205"></a>
             </div>
             <div class="mobile_toggle" onclick="active_toggle()">
                 <hr>
@@ -100,55 +95,37 @@
 
             <div class="side-bar-box">
                 <ul class="menu">
-                    <li><a href="/"> Home</a></li>
-                    <li><a href="/about.php"> About Us</a></li>
-                    <li><a href="/services.php">Services</a></li>
+                    <li><a href="<?php echo $base_path; ?>"> Home</a></li>
+                    <li><a href="<?php echo $base_path; ?>about.php"> About Us</a></li>
+                    <li><a href="<?php echo $base_path; ?>services.php">Services</a></li>
 
                     <li class="dropdown">
                         <p><i class="fa-solid fa-angle-down"></i></p>
                         <ul class="dropdown-menu">
-                            <li><a href="/kitchen-remodeling-long-island-ny.php">Kitchen Remodeling</a></li>
-                            <li><a href="/deck-builders-long-island-ny.php">Deck Building</a></li>
-                            <li><a href="/crown-molding-long-island-ny.php">Crown Molding</a></li>
-                            <li><a href="/portico-contractor-long-island-ny.php">Portico Construction</a></li>
-                            <li><a href="/tile-installation-service-long-island-ny.php">Tile Installation</a></li>
-                            <li><a href="/siding-installation-long-island-ny.php">Siding Installation</a></li>
-                            <li><a href="/bathroom-renovation-long-island-ny.php">Bathroom Renovation</a></li>
-                            <li><a href="/masonry-contractors-long-island-ny.php">Masonry</a></li>
-                            <li><a href="/trim-carpentry-services-long-island-ny.php">Trim Carpentry</a></li>
-                            <li><a href="/replacement-windows-long-island-ny.php">Window Replacement</a></li>
-                            <li><a href="/door-installation-long-island-ny.php">Door Installation</a></li>
-                            <li><a href="/house-painting-long-island-ny.php">House Painting</a></li>
-                            <li><a href="/power-washing-long-island-ny.php">Power Washing</a></li>
-                            <li><a href="/basement-solutions-long-island-ny.php">Basement Solutions</a></li>
+                            <li><a href="<?php echo $base_path; ?>kitchen-remodeling-long-island-ny.php">Kitchen Remodeling</a></li>
+                            <li><a href="<?php echo $base_path; ?>deck-builders-long-island-ny.php">Deck Building</a></li>
+                            <li><a href="<?php echo $base_path; ?>crown-molding-long-island-ny.php">Crown Molding</a></li>
+                            <li><a href="<?php echo $base_path; ?>portico-contractor-long-island-ny.php">Portico Construction</a></li>
+                            <li><a href="<?php echo $base_path; ?>tile-installation-service-long-island-ny.php">Tile Installation</a></li>
+                            <li><a href="<?php echo $base_path; ?>siding-installation-long-island-ny.php">Siding Installation</a></li>
+                            <li><a href="<?php echo $base_path; ?>bathroom-renovation-long-island-ny.php">Bathroom Renovation</a></li>
+                            <li><a href="<?php echo $base_path; ?>masonry-contractors-long-island-ny.php">Masonry</a></li>
+                            <li><a href="<?php echo $base_path; ?>trim-carpentry-services-long-island-ny.php">Trim Carpentry</a></li>
+                            <li><a href="<?php echo $base_path; ?>replacement-windows-long-island-ny.php">Window Replacement</a></li>
+                            <li><a href="<?php echo $base_path; ?>door-installation-long-island-ny.php">Door Installation</a></li>
+                            <li><a href="<?php echo $base_path; ?>house-painting-long-island-ny.php">House Painting</a></li>
+                            <li><a href="<?php echo $base_path; ?>power-washing-long-island-ny.php">Power Washing</a></li>
+                            <li><a href="<?php echo $base_path; ?>basement-solutions-long-island-ny.php">Basement Solutions</a></li>
                         </ul>
                     </li>
 
-                    <li><a href="/gallery.php"> Gallery</a></li>
-                    <li><a href="/contact.php"> Contact</a></li>
+                    <li><a href="<?php echo $base_path; ?>gallery.php"> Gallery</a></li>
+                    <li><a href="<?php echo $base_path; ?>contact.php"> Contact</a></li>
 
-                    <li><a href="/blog">Blog</a></li>
-                    <!-- <li class="dropdown">
-                        <p><i class="fa-solid fa-angle-down"></i></p>
-                        <ul class="dropdown-menu">
-                            <li><a href="https://f3constructionny.com/blog/category/kitchen-renovation-guides/">Kitchen Renovation Guides</a></li>
-                            <li><a href="https://f3constructionny.com/blog/category/deck-construction-insights/">Deck Construction Insights</a></li>
-                            <li><a href="https://f3constructionny.com/blog/category/crown-molding-resources/">Crown Molding Resources</a></li>
-                            <li><a href="https://f3constructionny.com/blog/category/portico-style-inspiration/">Portico Style Inspiration</a></li>
-                            <li><a href="https://f3constructionny.com/blog/category/tile-remodeling-ideas/">Tile Remodeling Ideas</a></li>
-                            <li><a href="https://f3constructionny.com/blog/category/home-siding-improvement/">Home Siding Improvement</a></li>
-                            <li><a href="https://f3constructionny.com/blog/category/bath-remodeling-tips/">Bath Remodeling Tips</a></li>
-                            <li><a href="https://f3constructionny.com/blog/category/masonry-craftsmanship-tutorials/">Masonry Craftsmanship Tutorials</a></li>
-                            <li><a href="https://f3constructionny.com/blog/category/finish-carpentry-ideas/"></a>Finish Carpentry Ideas</li>
-                            <li><a href="https://f3constructionny.com/blog/category/window-renovation-tips/">Window Renovation Tips</a></li>
-                            <li><a href="https://f3constructionny.com/blog/category/door-maintenance/">Door Maintenance</a></li>
-                            <li><a href="https://f3constructionny.com/blog/category/professional-painting-tips/">Professional Painting Tips</a></li>
-                            <li><a href="https://f3constructionny.com/blog/category/pressure-washing-advice/">Pressure Washing Advice</a></li>
-                        </ul>
-                    </li> -->
+                    <li><a href="<?php echo $base_path; ?>blog">Blog</a></li>
                 </ul>
 
-                <a href="https://www.bbb.org/us/ny/central-islip/profile/home-improvement/f3-constructions-corp-0121-87182765"><img src="/media/png/acreditation-f3-2-1.png" alt="BBB" width="689" height="261"></a>
+                <a href="https://www.bbb.org/us/ny/central-islip/profile/home-improvement/f3-constructions-corp-0121-87182765"><img src="<?php echo $base_path; ?>media/png/acreditation-f3-2-1.png" alt="BBB" width="689" height="261"></a>
 
                 <div class="button-header-mobile">
                     <a id="btn_social" href="https://www.facebook.com/f3construction/ " target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
