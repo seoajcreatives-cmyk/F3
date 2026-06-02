@@ -1,0 +1,13 @@
+.review-slider2 {
+    width: 90%;
+    max-width: 850px;
+    margin: auto;
+}
+
+.swiper-pagination-bullet-active {
+    background: var(--red) !important;
+}
+
+.swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
+    bottom: 0 !important;
+}

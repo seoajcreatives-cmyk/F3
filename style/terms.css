@@ -1,0 +1,17 @@
+.text-section {
+    padding: 5% 10%;
+}
+
+.text-section .text-container h1 { 
+    color: var(--red);
+    font-size: 30px;
+}
+
+.text-section .text-container a {
+    color: #e52a32;
+    font-weight: 500;
+}
+
+.text-section .text-container a:hover {
+    color: #f55d65;
+}

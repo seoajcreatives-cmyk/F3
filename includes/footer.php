@@ -1,0 +1,309 @@
+<footer>
+  <div class="footer-container">
+    <div class="contact-ctn">
+      <h3>CONTACT</h3>
+      <ul>
+        <li><a href="&#116;&#101;&#108;&#58;&#43;&#49;&#54;&#51;&#49;&#50;&#55;&#56;&#56;&#54;&#57;&#51;">631-278-8693</a></li>
+        <li>
+          <a href="https://goo.gl/maps/2JWRRVgKfv4YvGaCA" target="_blank">290 Earle St. Central Islip, NY 11722</a>
+        </li>
+        <li><a href="mailto:f3ccorp@gmail.com">f3ccorp@gmail.com</a></li>
+      </ul>
+
+      <div class="social-icon">
+        <a
+          id="btn_social"
+          href="https://www.facebook.com/f3construction/ "
+          target="_blank"
+          aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a
+          id="btn_social"
+          href="https://www.tiktok.com/@f3construction_ny"
+          target="_blank"
+          aria-label="tiktok"><i class="fa-brands fa-tiktok"></i></a>
+        <a
+          id="btn_social"
+          href="https://www.instagram.com/f3constructionny?igsh=dTZ2cTZ4NXp2aHRt"
+          target="_blank"
+          aria-label="instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a
+          id="btn_social"
+          href="https://www.google.com/search?hl=en&amp;authuser=0&amp;gl=co&amp;output=search&amp;q=F3+Construction+Corp&amp;ludocid=4353299437963021024&amp;gsas=1&amp;lsig=AB86z5Uhqch1JIsGnD4QLuWF2d_2&amp;ved=1i%3A2%2Ct%3A109124%2Ce%3A1%2Cp%3AZmLZY8WEOZ6BkvQPiICT8Ac%3A1"
+          target="_blank"
+          aria-label="gmb"><i class="fa-solid fa-store"></i></a>
+        <a
+          id="btn_social"
+          href="https://yelp.com/biz/f3-construction-central-islip"
+          target="_blank"
+          aria-label="yelp"><i class="fa-brands fa-yelp"></i></a>
+      </div>
+    </div>
+
+    <div class="opening-hours">
+      <h3>Opening Hours</h3>
+      <ul>
+        <li>
+          <p>Monday to Friday: 9:00 am - 6:00 pm</p>
+        </li>
+        <li>
+          <p>Saturday: 9:00 am - 2:00 pm</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer-menu">
+      <h3>
+        <a href="../index.php">Home</a>
+      </h3>
+      <ul>
+        <li><a href="/about.php">About Us</a></li>
+        <li><a href="/gallery.php">Gallery</a></li>
+        <li><a href="/contact.php">Contact</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li>
+          <a href="/locations/290-earle-st-central.islip-ny-11722.php">Location</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer-menu">
+      
+        <h3>
+          <a href="../services.php">Services</a>
+        </h3>
+
+      
+      <div class="separador-servicios">
+        <div class="footer-menu">
+          <ul>
+            <li><a href="../masonry-contractors-long-island-ny.php">Masonry</a></li>
+            <li>
+              <a href="../trim-carpentry-services-long-island-ny.php">Trim Carpentry</a>
+            </li>
+            <li>
+              <a href="../replacement-windows-long-island-ny.php">Window Replacement</a>
+            </li>
+            <li>
+              <a href="../door-installation-long-island-ny.php">Door Installation</a>
+            </li>
+            <li>
+              <a href="../house-painting-long-island-ny.php">House painting</a>
+            </li>
+            <li>
+              <a href="../power-washing-long-island-ny.php">Power Washing</a>
+            </li>
+            <li>
+              <a href="../basement-solutions-long-island-ny.php">Basement Solutions</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-menu">
+          <ul>
+            <li>
+              <a href="../kitchen-remodeling-long-island-ny.php">Kitchen Remodeling</a>
+            </li>
+            <li>
+              <a href="../deck-builders-long-island-ny.php">Deck Building</a>
+            </li>
+            <li>
+              <a href="../crown-molding-long-island-ny.php">Crown Molding</a>
+            </li>
+            <li>
+              <a href="../portico-contractor-long-island-ny.php">Portico Construction</a>
+            </li>
+            <li>
+              <a href="../tile-installation-service-long-island-ny.php">Tile Installation</a>
+            </li>
+            <li>
+              <a href="../bathroom-renovation-long-island-ny.php">Bathroom Remodeling</a>
+            </li>
+
+            <li>
+              <a href="https://f3constructionny.com/patio-contractor-long-island-ny.php">Patio Contractor</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="privacy-ctn">
+    <div class="privacy-logos">
+      <div class="privacy-logos">
+  <div class="logos-row">
+    
+    <img class="logo-1" src="/media/png/certified%20wolf%20pro_f3%20construction.png" alt="Certification 1" loading="lazy" width="387" height="388">
+
+    <a href="https://trexrainescape.com/installers/olman-flores/" target="_blank">
+      <img class="logo-2" src="/media/png/trex_rain_escape_certified_olman_flores_f3-.png" alt="Certification 2" loading="lazy" width="580" height="430">
+    </a>
+
+    <a href="/media/pdf/certrebel-olman_flores-f3.pdf" target="_blank" download>
+      <img class="logo-3" src="/media/png/certrebel-logo3.png" alt="Certification 3" loading="lazy" width="350" height="103">
+    </a>
+
+  </div>
+</div>
+      <a href="/privacy.php">Privacy Policy</a>
+      <a href="/terms.php">Terms and Conditions</a>
+      <a href="/sitemap.xml">Sitemap</a>
+    </div>
+
+  </div>
+
+
+
+  <div class="created-box">
+    <p>
+      <a href="/">© 2026 F3 Construction Corp</a> <span>|</span>
+      <a href="https://ajcreativestudios.com/" target="_blank">
+        Created by AJ Creative Studios</a>
+    </p>
+  </div>
+
+  <!-- Teléfono -->
+  <a href="tel:+16312788693" id="call-Button" aria-label="Call F3 Construction Corp Now">
+    <i class="fa-solid fa-phone"></i>
+  </a>
+  <!-- Flecha para subir -->
+  <button id="backToTop"><i class="fa-solid fa-arrow-up"></i></button>
+
+</footer>
+
+<!-- FOOTER CONTACT - F3 Construction (Microdata Schema.org) -->
+<div
+  class="footer-contact"
+  itemscope
+  itemtype="https://schema.org/LocalBusiness"
+  style="
+    background-color: #01bbd7;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    display: none;
+  ">
+  <!-- Tipos adicionales para mayor especificidad -->
+  <meta
+    itemprop="additionalType"
+    content="https://schema.org/HomeAndConstructionBusiness" />
+  <meta
+    itemprop="additionalType"
+    content="https://schema.org/GeneralContractor" />
+
+  <!-- Nombre -->
+  <p itemprop="name"><strong>F3 Construction</strong></p>
+  <br />
+
+  <!-- Dirección -->
+  <p itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+    <a
+      href="https://maps.google.com/?q=290+Earle+St,+Central+Islip,+NY+11722"
+      style="color: #ffffff">
+      <span itemprop="streetAddress">
+        <i class="fa-solid fa-location-dot"></i> 290 Earle St </span><br />
+      <span itemprop="addressLocality">Central Islip</span>,
+      <span itemprop="addressRegion">NY</span>
+      <span itemprop="postalCode">11722</span>,
+      <span itemprop="addressCountry">US</span>
+    </a>
+  </p>
+  <br />
+
+  <!-- Teléfono -->
+  <p>
+    <a href="tel:+16312788693" style="color: #ffffff">
+      <span itemprop="telephone"><i class="fa-solid fa-phone"></i> (631) 278-8693</span>
+    </a>
+  </p>
+  <br />
+
+  <!-- Email -->
+  <p>
+    <a href="mailto:3ccorp@gmail.com" style="color: #ffffff">
+      <span itemprop="email"><i class="fa-solid fa-envelope"></i> 3ccorp@gmail.com</span>
+    </a>
+  </p>
+  <br />
+
+  <!-- Sitio web -->
+  <meta itemprop="url" content="https://f3constructionny.com/" />
+
+  <!-- Price Range -->
+  <meta itemprop="priceRange" content="$$" />
+
+  <!-- Geo -->
+  <div itemprop="geo" itemscope itemtype="https://schema.org/GeoCoordinates">
+    <meta itemprop="latitude" content="40.785020870891024" />
+    <meta itemprop="longitude" content="-73.19937742496832" />
+  </div>
+
+  <!-- Horarios -->
+  <div>
+    <meta itemprop="openingHours" content="Mo 09:00-18:00" />
+    <meta itemprop="openingHours" content="Tu 09:00-18:00" />
+    <meta itemprop="openingHours" content="We 09:00-18:00" />
+    <meta itemprop="openingHours" content="Th 09:00-18:00" />
+    <meta itemprop="openingHours" content="Fr 09:00-18:00" />
+    <meta itemprop="openingHours" content="Sa 09:00-14:00" />
+  </div>
+
+  <!-- Redes sociales (sameAs) -->
+  <div class="footer-social" style="margin-top: 8px">
+    <a
+      href="https://www.facebook.com/f3construction/"
+      itemprop="sameAs"
+      style="color: #ffffff; margin-right: 10px">
+      <i class="fa-brands fa-facebook-f"></i>
+    </a>
+    <a
+      href="https://www.tiktok.com/@f3ccorp"
+      itemprop="sameAs"
+      style="color: #ffffff; margin-right: 10px">
+      <i class="fa-brands fa-tiktok"></i>
+    </a>
+    <a
+      href="https://www.instagram.com/f3constructionny"
+      itemprop="sameAs"
+      style="color: #ffffff; margin-right: 10px">
+      <i class="fa-brands fa-instagram"></i>
+    </a>
+    <a
+      href="https://yelp.com/biz/f3-construction-central-islip"
+      itemprop="sameAs"
+      style="color: #ffffff; margin-right: 10px">
+      <i class="fa-brands fa-yelp"></i>
+    </a>
+  </div>
+
+  <!-- Logo (opcional, útil para Knowledge Graph) -->
+  <meta
+    itemprop="logo"
+    content="https://f3constructionny.com/media/webp/png/logo.webp" />
+
+  <!-- Servicios principales como keywords de apoyo (opcionales) -->
+  <meta
+    itemprop="knowsAbout"
+    content="siding installation, bathroom renovation, masonry contractors, trim carpentry services, replacement windows, door installation, house painting, power washing services" />
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+
+    const backToTop = document.getElementById("backToTop");
+
+    window.addEventListener("scroll", function() {
+      if (window.scrollY > 200) {
+        backToTop.style.display = "flex";
+      } else {
+        backToTop.style.display = "none";
+      }
+    });
+
+    backToTop.addEventListener("click", function() {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+
+  });
+</script>
