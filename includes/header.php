@@ -20,8 +20,8 @@
     </div>
     <div class="header-desktop">
         <div class="header-left">
-            <div class="logo">
-                <a href="/" aria-label="logo"><img class="primary-logo" src="/media/webp/png/logo.webp" onerror="this.onerror=null;this.src='/media/png/logo.png';this.width=300;this.height=300;this.style.aspectRatio='1/1';" alt="F3 Construction" width="300" height="205"></a>
+            <div class="logo" style="width: 160px; flex-shrink: 0;">
+                <a href="/" aria-label="logo" style="display: block; width: 100%;"><img class="primary-logo" src="/media/webp/png/logo.webp" onerror="this.onerror=null;this.src='/media/png/logo.png';this.width=300;this.height=300;this.style.aspectRatio='1/1';" alt="F3 Construction" width="300" height="205" style="width: 100%; height: auto; display: block;"></a>
             </div>
             <div class="menu">
                 <ul>
@@ -73,8 +73,8 @@
                     </li>
                 </ul>
             </div>
-            <div class="bbb-logo">
-                <a href="https://www.bbb.org/us/ny/central-islip/profile/home-improvement/f3-constructions-corp-0121-87182765"><img src="/media/png/acreditation-f3-2.png" alt="BBB" width="689" height="261"></a>
+            <div class="bbb-logo" style="width: 150px; flex-shrink: 0;">
+                <a href="https://www.bbb.org/us/ny/central-islip/profile/home-improvement/f3-constructions-corp-0121-87182765" style="display: block; width: 100%;"><img src="/media/png/acreditation-f3-2.png" alt="BBB" width="689" height="261" style="width: 100%; height: auto; display: block;"></a>
             </div>
         </div>
 

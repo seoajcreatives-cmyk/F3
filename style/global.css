@@ -981,9 +981,14 @@ header .header-desktop .header-left {
   background-color: #fff;
 }
 
-header .header-desktop .header-left .logo,
+header .header-desktop .header-left .logo {
+  width: 160px;
+  flex-shrink: 0;
+}
+
 header .header-desktop .header-left .bbb-logo {
-  width: 15%;
+  width: 150px;
+  flex-shrink: 0;
 }
 
 header .header-desktop .header-left .menu ul {
@@ -1778,10 +1783,7 @@ footer .created-box a:hover {
   height: auto !important;
 }
 
-/* Custom styles for accessibility and visual stability (Lighthouse) */
-.primary-logo {
-  aspect-ratio: 300 / 205 !important;
-}
+
 
 .box-map .info-map p a {
   display: inline !important;

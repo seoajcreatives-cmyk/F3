@@ -1,4 +1,4 @@
-<head><link rel="stylesheet" href="../style/global.css?v=1.1"></head>
+<head><link rel="stylesheet" href="../style/global.css?v=1.2"></head>
 
 <section class="breadcrumb-section">
     <?php
