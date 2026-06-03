@@ -71,13 +71,22 @@
                     </video>
                     <script>
                         (function() {
-                            var video = document.getElementById("hero-video");
-                            if (window.innerWidth > 996 && video) {
-                                var source = document.createElement("source");
-                                source.src = "./media/video/video.mp4";
-                                source.type = "video/mp4";
-                                video.appendChild(source);
-                                video.load();
+                            function loadVideo() {
+                                setTimeout(function() {
+                                    var video = document.getElementById("hero-video");
+                                    if (window.innerWidth > 996 && video) {
+                                        var source = document.createElement("source");
+                                        source.src = "./media/video/video.mp4";
+                                        source.type = "video/mp4";
+                                        video.appendChild(source);
+                                        video.load();
+                                    }
+                                }, 500);
+                            }
+                            if (document.readyState === "complete") {
+                                loadVideo();
+                            } else {
+                                window.addEventListener("load", loadVideo);
                             }
                         })();
                     </script>
