@@ -170,7 +170,11 @@
                                 var video = document.getElementById("hero-video");
                                 if (video) {
                                     var source = document.createElement("source");
-                                    source.src = "./media/video/video.mp4";
+                                    if (window.innerWidth <= 996) {
+                                        source.src = "./media/video/optimized video.mp4";
+                                    } else {
+                                        source.src = "./media/video/video.mp4";
+                                    }
                                     source.type = "video/mp4";
                                     video.appendChild(source);
                                     video.load();
