@@ -15,7 +15,7 @@
     <?php include("./includes/assets.php") ?>
 
     <link rel="preload" href="hero.webp" as="image" fetchpriority="high">
-    <link rel="stylesheet" href="style/index.css?v=1.1">
+    <link rel="stylesheet" href="./style/index.css?v=1.1" media="print" onload="this.media='all'">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

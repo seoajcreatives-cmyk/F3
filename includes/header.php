@@ -100,7 +100,7 @@
                         alt="F3 Construction" 
                         width="300" 
                         height="205" 
-                        style="width: 100%; height: auto; display: block; object-fit: contain;">
+                        style="width: 100%; height: auto; display: block; aspect-ratio: 300 / 205; object-fit: contain;">
                 </a>
             </div>
             <div class="mobile_toggle" onclick="active_toggle()">

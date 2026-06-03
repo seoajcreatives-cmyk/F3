@@ -1855,3 +1855,9 @@ footer .created-box a:hover {
   padding: 12px 8px;
   margin: 4px 6px;
 }
+
+.primary-logo {
+  width: 300px;
+  height: auto;
+  aspect-ratio: 300 / 205;
+}
