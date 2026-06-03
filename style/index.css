@@ -69,14 +69,18 @@
 
 @media (max-width: 996px) {
   .banner-section {
-    height: 50vh;
-    min-height: 50vh;
+    width: 100%;
+    height: auto;
+    min-height: auto;
+    aspect-ratio: 16 / 9;
     background-size: cover;
   }
 
   .banner-section .banner-container {
-    height: 50vh;
-    min-height: 50vh;
+    width: 100%;
+    height: auto;
+    min-height: auto;
+    aspect-ratio: 16 / 9;
   }
 }
 
