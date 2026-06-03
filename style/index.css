@@ -73,6 +73,7 @@
     min-height: 50vh;
     background-size: cover;
   }
+
   .banner-section .banner-container {
     height: 50vh;
     min-height: 50vh;
@@ -493,6 +494,7 @@
     padding: 0;
     transform: translateY(0);
   }
+
   .services_section .services_box {
     width: 100%;
     grid-template-columns: 100%;
@@ -500,28 +502,46 @@
     border-radius: 0;
     background: var(--red);
   }
+
   .services_section .title_box {
     justify-content: center;
     padding-bottom: 10%;
   }
+
   .services_section .carousel_box .arrows {
     display: none;
   }
+
   .services_section .title_box .services-mobile {
     font-size: 40px;
     display: block;
     text-align: center;
   }
+
   .services_section .title_box .services-desktop {
     display: none;
   }
+
   .services_section .card_box {
     flex: 0 0 85%;
     scroll-snap-align: center;
     display: flex;
     justify-content: center;
   }
-  .services_section .info_box, .services_section .decks, .services_section .moldings, .services_section .portico, .services_section .tiles, .services_section .siding, .services_section .bathroom, .services_section .mansory, .services_section .trim, .services_section .windows, .services_section .doors, .services_section .painting, .services_section .power {
+
+  .services_section .info_box,
+  .services_section .decks,
+  .services_section .moldings,
+  .services_section .portico,
+  .services_section .tiles,
+  .services_section .siding,
+  .services_section .bathroom,
+  .services_section .mansory,
+  .services_section .trim,
+  .services_section .windows,
+  .services_section .doors,
+  .services_section .painting,
+  .services_section .power {
     width: 280px;
     margin: 0 auto;
   }
@@ -682,44 +702,56 @@
     background-position: center;
     background-size: cover;
   }
+
   .services-section .services-container {
     padding: 0;
   }
+
   .services-section .box-services .circle {
     display: none;
   }
+
   .services-section .services-container .services {
     grid-template-columns: 40% 60%;
   }
+
   .services-section .services-container .services .title h2 {
     font-size: 40px;
   }
+
   .services-section .services-container .services .service-items .services-item {
     width: 80%;
   }
+
   .services-section .about-us-ctn {
     grid-template-columns: 100%;
     padding: 0 10% 0 10%;
   }
+
   .services-section .about-us-ctn .title {
     border: none;
   }
+
   .services-section .about-us-ctn .title h2 {
     font-size: 80px;
   }
+
   .services-section .about-us-ctn .title span {
     letter-spacing: normal;
     font-size: 200px;
   }
+
   .services-section .about-us-ctn .text {
     align-items: center;
     gap: 20px;
   }
+
   .services-section .box-services {
     grid-template-columns: 100%;
     padding: 15% 0 0 0;
     height: 100%;
   }
+
   .services-section .box-services .box-media .first-row img {
     position: relative;
     top: 0;
@@ -827,22 +859,27 @@
     background-size: cover;
     background-position: center;
   }
+
   .experience-section .experience-container {
     grid-template-columns: 100%;
   }
+
   .experience-section .experience-container .experience-media .circle-media {
-    width: 150px;
+    width: 165px;
     top: -100%;
     left: 10%;
     padding-left: 5px;
-    height: 150px;
+    height: 165px;
   }
+
   .experience-section .experience-container .experience-media .circle-media .center {
-    font-size: 17px;
+    font-size: 16px;
   }
+
   .experience-section .experience-container .experience-media .circle-media h2 {
     font-size: 25px;
   }
+
   .experience-section .experience-container .experience-content .content-text::before {
     left: -25px;
   }
@@ -914,15 +951,18 @@
   .years-experience-section {
     padding: 0% 5% 5% 5%;
   }
+
   .years-experience-section .years-experience-container {
     display: none;
   }
+
   .years-experience-section .years-experience-mobile {
     display: block;
     overflow: hidden;
     border-radius: 30px;
     box-shadow: 5px 5px 10px #00000030;
   }
+
   .years-experience-section .years-experience-mobile .first-box {
     padding: 5%;
     position: relative;
@@ -935,6 +975,7 @@
     background-position: center;
     background-size: cover;
   }
+
   .years-experience-section .years-experience-mobile .first-box::before {
     position: absolute;
     content: "";
@@ -946,6 +987,7 @@
     top: 0;
     z-index: 0;
   }
+
   .years-experience-section .years-experience-mobile .first-box img {
     color: var(--red);
     font-weight: 800;
@@ -953,6 +995,7 @@
     z-index: 1;
     position: relative;
   }
+
   .years-experience-section .years-experience-mobile .first-box p {
     font-weight: 600;
     margin-top: -6%;
@@ -960,10 +1003,12 @@
     color: white;
     font-size: 20px;
   }
+
   .years-experience-section .years-experience-mobile .second-box {
     padding: 10%;
     background: var(--red);
   }
+
   .years-experience-section .years-experience-mobile .second-box p {
     color: white;
   }
@@ -1039,18 +1084,23 @@
     background-repeat: no-repeat;
     background-position: top;
   }
+
   .satisfaction-section .satisfaction-container {
     grid-template-columns: 100%;
   }
+
   .satisfaction-section .satisfaction-container .satisfaction-text h2 {
     font-size: 40px;
   }
+
   .satisfaction-section .satisfaction-container .satisfaction-text .your {
     font-size: 45px;
   }
+
   .satisfaction-section .satisfaction-container .satisfaction-text .satisfaction {
     font-size: 40px;
   }
+
   .satisfaction-section .satisfaction-container .slide-container .slide-item {
     padding: 8%;
   }
