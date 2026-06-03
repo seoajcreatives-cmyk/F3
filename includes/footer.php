@@ -170,73 +170,31 @@
 </footer>
 
 <!-- FOOTER CONTACT - F3 Construction (Microdata Schema.org) -->
-<div
-  class="footer-contact"
-  itemscope
-  itemtype="https://schema.org/LocalBusiness"
-  style="
-    background-color: #01bbd7;
-    color: #ffffff;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    display: none;
-  ">
-  <!-- Tipos adicionales para mayor especificidad -->
-  <meta
-    itemprop="additionalType"
-    content="https://schema.org/HomeAndConstructionBusiness" />
-  <meta
-    itemprop="additionalType"
-    content="https://schema.org/GeneralContractor" />
-
-  <!-- Nombre -->
+<div class="footer-contact" itemscope itemtype="https://schema.org/LocalBusiness" style="display: none;">
+  <meta itemprop="additionalType" content="https://schema.org/HomeAndConstructionBusiness" />
+  <meta itemprop="additionalType" content="https://schema.org/GeneralContractor" />
+  
   <p itemprop="name"><strong>F3 Construction</strong></p>
-  <br />
-
-  <!-- Dirección -->
+  
   <p itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
-    <a
-      href="https://maps.google.com/?q=290+Earle+St,+Central+Islip,+NY+11722"
-      style="color: #ffffff">
-      <span itemprop="streetAddress">
-        <i class="fa-solid fa-location-dot"></i> 290 Earle St </span><br />
-      <span itemprop="addressLocality">Central Islip</span>,
-      <span itemprop="addressRegion">NY</span>
-      <span itemprop="postalCode">11722</span>,
-      <span itemprop="addressCountry">US</span>
-    </a>
+    <span itemprop="streetAddress">290 Earle St</span>
+    <span itemprop="addressLocality">Central Islip</span>,
+    <span itemprop="addressRegion">NY</span>
+    <span itemprop="postalCode">11722</span>,
+    <span itemprop="addressCountry">US</span>
   </p>
-  <br />
-
-  <!-- Teléfono -->
-  <p>
-    <a href="tel:+16312788693" style="color: #ffffff">
-      <span itemprop="telephone"><i class="fa-solid fa-phone"></i> (631) 278-8693</span>
-    </a>
-  </p>
-  <br />
-
-  <!-- Email -->
-  <p>
-    <a href="mailto:3ccorp@gmail.com" style="color: #ffffff">
-      <span itemprop="email"><i class="fa-solid fa-envelope"></i> 3ccorp@gmail.com</span>
-    </a>
-  </p>
-  <br />
-
-  <!-- Sitio web -->
+  
+  <p><span itemprop="telephone">(631) 278-8693</span></p>
+  <p><span itemprop="email">3ccorp@gmail.com</span></p>
+  
   <meta itemprop="url" content="https://f3constructionny.com/" />
-
-  <!-- Price Range -->
   <meta itemprop="priceRange" content="$$" />
 
-  <!-- Geo -->
   <div itemprop="geo" itemscope itemtype="https://schema.org/GeoCoordinates">
     <meta itemprop="latitude" content="40.785020870891024" />
     <meta itemprop="longitude" content="-73.19937742496832" />
   </div>
 
-  <!-- Horarios -->
   <div>
     <meta itemprop="openingHours" content="Mo 09:00-18:00" />
     <meta itemprop="openingHours" content="Tu 09:00-18:00" />
@@ -246,43 +204,8 @@
     <meta itemprop="openingHours" content="Sa 09:00-14:00" />
   </div>
 
-  <!-- Redes sociales (sameAs) -->
-  <div class="footer-social" style="margin-top: 8px">
-    <a
-      href="https://www.facebook.com/f3construction/"
-      itemprop="sameAs"
-      style="color: #ffffff; margin-right: 10px">
-      <i class="fa-brands fa-facebook-f"></i>
-    </a>
-    <a
-      href="https://www.tiktok.com/@f3ccorp"
-      itemprop="sameAs"
-      style="color: #ffffff; margin-right: 10px">
-      <i class="fa-brands fa-tiktok"></i>
-    </a>
-    <a
-      href="https://www.instagram.com/f3constructionny"
-      itemprop="sameAs"
-      style="color: #ffffff; margin-right: 10px">
-      <i class="fa-brands fa-instagram"></i>
-    </a>
-    <a
-      href="https://yelp.com/biz/f3-construction-central-islip"
-      itemprop="sameAs"
-      style="color: #ffffff; margin-right: 10px">
-      <i class="fa-brands fa-yelp"></i>
-    </a>
-  </div>
-
-  <!-- Logo (opcional, útil para Knowledge Graph) -->
-  <meta
-    itemprop="logo"
-    content="https://f3constructionny.com/media/webp/png/logo.webp" />
-
-  <!-- Servicios principales como keywords de apoyo (opcionales) -->
-  <meta
-    itemprop="knowsAbout"
-    content="siding installation, bathroom renovation, masonry contractors, trim carpentry services, replacement windows, door installation, house painting, power washing services" />
+  <meta itemprop="logo" content="https://f3constructionny.com/media/webp/png/logo.webp" />
+  <meta itemprop="knowsAbout" content="siding installation, bathroom renovation, masonry contractors, trim carpentry services, replacement windows, door installation, house painting, power washing services" />
 </div>
 
 <script>

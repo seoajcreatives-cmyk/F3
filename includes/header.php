@@ -21,7 +21,16 @@
     <div class="header-desktop">
         <div class="header-left">
             <div class="logo" style="width: 160px; flex-shrink: 0;">
-                <a href="<?php echo $base_path; ?>" aria-label="logo" style="display: block; width: 100%;"><img class="primary-logo" src="<?php echo $base_path; ?>media/webp/png/logo.webp" onerror="this.onerror=null;this.src='<?php echo $base_path; ?>media/png/logo.png';this.width=300;this.height=300;this.style.aspectRatio='1/1';" alt="F3 Construction" width="300" height="205" style="width: 100%; height: auto; display: block;"></a>
+                <a href="<?php echo $base_path; ?>" aria-label="F3 Construction Logo" style="display: block; width: 100%; height: 100%;">
+                    <img class="primary-logo" 
+                        src="<?php echo $base_path; ?>media/webp/png/logo.webp" 
+                        onerror="this.onerror=null; this.src='<?php echo $base_path; ?>media/png/logo.png';" 
+                        alt="F3 Construction" 
+                        width="300" 
+                        height="205" 
+                        style="width: 100%; height: auto; display: block; aspect-ratio: 300 / 205;"
+                        fetchpriority="high">
+                </a>
             </div>
             <div class="menu">
                 <ul>
@@ -83,8 +92,16 @@
 
     <div class="mobile-header" id="mobile-header">
         <div class="mobile-header-container">
-            <div class="logo">
-                <a href="<?php echo $base_path; ?>" aria-label="logo"><img class="primary-logo" src="<?php echo $base_path; ?>media/webp/png/logo.webp" onerror="this.onerror=null;this.src='<?php echo $base_path; ?>media/png/logo.png';this.width=300;this.height=300;this.style.aspectRatio='1/1';" alt="F3 Construction" width="300" height="205"></a>
+            <div class="logo" style="width: 120px; height: 82px; flex-shrink: 0; overflow: hidden;">
+                <a href="<?php echo $base_path; ?>" aria-label="logo" style="display: block; width: 100%; height: 100%;">
+                    <img class="primary-logo" 
+                        src="<?php echo $base_path; ?>media/webp/png/logo.webp" 
+                        onerror="this.onerror=null;this.src='<?php echo $base_path; ?>media/png/logo.png';this.style.aspectRatio='300/205';" 
+                        alt="F3 Construction" 
+                        width="300" 
+                        height="205" 
+                        style="width: 100%; height: auto; display: block;">
+                </a>
             </div>
             <div class="mobile_toggle" onclick="active_toggle()">
                 <hr>
@@ -147,4 +164,4 @@
 
 
     }
-</script>
+</script>
