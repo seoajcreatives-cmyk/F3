@@ -6,7 +6,7 @@
 <header>
     <div class="line-address">
         <a href="https://goo.gl/maps/2JWRRVgKfv4YvGaCA" target="_blank"><i class="fa-solid fa-location-dot"></i>290 Earle St. Central Islip, NY 11722</a>
-        <a href="tel:631-278-8693">
+        <a href="tel:+16312788693">
     <i class="fa-solid fa-phone"></i>631-278-8693</a>
     <a href="mailto:f3construction@gmail.com">
         <i class="fa-solid fa-envelope"></i>f3construction@gmail.com</a>
@@ -92,15 +92,15 @@
 
     <div class="mobile-header" id="mobile-header">
         <div class="mobile-header-container">
-            <div class="logo" style="width: 120px; height: 82px; flex-shrink: 0; overflow: hidden;">
+            <div style="width: 120px; aspect-ratio: 300 / 205; flex-shrink: 0; overflow: hidden; display: block;">
                 <a href="<?php echo $base_path; ?>" aria-label="logo" style="display: block; width: 100%; height: 100%;">
                     <img class="primary-logo" 
                         src="<?php echo $base_path; ?>media/webp/png/logo.webp" 
-                        onerror="this.onerror=null;this.src='<?php echo $base_path; ?>media/png/logo.png';this.style.aspectRatio='300/205';" 
+                        onerror="this.onerror=null;this.src='<?php echo $base_path; ?>media/png/logo.png';" 
                         alt="F3 Construction" 
                         width="300" 
                         height="205" 
-                        style="width: 100%; height: auto; display: block;">
+                        style="width: 100%; height: auto; display: block; object-fit: contain;">
                 </a>
             </div>
             <div class="mobile_toggle" onclick="active_toggle()">

@@ -7,13 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
-    <meta name="description"
-
-        content="We are general contractor transforming homes in Central Islip, Long Island. Expert remodeling for kitchens, bathrooms, decks, and more in NY.">
+    <meta name="description" content="We are general contractor transforming homes in Central Islip, Long Island. Expert remodeling for kitchens, bathrooms, decks, and more in NY.">
     <link rel="canonical" href="https://f3constructionny.com/">
-
-
 
     <title>F3 Construction – General Contractor in Central Islip, Long Island NY</title>
 
@@ -21,16 +16,17 @@
 
     <link rel="preload" href="hero.webp" as="image" fetchpriority="high">
     <link rel="stylesheet" href="style/index.css?v=1.1">
-    <!-- <link rel="stylesheet" href="https://f3constructionny.com/style/global.css"> -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
-        as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-        <link rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap">
-    </noscript>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"></noscript>
+
+    <link rel="preload" href="style/review.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="style/review.css"></noscript>
+
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"></noscript>
 
     <script type="application/ld+json">
         {
@@ -51,7 +47,6 @@
                 "@type": "Person",
                 "name": "F3 Construction Corp"
             },
-
             "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "Earle St",
@@ -60,7 +55,6 @@
                 "postalCode": "11722",
                 "addressCountry": "US"
             },
-
             "areaServed": [
                 "Long Island, NY",
                 "Suffolk County, NY",
@@ -73,14 +67,12 @@
                 "Babylon, NY",
                 "Brookhaven, NY"
             ],
-
             "hasMap": "https://maps.app.goo.gl/2eKfjxsEj5Tint1S9",
             "geo": {
                 "@type": "GeoCoordinates",
                 "latitude": "40.784582",
                 "longitude": "73.201266"
             },
-
             "openingHoursSpecification": [{
                     "@type": "OpeningHoursSpecification",
                     "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
@@ -101,7 +93,6 @@
                 }
             ],
             "publicAccess": true,
-
             "knowsAbout": [
                 "home remodeling",
                 "kitchen remodeling",
@@ -120,7 +111,6 @@
                 "patios, decks and pergolas",
                 "water & fire damage restoration"
             ],
-
             "sameAs": [
                 "https://www.facebook.com/f3construction/",
                 "https://www.instagram.com/f3constructionny?igsh=dTZ2cTZ4NXp2aHRt",
@@ -162,9 +152,7 @@
         }
     </script>
 
-
 </head>
-<!-- 26-->
 
 <body>
     <?php include("./includes/header.php") ?>
