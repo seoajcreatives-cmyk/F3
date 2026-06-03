@@ -858,6 +858,7 @@
     padding: 40% 10% 10% 10%;
     background-size: cover;
     background-position: center;
+    background-image: url("../media/webp/mobile/fondo.webp");
   }
 
   .experience-section .experience-container {
