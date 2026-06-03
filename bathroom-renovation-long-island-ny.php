@@ -7,8 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="author" content="">
   <meta name="description" content="Upgrade your space with professional bathroom remodeling in Long Island, NY. Experienced contractors deliver custom renovations with quality in Central Islip">
-  <link rel="preload" href="style/internal-services.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="style/internal-services.css"></noscript>
+  <link rel="stylesheet" href="style/internal-services.css?v=1.1">
   <link rel="canonical" href="https://f3constructionny.com/bathroom-renovation-long-island-ny.php">
   <title>Bathroom Remodeling in Central Islip & Long Island, NY – F3
   </title>

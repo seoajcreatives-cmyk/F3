@@ -8,8 +8,7 @@
     <meta name="author" content="">
     <meta name="description" content="Transform your Long Island, NY home with custom crown molding. We delivers expert installation and design to elevate your space’s style in Central Islip.
     ">
-    <link rel="preload" href="style/internal-services.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="style/internal-services.css"></noscript>
+    <link rel="stylesheet" href="style/internal-services.css?v=1.1">
     <link rel="canonical" href="https://f3constructionny.com/crown-molding-long-island-ny.php">
     <title>Crown Molding Installation in Central Islip & Long Island – F3
     </title>

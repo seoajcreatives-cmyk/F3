@@ -8,8 +8,7 @@
     <meta name="author" content="">
     <meta name="description"
         content="Trusted masonry contractors in Central Islip, Long Island delivering quality craftsmanship and lasting results for repair, restoration, and installation in NY">
-    <link rel="preload" href="style/internal-services.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="style/internal-services.css"></noscript>
+    <link rel="stylesheet" href="style/internal-services.css?v=1.1">
     <link rel="canonical" href="https://f3constructionny.com/masonry-contractors-long-island-ny.php">
     <title>Masonry Contractors in Central Islip & Long Island, NY – F3
     </title>

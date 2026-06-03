@@ -8,8 +8,7 @@
     <meta name="author" content="">
     <meta name="description"
         content="Enhance your home's style and security with expert door installation in Long Island. F3 Construction offers front, patio & replacement doors.">
-    <link rel="preload" href="style/internal-services.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="style/internal-services.css"></noscript>
+    <link rel="stylesheet" href="style/internal-services.css?v=1.1">
     <link rel="canonical" href="https://f3constructionny.com/door-installation-long-island-ny.php">
     <title>Door Installation Long Island, NY – F3 Construction
     </title>

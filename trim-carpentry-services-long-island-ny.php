@@ -8,8 +8,7 @@
     <meta name="author" content="">
     <meta name="description"
         content="Expert trim carpentry services in Long Island, NY. Custom moldings, baseboards, wainscoting, and casings by licensed carpenters. Free quote now">
-    <link rel="preload" href="style/internal-services.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="style/internal-services.css"></noscript>
+    <link rel="stylesheet" href="style/internal-services.css?v=1.1">
     <link rel="canonical" href="https://f3constructionny.com/trim-carpentry-services-long-island-ny.php">
     <title>Trim Carpentry Services Long Island, NY – F3</title>
 

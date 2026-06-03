@@ -74,6 +74,7 @@
     background-size: cover;
   }
   .banner-section .banner-container {
+    height: 50vh;
     min-height: 50vh;
   }
 }

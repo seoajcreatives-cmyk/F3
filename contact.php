@@ -17,8 +17,7 @@ header("Content-Type: text/html; charset=UTF-8");
     <meta name="keywords" content="Architecture, Design, Interior Design, Constructions, New York">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="canonical" href="https://f3constructionny.com/contact.php">
-    <link rel="preload" href="style/contact.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="style/contact.css"></noscript>
+    <link rel="stylesheet" href="style/contact.css?v=1.1">
     <title>Contact: Commercial and Home Renovation in Long Island, NY
     </title>
 

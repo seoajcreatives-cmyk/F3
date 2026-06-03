@@ -7,8 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="author" content="">
   <meta name="description" content="Build your perfect outdoor space with expert deck builders in Central Islip, Long Island. We provides quality deck installation and custom designs in NY">
-  <link rel="preload" href="style/internal-services.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="style/internal-services.css"></noscript>
+  <link rel="stylesheet" href="style/internal-services.css?v=1.1">
   <link rel="canonical" href="https://f3constructionny.com/deck-builders-long-island-ny.php">
   <title>Deck Builders in Central Islip & Long Island, NY – F3 Construction
   </title>

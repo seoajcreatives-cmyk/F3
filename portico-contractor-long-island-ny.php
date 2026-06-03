@@ -8,8 +8,7 @@
     <meta name="author" content="">
     <meta name="description"
         content="Enhance your home’s curb appeal with builder portico installation and repair in Central Islip, Long Island. Trusted contractor delivering quality in NY.">
-    <link rel="preload" href="style/internal-services.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="style/internal-services.css"></noscript>
+    <link rel="stylesheet" href="style/internal-services.css?v=1.1">
     <link rel="canonical" href="https://f3constructionny.com/portico-contractor-long-island-ny.php">
     <title>Portico Contractor in Central Islip & Long Island – F3 Construction
     </title>

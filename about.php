@@ -10,8 +10,7 @@
     <meta name="keywords" content="Architecture, Design, Interior Design, Constructions, New York">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="canonical" href="https://f3constructionny.com/about.php">
-    <link rel="preload" href="style/about.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="style/about.css"></noscript>
+    <link rel="stylesheet" href="style/about.css?v=1.1">
 
     <title>About F3 Construction – Long Island, NY
     </title>

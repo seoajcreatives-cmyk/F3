@@ -9,12 +9,9 @@
   <meta name="author" content="">
   <meta name="description" content="Remodeling and construction in Long Island, NY: kitchens, bathrooms, basement, siding, masonry, windows, doors, painting & power washing.">
 
-  <link rel="preload" href="../style/locations.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="../style/locations.css"></noscript>
-  <link rel="preload" href="../style/internal-services.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="../style/internal-services.css"></noscript>
-  <link rel="preload" href="../style/services.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="../style/services.css"></noscript>
+  <link rel="stylesheet" href="../style/locations.css?v=1.1">
+  <link rel="stylesheet" href="../style/internal-services.css?v=1.1">
+  <link rel="stylesheet" href="../style/services.css?v=1.1">
   <link rel="canonical" href="https://f3constructionny.com/locations/290-earle-st-central.islip-ny-11722.php">
 
   <title>Construction Services – Central Islip, Long Island NY</title>

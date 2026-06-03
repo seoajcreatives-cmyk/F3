@@ -147,25 +147,4 @@
 
 
     }
-</script>
-<script defer>
-(function () {
-  function updateHeaderHeight() {
-    const header = document.querySelector("header");
-    if (!header) return;
-
-    document.documentElement.style.setProperty(
-      "--header-height",
-    `${header.offsetHeight}px` 
-    );
-  }
-
-  document.addEventListener("DOMContentLoaded", updateHeaderHeight);
-  window.addEventListener("resize", updateHeaderHeight);
-
-  const header = document.querySelector("header");
-  if (header && "ResizeObserver" in window) {
-    new ResizeObserver(updateHeaderHeight).observe(header);
-  }
-})();
-</script>
+</script>

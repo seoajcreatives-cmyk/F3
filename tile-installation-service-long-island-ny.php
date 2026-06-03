@@ -8,8 +8,7 @@
     <meta name="author" content="">
     <meta name="description"
         content="Expert tile installation in Central Islip, Long Island. Porcelain, ceramic, natural stone, and mosaic tile by licensed installers. Free quote in NY.">
-    <link rel="preload" href="style/internal-services.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="style/internal-services.css"></noscript>
+    <link rel="stylesheet" href="style/internal-services.css?v=1.1">
     <link rel="canonical" href="https://f3constructionny.com/tile-installation-service-long-island-ny.php">
     <title>Tile Installation Service in Central Islip & Long Island, NY – F3
     </title>

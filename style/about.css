@@ -15,10 +15,12 @@
     padding: 20px 0 0 0;
     overflow: hidden;
   }
-  .info-services-title{
+
+  .info-services-title {
     align-items: center;
-      text-align: center;
+    text-align: center;
   }
+
   .banner-about-section .banner-about-container .banner-title {
     display: flex;
     flex-direction: column;
@@ -33,10 +35,10 @@
 
 
 
-.banner-about-section .banner-about-container .banner-title .banner-cta {
+  .banner-about-section .banner-about-container .banner-title .banner-cta {
     font-size: 16px;
     color: var(--red);
-}
+  }
 
   .banner-about-section .banner-about-container .banner-title p {
     font-size: 30px;
@@ -70,19 +72,11 @@
     transition: all 0.4s ease;
   }
 
-  .banner-about-section
-    .about-us-content
-    .about-cards
-    .about-card:hover
-    .icon-box {
+  .banner-about-section .about-us-content .about-cards .about-card:hover .icon-box {
     transform: translateY(0%);
   }
 
-  .banner-about-section
-    .about-us-content
-    .about-cards
-    .about-card:hover
-    .card-text {
+  .banner-about-section .about-us-content .about-cards .about-card:hover .card-text {
     opacity: 1;
     transform: translateY(0%);
   }
@@ -136,21 +130,22 @@
     .banner-about-section .banner-about-container .banner-media {
       height: 30vh;
     }
-    
+
 
     .banner-about-section .banner-about-container {
       grid-template-columns: 100%;
       padding: 0 5% 0 0;
     }
+
     .banner-about-section .banner-about-container .banner-title p {
       text-align: center;
     }
 
     .banner-about-section .about-us-content {
       padding: 8% 10%;
-      
+
     }
-    
+
 
     .banner-about-section .about-us-content .about-cards {
       grid-template-columns: 100%;
@@ -174,5 +169,4 @@
       flex-direction: column;
       color: white;
     }
-  }
   }

@@ -845,7 +845,7 @@ p {
 
 header {
   width: 100%;
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   z-index: 100;
@@ -1030,7 +1030,7 @@ header .header-desktop .header-left .menu .dropdown:hover .dropdown-menu {
     grid-template-columns: 100%;
   }
   header {
-    position: fixed;
+    position: sticky;
   }
   header .line-address a {
     font-size: 10px;
@@ -1208,7 +1208,7 @@ header .header-desktop .header-left .menu .dropdown:hover .dropdown-menu {
 }
 
 main {
-  padding-top: var(--header-height, 0px);
+  padding-top: 0;
 }
 
 footer {

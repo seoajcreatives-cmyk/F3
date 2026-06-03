@@ -7,8 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="author" content="">
     <meta name="description" content="Top-rated siding installation in Central Islip, Long Island by licensed and insured contractors. Reliable service delivering quality and durability in NY.">
-    <link rel="preload" href="style/internal-services.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="style/internal-services.css"></noscript>
+    <link rel="stylesheet" href="style/internal-services.css?v=1.1">
     <link rel="canonical" href="https://f3constructionny.com/siding-installation-long-island-ny.php">
     <title>Siding Installation in Central Islip & Long Island, NY – F3 Construction
     </title>

@@ -7,8 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="author" content="">
     <meta name="description" content="Revitalize your home with professional painter in Long Island. F3 Construction provides interior and exterior painting with expert craftsmanship.">
-    <link rel="preload" href="style/internal-services.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="style/internal-services.css"></noscript>
+    <link rel="stylesheet" href="style/internal-services.css?v=1.1">
     <link rel="canonical" href="https://f3constructionny.com/house-painting-long-island-ny.php">
     <title>House Painting Services Long Island, NY – F3
     </title>

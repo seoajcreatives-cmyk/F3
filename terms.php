@@ -11,8 +11,7 @@
     <meta name="keywords" content="Architecture, Design, Interior Design, Constructions, New York">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="canonical" href="https://https://f3constructionny.com/terms.php">
-    <link rel="preload" href="style/terms.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="style/terms.css"></noscript>
+    <link rel="stylesheet" href="style/terms.css?v=1.1">
     <title>Terms and Conditions | F3 Construction Corp New York
     </title>
 </head>

@@ -20,8 +20,7 @@
     <?php include("./includes/assets.php") ?>
 
     <link rel="preload" href="hero.webp" as="image" fetchpriority="high">
-    <link rel="preload" href="style/index.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="style/index.css"></noscript>
+    <link rel="stylesheet" href="style/index.css?v=1.1">
     <!-- <link rel="stylesheet" href="https://f3constructionny.com/style/global.css"> -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">

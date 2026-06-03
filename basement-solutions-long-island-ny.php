@@ -7,8 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="author" content="">
   <meta name="description" content="Protect and upgrade your home with expert basement solutions in Long Island, providing waterproofing, structural repairs, and custom renovations.">
-  <link rel="preload" href="style/internal-services.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="style/internal-services.css"></noscript>
+  <link rel="stylesheet" href="style/internal-services.css?v=1.1">
   <link rel="canonical" href="https://f3constructionny.com/basement-solutions-long-island-ny.php">
   <title> Basement Solutions Long Island, NY – F3 Construction
   </title>

@@ -8,8 +8,7 @@
     <meta name="author" content="">
     <meta name="description"
         content="Upgrade your home with expert window replacement residential in Central Islip, Long Island. We offers custom installations with lasting craftsmanship in NY.">
-    <link rel="preload" href="style/internal-services.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="style/internal-services.css"></noscript>
+    <link rel="stylesheet" href="style/internal-services.css?v=1.1">
     <link rel="canonical" href="https://f3constructionny.com/replacement-windows-long-island-ny.php">
     <title>Window Replacement in Central Islip, Long Island – F3 Construction
     </title>

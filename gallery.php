@@ -12,8 +12,7 @@
         <meta name="keywords" content="Architecture, Design, Interior Design, Constructions, New York">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="canonical" href="https://f3constructionny.com/gallery.php">
-        <link rel="preload" href="style/gallery.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-        <noscript><link rel="stylesheet" href="style/gallery.css"></noscript>
+        <link rel="stylesheet" href="style/gallery.css?v=1.1">
         <title>Our Work – Construction Projects | F3 Construction NY
         </title>
 
@@ -68,9 +67,20 @@
         <main style="position: relative;">
             <section class="banner-section">
                 <div class="banner-container">
-                    <video muted playsinline loop autoplay fetchpriority="high" poster="hero.webp">
-                        <source src="./media/video/video.mp4" type="video/mp4">
+                    <video id="hero-video" autoplay muted loop playsinline fetchpriority="high" poster="hero.webp" width="1920" height="1080">
                     </video>
+                    <script>
+                        (function() {
+                            var video = document.getElementById("hero-video");
+                            if (window.innerWidth > 996 && video) {
+                                var source = document.createElement("source");
+                                source.src = "./media/video/video.mp4";
+                                source.type = "video/mp4";
+                                video.appendChild(source);
+                                video.load();
+                            }
+                        })();
+                    </script>
 
                     <div class="gallery-banner">
                         <h1>F3 Construction Project Gallery</h1>
@@ -271,19 +281,19 @@
                     </div>
 
                     <div class="gallery-item bathrooms">
-                        <video class="img" controls poster="media/video/Bathrooms renovation.jpg" style="object-fit: cover; width: 100%; height: 100%;">
+                        <video class="img" controls poster="media/video/Bathrooms renovation.jpg" style="object-fit: cover; width: 100%; height: 100%;" preload="none">
                             <source src="media/video/bathroom renovation.mp4" type="video/mp4">
                         </video>
                     </div>
 
                      <div class="gallery-item deck">
-                        <video class="img" controls poster="media/video/deck builder cost.jpg" style="object-fit: cover; width: 100%; height: 100%;">
+                        <video class="img" controls poster="media/video/deck builder cost.jpg" style="object-fit: cover; width: 100%; height: 100%;" preload="none">
                             <source src="media/video/deck builder cost.mp4" type="video/mp4">
                         </video>
                     </div>
 
                     <div class="gallery-item kitchen">
-                        <video class="img" controls poster="media/video/kitchen remodel.jpg" style="object-fit: cover; width: 100%; height: 100%;">
+                        <video class="img" controls poster="media/video/kitchen remodel.jpg" style="object-fit: cover; width: 100%; height: 100%;" preload="none">
                             <source src="media/video/kitchen remodel.mp4" type="video/mp4">
                         </video>
                     </div>

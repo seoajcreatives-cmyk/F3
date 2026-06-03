@@ -11,8 +11,7 @@
     <meta name="keywords" content="Architecture, Design, Interior Design, Constructions, New York">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="canonical" href="https://f3constructionny.com/services.php">
-    <link rel="preload" href="style/services.css?v=1.0" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="style/services.css?v=1.0"></noscript>
+    <link rel="stylesheet" href="style/services.css?v=1.1">
     
     <title>Home Renovation Services in Long Island, NY – F3
     </title>
