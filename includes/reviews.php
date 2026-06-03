@@ -1,11 +1,13 @@
-<link rel="stylesheet" href="<?php echo $base_path; ?>style/review.css">
+<link rel="stylesheet" href="<?php echo $base_path; ?>style/review.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="<?php echo $base_path; ?>style/review.css"></noscript>
 
 <!-- Font Awesome -->
 <script src="https://kit.fontawesome.com/a2e0c6e6f0.js" crossorigin="anonymous"></script>
 
 <!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /></noscript>
 
 <!-- Swiper Container -->
 <div class="swiper review-slider">
