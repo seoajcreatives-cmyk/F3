@@ -27,31 +27,6 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <!-- Defer render-blocking stylesheets using MutationObserver -->
-    <script is:inline>
-      (function() {
-        const observer = new MutationObserver((mutations) => {
-          for (const mutation of mutations) {
-            for (const node of mutation.addedNodes) {
-              if (node.tagName === 'LINK' && node.rel === 'stylesheet') {
-                const href = node.getAttribute('href') || '';
-                // Target bundled Astro CSS files and Swiper CSS
-                if (href.includes('_astro/') || href.includes('swiper')) {
-                  node.setAttribute('media', 'print');
-                  node.setAttribute('onload', "this.media='all'");
-                }
-              }
-            }
-          }
-        });
-        observer.observe(document.documentElement, { childList: true, subtree: true });
-        
-        // Disconnect observer after page load
-        window.addEventListener('load', () => {
-          observer.disconnect();
-        });
-      })();
-    </script>
 
     <!-- Inline Critical CSS (Above-the-fold) -->
     <style is:inline>
@@ -324,9 +299,7 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
     <link rel="preload" as="image" href={`${base}hero.webp`} fetchpriority="high" />
     
     <!-- Local self-hosted Poppins fonts preloads -->
-    <link rel="preload" as="font" href={`${base}fonts/poppins-400.woff2`} type="font/woff2" crossorigin />
     <link rel="preload" as="font" href={`${base}fonts/poppins-500.woff2`} type="font/woff2" crossorigin />
-    <link rel="preload" as="font" href={`${base}fonts/poppins-600.woff2`} type="font/woff2" crossorigin />
     <link rel="preload" as="font" href={`${base}fonts/poppins-700.woff2`} type="font/woff2" crossorigin />
 
     <!-- CSS libraries -->
