@@ -103,7 +103,7 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
         color: white;
         opacity: 0.85;
       }
-      header .line-address a {
+      header .line-address > a {
         display: flex;
         gap: 8px;
         color: white;
@@ -113,14 +113,15 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
         font-size: 14px;
         transition: opacity 0.2s ease;
       }
-      header .line-address a svg {
-        width: 15px;
-        height: 15px;
+      header .line-address > a svg,
+      header .line-address .social-icon a svg {
+        height: 16px !important;
+        width: auto !important;
         fill: currentColor;
         flex-shrink: 0;
         display: block;
       }
-      header .line-address a:hover {
+      header .line-address > a:hover {
         opacity: 0.85;
         color: white;
       }

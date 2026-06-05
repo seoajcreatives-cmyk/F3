@@ -973,7 +973,7 @@ header .line-address .social-icon a:hover {
   opacity: 0.85;
 }
 
-header .line-address a {
+header .line-address > a {
   display: flex;
   gap: 8px;
   color: white;
@@ -984,15 +984,16 @@ header .line-address a {
   transition: opacity 0.2s ease;
 }
 
-header .line-address a svg {
-  width: 15px;
-  height: 15px;
+header .line-address > a svg,
+header .line-address .social-icon a svg {
+  height: 16px !important;
+  width: auto !important;
   fill: currentColor;
   flex-shrink: 0;
   display: block;
 }
 
-header .line-address a:hover {
+header .line-address > a:hover {
   opacity: 0.85;
   color: white;
 }
@@ -1148,7 +1149,7 @@ header .header-desktop .header-left .menu .dropdown:hover .dropdown-menu {
     position: sticky;
   }
 
-  header .line-address a {
+  header .line-address > a {
     font-size: 14px;
   }
 
