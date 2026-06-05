@@ -9,35 +9,37 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true  # Activa Node 24 para limpiar las advertencias
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # 1. Configurar Node.js en el servidor de GitHub
+      # 1. Configurar Node.js correctamente
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-node-version: 20
+          node-version: 20                      # Corregido el nombre del input
           cache: 'npm'
 
-      # 2. Instalar dependencias y compilar el sitio estático de Astro
+      # 2. Instalar dependencias y compilar Astro
       - name: Install dependencies and Build Astro
         run: |
           npm ci
           npm run build
 
-      # 3. Subir EXCLUSIVAMENTE la carpeta de producción (/dist) usando FTPS
-      - name: Deploy via FTPS
+      # 3. Subir la carpeta compilada por el puerto estable
+      - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          port: 990                 # Cambiado a puerto seguro FTPS
-          protocol: ftps            # Forzar seguridad implícita
-          security: strict          # Conexión cifrada y estable
-          timeout: 600000
-          retries: 10               # Más intentos automáticos si Hostinger parpadea
-          local-dir: ./dist/        # ¡Ojo! Solo subimos lo compilado por Astro
-          server-dir: ./            # Se aloja en la raíz de tu hosting (public_html)
+          port: 21                              # Volvemos al puerto 21 para evitar el bloqueo de Hostinger
+          protocol: ftp
+          security: loose                       # Conexión directa estándar para evitar Timeouts
+          timeout: 600000                       # 10 minutos de margen para archivos pesados
+          local-dir: ./dist/                    # Subimos EXCLUSIVAMENTE lo optimizado por Astro
+          server-dir: ./                        # Se aloja en la raíz (public_html)
