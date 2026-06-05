@@ -119,6 +119,7 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
 >
   <!-- Inyección de fragmento head con schemas dinámicos por servicio -->
   <Fragment slot="head">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script type="application/ld+json" is:inline set:html={JSON.stringify(serviceSchema)} />
     {faqSchema && <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />}
     <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />

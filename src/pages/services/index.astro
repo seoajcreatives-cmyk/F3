@@ -145,6 +145,7 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
 ---
 <BaseLayout title={metaTitle} description={metaDescription} canonical={canonical}>
   <Fragment slot="head">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script type="application/ld+json" is:inline set:html={JSON.stringify(collectionSchema)} />
   </Fragment>
 
