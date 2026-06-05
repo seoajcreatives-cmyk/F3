@@ -946,7 +946,7 @@ header .mobile-header {
 }
 
 header .line-address {
-  background: #1c1c1c;
+  background: var(--red);
   display: flex;
   justify-content: space-around;
   padding: 7px;
@@ -955,23 +955,46 @@ header .line-address {
 
 header .line-address .social-icon {
   display: flex;
-  gap: 40px;
+  gap: 20px;
+  align-items: center;
+}
+
+header .line-address .social-icon a {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+header .line-address .social-icon a:hover {
+  transform: scale(1.2);
+  color: white;
+  opacity: 0.85;
 }
 
 header .line-address a {
   display: flex;
-  gap: 10px;
+  gap: 8px;
   color: white;
   justify-content: center;
   align-items: center;
+  text-decoration: none;
+  font-size: 14px;
+  transition: opacity 0.2s ease;
+}
+
+header .line-address a svg {
+  width: 15px;
+  height: 15px;
+  fill: currentColor;
+  flex-shrink: 0;
+  display: block;
 }
 
 header .line-address a:hover {
-  color: black;
-}
-
-header .line-address a:hover i {
-  color: black;
+  opacity: 0.85;
+  color: white;
 }
 
 header .header-desktop {
