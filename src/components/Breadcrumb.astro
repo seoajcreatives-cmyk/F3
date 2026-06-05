@@ -1,0 +1,21 @@
+---
+// src/components/Breadcrumb.astro
+const pathname = Astro.url.pathname;
+const parts = pathname.split("/").filter(Boolean);
+let pageTitle = "";
+
+if (parts.length > 0) {
+  const lastPart = parts[parts.length - 1];
+  pageTitle = lastPart
+    .replace(/[-_]/g, " ")
+    .replace(/\b\w/g, (char) => char.toUpperCase());
+}
+---
+<section class="breadcrumb-section">
+  <nav aria-label="breadcrumb">
+    <ul class="breadcrumb-style">
+      <li class="active-style"><a href="/">Home</a></li>
+      {pageTitle && <li class="active-style">{pageTitle}</li>}
+    </ul>
+  </nav>
+</section>

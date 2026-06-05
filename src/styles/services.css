@@ -1,0 +1,432 @@
+.banner-services {
+  padding: 0;
+  min-height: 80vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url("../media/webp/jpg/composicion-de-construccion-de-mezcla-de-hombre-de-tiro-completo.webp");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.banner-services .banner-container {
+  display: grid;
+  grid-template-columns: 55% 45%;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 40px;
+  align-items: center;
+  padding: 80px 0 40px 0;
+}
+
+.banner-services .banner-text {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.banner-services .banner-container .banner-text h1 {
+  color: white;
+  text-align: left;
+  font-size: 60px;
+  font-weight: 800;
+  line-height: 1.1;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.banner-services .banner-container .banner-text p.subtitle {
+  color: white;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 10px 0 0 0;
+  text-shadow: 0 1px 5px rgba(0,0,0,0.3);
+}
+
+.banner-services .banner-cta {
+  margin-top: 15px;
+  text-align: left;
+}
+
+/* Form container card styling in banner */
+.banner-form-container {
+  background: rgba(245, 245, 245, 0.95);
+  border-radius: 12px;
+  padding: 35px 30px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  width: 100%;
+}
+
+.banner-form-container .request-ctn {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.banner-form-container .request-ctn .title h2 {
+  font-size: 24px;
+  font-weight: 800;
+  color: #111;
+  text-align: center;
+  margin-bottom: 5px;
+  letter-spacing: 1px;
+}
+
+.banner-form-container .request-ctn .form-ctn {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+}
+
+.banner-form-container .request-ctn .form-ctn #message {
+  grid-column: auto !important;
+  grid-row: auto !important;
+}
+
+.banner-form-container .request-ctn .form-ctn input {
+  background: #fff !important;
+  border: 1px solid #ccc !important;
+  padding: 12px 20px !important;
+  color: #333 !important;
+  border-radius: 4px !important;
+  font-size: 15px !important;
+  width: 100% !important;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.banner-form-container .request-ctn .form-ctn input:focus {
+  border-color: var(--red) !important;
+  outline: none !important;
+}
+
+.banner-form-container .privacy-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: #555;
+  margin-top: 5px;
+}
+
+.banner-form-container .privacy-row input[type="checkbox"] {
+  margin-top: 3px;
+}
+
+.banner-form-container .privacy-row a {
+  color: var(--red);
+  font-weight: 600;
+}
+
+.banner-form-container .g-recaptcha {
+  transform: scale(0.95);
+  transform-origin: 0 0;
+  margin-top: 5px;
+}
+
+.banner-form-container .submit-btn {
+  padding: 10px 0 0 0;
+}
+
+.banner-form-container .submit-btn button {
+  background: var(--red) !important;
+  color: white !important;
+  border: none !important;
+  padding: 12px 20px !important;
+  font-weight: 700 !important;
+  font-size: 1rem !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  width: 100% !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+  background-size: initial !important;
+  background-position: initial !important;
+  transform: none !important;
+  transition: background 0.3s ease !important;
+}
+
+.banner-form-container .submit-btn button:hover {
+  background: #c21a22 !important;
+  color: white !important;
+}
+
+/* Mobile responsive styling for services banner */
+@media (max-width: 996px) {
+  .banner-services {
+    min-height: auto;
+    padding: 120px 0 60px 0;
+  }
+
+  .banner-services .banner-container {
+    grid-template-columns: 100%;
+    gap: 30px;
+    width: 95%;
+    padding: 20px 0;
+  }
+
+  .banner-services .banner-container .banner-text h1 {
+    font-size: 36px;
+    text-align: center;
+  }
+
+  .banner-services .banner-container .banner-text p.subtitle {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .banner-services .banner-cta {
+    text-align: center;
+  }
+
+  .banner-form-container {
+    padding: 25px 20px;
+  }
+}
+
+/* info-section styling */
+.info-section {
+  padding: 40px 0;
+}
+
+.info-section .info-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.info-section .info-tittle h3 {
+  color: var(--red);
+  font-size: 26px;
+  font-weight: 700;
+  margin-top: 35px;    /* Separate from the paragraph above */
+  margin-bottom: 15px;  /* Less space at the bottom */
+  text-align: center;
+}
+
+/** services-section **/
+
+.services-section .services-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.services-section .services-container .service-item {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  gap: 100px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.services-section .services-container .service-item .service-text h2 {
+  color: var(--red);
+}
+
+.services-section .services-container .service-item .service-text a {
+  background: linear-gradient(to right, white 50%, var(--red) 50%);
+  width: fit-content;
+  padding: 1% 5%;
+  border: 2px solid transparent;
+  font-weight: 700;
+  background-size: 200%;
+  background-position: 100%;
+  transform: skewX(-15deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.services-section .services-container .service-item .service-text a:hover {
+  color: var(--red);
+	border: 2px solid var(--red);
+	background-position: 0%;	
+}
+
+.services-section .services-container .service-item .right {
+  border-radius: 500px 0 0 500px;
+  overflow: hidden;
+}
+
+.services-section .services-container .service-item .left {
+  border-radius: 0 500px 500px 0;
+  overflow: hidden;
+}
+
+.services-section .services-container .order .service-text {
+  order: 2;
+}
+
+.services-section .services-container .order .service-media {
+  order: 1;
+}
+
+@media (max-width: 996px) {
+
+  .services-section {
+    padding: 0;
+  }
+
+  .services-section .services-container .service-item {
+    grid-template-columns: 100%;
+    gap: 0px;
+  }
+
+
+  .services-section .services-container .service-item .service-text {
+    padding: 10% 10% 2% 10%;
+    text-align: center;
+  }
+
+  .services-section .services-container .order .service-text {
+    order: 1;
+  }
+
+  .services-section .services-container .order .service-media {
+    order: 2;
+  }
+
+}
+
+/* Formulario de contacto */
+.contact-form-section .request-ctn .form-ctn {
+  display: grid;
+  row-gap: 20px;
+  column-gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.contact-form-section .request-ctn .form-ctn #message {
+  grid-column: 1/3;
+  grid-row: 3;
+}
+
+.contact-form-section .request-ctn .form-ctn input {
+  background: transparent;
+  border: 1px solid #00000070;
+  padding: 10px 20px;
+  color: var(--red);
+  border-radius: 20px;
+}
+
+.contact-form-section .request-ctn .form-ctn input:focus-visible {
+  outline: none;
+}
+
+.contact-form-section .request-ctn .form-ctn input:focus-visible::placeholder {
+  transform: scale(0.9);
+}
+
+.contact-form-section .request-ctn .form-ctn input::placeholder {
+  color: #00000070;
+  transition: all 0.3s;
+}
+
+/* Estilos para el botón SEND REQUEST */
+.submit-btn {
+  display: flex;
+  justify-content: center;
+  padding: 3vw 0 0 0;
+}
+
+.contact-form-section .submit-btn button {
+  background: linear-gradient(to right, white 50%, var(--red) 50%);
+  background-size: 200%;
+  background-position: 100%;
+  color: white;
+  border: none;
+  padding: 5px 40px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form-section .submit-btn button:hover {
+  background-position: 0%;
+  color: var(--red);
+}
+
+.contact-form-section .submit-btn button:focus {
+  outline: 2px solid var(--red);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   FORCE RESET PARA EVITAR DESBORDE (SOLO MÓVIL)
+   ========================================================================== */
+
+@media (max-width: 768px) {
+
+  /* 1. Evitar que cualquier cosa sea más ancha que la pantalla */
+  html,
+  body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  section {
+    padding: 40px 15px !important;
+    /* Padding más pequeño y seguro */
+    width: 100%;
+    box-sizing: border-box;
+    /* Asegura que el padding no sume ancho extra */
+  }
+
+  /* 2. Arreglar el banner que se sale */
+  #banner-services .banner-container .banner-text h1 {
+    font-size: 1.8rem;
+    /* Tamaño fijo más seguro que vw */
+    padding: 0 10px;
+  }
+
+  /* 3. Forzar a que las columnas ocupen el 100% y no 400px */
+  .about-text,
+  .about-image {
+    flex: 1 1 100% !important;
+    max-width: 100% !important;
+    min-width: auto !important;
+  }
+
+  /* 4. Asegurar que las imágenes no empujen el diseño */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* 5. Grillas que se desbordan */
+  .services-duo,
+  .directions-grid,
+  .why-list {
+    grid-template-columns: 1fr !important;
+    width: 100%;
+  }
+
+  /* 6. Botones con transform (skew) */
+  .work-button a {
+    transform: skewX(0deg);
+    /* El skew a veces causa desbordes fantasmas */
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .contact-form-section .request-ctn .form-ctn {
+    display: flex;
+    row-gap: 20px;
+    column-gap: 20px;
+    flex-direction: column;
+  }
+}

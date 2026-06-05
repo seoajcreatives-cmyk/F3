@@ -1,0 +1,453 @@
+.banner-kitchen {
+    padding: 0;
+    height: 80vh;
+    background-image: url("../media/jpg/banner-kitchen-remodeling.jpg");
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.6);
+    background-blend-mode: overlay;
+}
+
+.banner-deck {
+    padding: 0;
+    height: 80vh;
+    background-image: url("../media/jpg/banner-deck.jpg");
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.6);
+    background-blend-mode: overlay;
+}
+
+.banner-crown {
+    padding: 0;
+    height: 80vh;
+    background-image: url("../media/jpg/banner-crown.jpg");
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.6);
+    background-blend-mode: overlay;
+}
+
+.banner-portico {
+    padding: 0;
+    height: 80vh;
+    background-image: url("../media/jpg/banner-portico.jpg");
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.6);
+    background-blend-mode: overlay;
+}
+
+.banner-tile {
+    padding: 0;
+    height: 80vh;
+    background-image: url("../media/jpg/banner-tile.jpg");
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.6);
+    background-blend-mode: overlay;
+}
+
+.banner-siding {
+    padding: 0;
+    height: 80vh;
+    background-image: url("../media/jpg/banner-siding.jpg");
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.6);
+    background-blend-mode: overlay;
+}
+
+.banner-bathroom {
+    padding: 0;
+    height: 80vh;
+    background-image: url("../media/jpg/banner-bathroom.jpg");
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.6);
+    background-blend-mode: overlay;
+}
+
+.banner-stairs {
+    padding: 0;
+    height: 80vh;
+    background-image: url("../media/jpg/banner-stairs.jpg");
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.6);
+    background-blend-mode: overlay;
+}
+
+.banner-masonry {
+    padding: 0;
+    height: 80vh;
+    background-image: url("../media/jpg/banner-masonry.jpg");
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.6);
+    background-blend-mode: overlay;
+}
+
+.banner-trim {
+    padding: 0;
+    height: 80vh;
+    background-image: url("../media/jpg/banner-trim.jpg");
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.6);
+    background-blend-mode: overlay;
+}
+
+.banner-window {
+    padding: 0;
+    height: 80vh;
+    background-image: url("../media/jpg/banner-window.jpg");
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.6);
+    background-blend-mode: overlay;
+}
+
+.banner-door {
+    padding: 0;
+    height: 80vh;
+    background-image: url("../media/jpg/banner-door.jpg");
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.6);
+    background-blend-mode: overlay;
+}
+
+.banner-house {
+    padding: 0;
+    height: 80vh;
+    background-image: url("../media/jpg/banner-house.jpg");
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.6);
+    background-blend-mode: overlay;
+}
+
+.banner-power-wash {
+    padding: 0;
+    height: 80vh;
+    background-image: url("../media/jpg/banner-power-wash.jpg");
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.6);
+    background-blend-mode: overlay;
+}
+
+.banner-patio {
+    padding: 0;
+    height: 80vh;
+    background-image: url("../media/jpg/banner-patio-contractor.jpg");
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.6);
+    background-blend-mode: overlay;
+}
+
+.banner-services {
+    position: relative;
+    min-height: 80vh;
+    padding: 0;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+}
+
+.banner-services::before {
+    display: none;
+}
+
+.banner-services .banner-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+}
+
+.banner-services .banner-container .banner-text h1 {
+    color: #ffffff;
+    font-size: 63px;
+    line-height: 1.1;
+    margin-bottom: 25px;
+}
+
+.banner-cta {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.banner-services .btn-banner, .info-services-section .btn-banner, .services-section .btn-banner {
+    background: linear-gradient(to right, white 50%, var(--red) 50%);
+    background-size: 200%;
+    background-position: 100%;
+    padding: 14px 42px;
+    font-weight: 700;
+    font-size: 1rem;
+    color: white;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transform: skewX(-15deg);
+    transition: all 0.3s ease;
+}
+
+.banner-deck .btn-banner {
+    margin: 30px auto 0;
+    display: inline-flex;
+}
+
+.banner-cta .btn-banner:hover {
+    background-position: 0%;
+    color: var(--red);
+}
+
+.banner-cta .btn-banner span {
+    transform: skewX(15deg);
+}
+
+.banner-services .banner-container.banner-split {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    align-items: center;
+    gap: 60px;
+    padding: 0 8%;
+    min-height: 80vh;
+    text-align: left;
+}
+
+.banner-services .banner-left {
+    text-align: left;
+}
+
+.banner-services .banner-left h1 {
+    color: #ffffff;
+    font-size: 63px;
+    line-height: 1.1;
+    margin-bottom: 25px;
+}
+
+.banner-services .banner-left .banner-cta {
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.banner-services .banner-right {
+    background: #ffffff;
+    padding: 35px 35px;
+    border-radius: 20px;
+    box-shadow: none;
+}
+
+.banner-services .banner-right .request-ctn {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 22px;
+}
+
+.banner-services .banner-right .request-ctn .title h2 {
+    color: var(--red);
+    font-size: 24px;
+    text-align: center;
+    margin: 0;
+}
+
+.banner-services .banner-right .request-ctn .form-ctn {
+    width: 100%;
+    display: grid;
+    row-gap: 14px;
+    column-gap: 14px;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.banner-services .banner-right .request-ctn .form-ctn #message {
+    grid-column: 1 / 3;
+}
+
+.banner-services .banner-right .request-ctn .form-ctn input {
+    width: 100%;
+    background: transparent;
+    border: 1px solid #00000035;
+    padding: 12px 16px;
+    color: var(--red);
+    border-radius: 16px;
+}
+
+.banner-services .banner-right .request-ctn .form-ctn input:focus-visible {
+    outline: none;
+    border-color: var(--red);
+}
+
+.banner-services .banner-right .request-ctn .form-ctn input::placeholder {
+    color: #00000070;
+    transition: all 0.3s;
+}
+
+.banner-services .banner-right .request-ctn .submit-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.banner-services .banner-right .request-ctn .submit-btn button {
+    background: linear-gradient(to right, white 50%, var(--red) 50%);
+    width: fit-content;
+    padding: 12px 26px;
+    border: none;
+    font-weight: 700;
+    border-radius: 50px;
+    background-size: 200%;
+    background-position: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.banner-services .banner-right .request-ctn .submit-btn button:hover {
+    background-position: 0%;
+    color: var(--red);
+    box-shadow: 5px 5px 10px #00000030;
+}
+
+.banner-services .banner-right .request-ctn .message_box p {
+    text-align: center;
+    font-weight: 700;
+}
+
+.privacy-row a {
+    color: #b71c1c;
+    text-decoration: underline;
+}
+
+.privacy-row a:hover {
+    text-decoration: none;
+}
+
+@media (max-width: 996px) {
+    .banner-services {
+        min-height: 700px;
+        padding: 60px 0;
+    }
+    .banner-services .banner-container.banner-split {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 0 6%;
+        text-align: center;
+        min-height: 700px;
+    }
+    .banner-services .banner-left {
+        text-align: center;
+    }
+    .banner-services .banner-left h1 {
+        font-size: 40px;
+    }
+    .banner-services .banner-left .banner-cta {
+        justify-content: center;
+    }
+    .banner-services .btn-banner {
+        padding: 14px 35px;
+        font-size: 16px;
+    }
+    .banner-services .banner-right {
+        padding: 26px 18px;
+    }
+    .banner-services .banner-right .request-ctn .form-ctn {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        width: 100%;
+    }
+    .banner-services .banner-right .request-ctn .form-ctn #message {
+        grid-column: auto;
+        grid-row: auto;
+    }
+}
+
+@media (max-width: 996px) {
+    .faqs-section .items-faqs ol li p strong {
+        font-size: 5.5vw;
+    }
+}
+
+.faqs-section {
+    padding: 5% 10% 10% 10%;
+}
+
+.faqs-section .title-faqs h2 {
+    color: var(--red);
+    margin-bottom: 20px;
+}
+
+.faqs-section .items-faqs ol {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    list-style: none;
+}
+
+.faqs-section .items-faqs ol li {
+    font-size: 1vw;
+    background: var(--red);
+    padding: 2px;
+    border-radius: 50px;
+}
+
+.faqs-section .items-faqs ol li h3 {
+    padding: 5px 18px;
+    color: white;
+    font-size: 16px;
+    margin: 10px 0;
+    font-style: normal;
+    font-weight: normal;
+}
+
+.text-section ul {
+    list-style-position: inside;
+}
+
+/* Table services section styles (red background section with white-bordered bullet lists) */
+.table-services {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 5%;
+    color: white;
+    gap: 20px;
+}
+
+.table-services .table-box:first-child {
+    padding: 5%;
+    border: solid 3px white;
+    border-radius: 15px 0 0 15px;
+}
+
+.table-services .table-box:last-child {
+    padding: 5%;
+    border: solid 3px white;
+    border-radius: 0 15px 15px 0;
+}
+
+.table-services .table-box h3 {
+    font-size: 2vw;
+    margin-bottom: 15px;
+}
+
+.table-services .table-box ul {
+    list-style: inside;
+}
+
+@media (max-width: 996px) {
+    .table-services {
+        grid-template-columns: 1fr;
+    }
+    
+    .table-services .table-box {
+        border-radius: 15px;
+        margin-bottom: 20px;
+    }
+    
+    .table-services .table-box:first-child,
+    .table-services .table-box:last-child {
+        margin: 5vw;
+        border-radius: 15px;
+    }
+    
+    .table-services .table-box h3 {
+        font-size: 5vw;
+    }
+}
+

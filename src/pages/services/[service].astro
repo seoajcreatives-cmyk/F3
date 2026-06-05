@@ -1,0 +1,498 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumb from '@components/Breadcrumb.astro';
+import Reviews from '@components/Reviews.astro';
+import { Image } from 'astro:assets';
+import servicesData from '../../data/services.json';
+import '../../styles/internal-services.css';
+
+const cleanMediaUrl = (url: string) => {
+  if (!url) return '';
+  return url.startsWith('/') ? url : '/' + url.replace(/^\.\//, '');
+};
+
+// Generar rutas estáticas para cada servicio en base al JSON unificado
+export async function getStaticPaths() {
+  return servicesData.map((service) => {
+    return {
+      params: { service: service.slug },
+      props: { service },
+    };
+  });
+}
+
+const { service } = Astro.props;
+
+// Cargar todas las imágenes de forma dinámica para optimizarlas en tiempo de build
+const images = import.meta.glob<{ default: ImageMetadata }>('../../../public/media/**/*.{jpeg,jpg,png,gif,webp,svg}');
+
+const cleanPath = (p: string) => {
+  if (!p) return '';
+  let normalized = p.replace(/^\.?\/?/, '');
+  if (!normalized.startsWith('public/')) {
+    if (!normalized.startsWith('media/')) {
+      normalized = 'media/' + normalized;
+    }
+    normalized = '../../../public/' + normalized;
+  } else {
+    normalized = '../../../' + normalized;
+  }
+  return normalized;
+};
+
+const processImagePath = cleanPath(service.processImageSrc);
+const whyImagePath = cleanPath(service.whyImageSrc);
+
+const processImageObj = images[processImagePath] ? (await images[processImagePath]()).default : null;
+const whyImageObj = images[whyImagePath] ? (await images[whyImagePath]()).default : null;
+
+// Construcción del Schema de Servicio
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": `https://f3constructionny.com/services/${service.slug}#service`,
+  "serviceType": service.infoTitle,
+  "name": service.metaTitle,
+  "description": service.metaDescription,
+  "provider": {
+    "@type": "HomeAndConstructionBusiness",
+    "name": "F3 Construction Corp",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Earle St",
+      "addressLocality": "Central Islip",
+      "addressRegion": "NY",
+      "postalCode": "11722",
+      "addressCountry": "US"
+    }
+  },
+  "areaServed": {
+    "@type": "Place",
+    "name": "Long Island, NY"
+  },
+  "image": "https://f3constructionny.com/media/webp/png/logo.webp"
+};
+
+// Construcción del Schema de Preguntas Frecuentes
+const faqSchema = service.faqs && service.faqs.length > 0 ? {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": `https://f3constructionny.com/services/${service.slug}#faq`,
+  "mainEntity": service.faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.a
+    }
+  }))
+} : null;
+
+// Construcción del Schema Breadcrumb
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://f3constructionny.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": service.h1,
+      "item": `https://f3constructionny.com/services/${service.slug}`
+    }
+  ]
+};
+
+---
+
+<BaseLayout 
+  title={service.metaTitle} 
+  description={service.metaDescription} 
+  canonical={service.canonical}
+>
+  <!-- Inyección de fragmento head con schemas dinámicos por servicio -->
+  <Fragment slot="head">
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(serviceSchema)} />
+    {faqSchema && <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />}
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+  </Fragment>
+
+  <main>
+    <!-- Banner de Servicios con Formulario -->
+    <section class={`banner-services ${service.bannerClass}`}>
+      <div class="banner-container banner-split">
+        <!-- LEFT (Título y Llamada a Acción) -->
+        <div class="banner-left">
+          <h1 set:html={service.h1}></h1>
+          <div class="banner-cta">
+            <a href="tel:+16312788693" class="btn-banner"><span>Call Us Today</span></a>
+          </div>
+        </div>
+
+        <!-- RIGHT (Formulario de Contacto rápido) -->
+        <div class="banner-right">
+          <form id="contact_form_id" class="form-tag">
+            <div class="request-ctn">
+              <div class="title">
+                <h2>CONNECT WITH US</h2>
+              </div>
+
+              <div class="form-ctn">
+                <input type="text" placeholder="Name" id="name" name="name" required />
+                <input type="text" placeholder="Last Name" id="lastName" name="lastName" required />
+                <input type="text" placeholder="Phone" id="phone" name="phone" required />
+                <input type="email" placeholder="Email" id="email" name="email" required />
+                <input type="text" placeholder="Message" id="message" name="message" required />
+              </div>
+
+              <div class="privacy-row">
+                <input type="checkbox" id="acept" name="accept" required />
+                <label for="acept">
+                  I have read and accept the <a id="privacy" href="/privacy" target="_blank">Privacy Policy</a>.
+                </label>
+              </div>
+
+              <!-- Google reCAPTCHA -->
+              <div class="g-recaptcha" data-sitekey="6Lc2YOsrAAAAANLQTo2_5XtXZqgH0neFNyTRMAhU"></div>
+
+              <div class="submit-btn">
+                <button type="button" id="submit_button" class="btn-submit-gtm">SEND REQUEST</button>
+              </div>
+
+              <div class="notify_box">
+                <div class="loader" id="load_form" style="display:none; margin: 10px auto;"></div>
+                <div class="message_box" id="message_box"></div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ruta de Navegación (Breadcrumbs) -->
+    <Breadcrumb />
+
+    <!-- Sección Ubicación & Mapa Google Maps -->
+    {service.mapText && service.slug !== 'patio-contractor-long-island-ny' && (
+      <section class="find-us-section">
+        <div class="box-map">
+          <div class="info-map">
+            <h2>How to Find Us</h2>
+            <p set:html={service.mapText}></p>
+            <p><i class="fa-solid fa-location-dot"></i> View on Google Maps <i class="fa-solid fa-arrow-right"></i></p>
+            {service.mapSubtext && <p set:html={service.mapSubtext}></p>}
+            {service.mapCtaText && <a href="/contact">{service.mapCtaText}</a>}
+          </div>
+          <div class="map-section">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12319.910251301415!2d-73.2012657!3d40.7845822!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e831603776bac3%3A0x3c6a06c628b18ae0!2sF3%20Construction%20Corp!5e1!3m2!1sen!2sco!4v1761323817490!5m2!1sen!2sco"
+              width="600" 
+              height="450" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Google Maps Location">
+            </iframe>
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- Información General del Servicio -->
+    <section class="info-services-section">
+      <h2 set:html={service.infoTitle}></h2>
+      {service.infoParagraphs.map(p => {
+        const trimmed = p.trim();
+        if (trimmed.startsWith('<h3') || trimmed.startsWith('<h2') || trimmed.startsWith('<h4')) {
+          return <Fragment set:html={p} />;
+        }
+        return <p set:html={p}></p>;
+      })}
+      <div class="banner-cta">
+        <a href="/contact" class="btn-banner">{service.infoCtaText || "Free Quote Service"}</a>
+      </div>
+    </section>
+
+    <!-- Explicación de Qué es el Servicio -->
+    {service.whatIsTitle && service.whatIsParagraphs && service.whatIsParagraphs.length > 0 && (
+      <section class="what-is-section">
+        <div class="title-section">
+          <h2 set:html={service.whatIsTitle}></h2>
+        </div>
+        <div class="text-section">
+          {service.slug === 'basement-solutions-long-island-ny' ? (
+            <>
+              {service.whatIsParagraphs.slice(0, 2).map(p => <p set:html={p}></p>)}
+              {service.whatIsList && (
+                <ul style="margin: 20px 0; padding-left: 20px; list-style-type: disc;">
+                  {service.whatIsList.map(item => (
+                    <li style="margin-bottom: 10px;" set:html={item}></li>
+                  ))}
+                </ul>
+              )}
+              {service.whatIsParagraphs.slice(2).map(p => <p set:html={p}></p>)}
+            </>
+          ) : service.slug === 'patio-contractor-long-island-ny' ? (
+            <>
+              {service.whatIsParagraphs.slice(0, 1).map(p => <p set:html={p}></p>)}
+              {service.whatIsList && (
+                <div class="list" style="margin-top: 20px; margin-bottom: 20px;">
+                  <ul>
+                    {service.whatIsList.slice(0, Math.ceil(service.whatIsList.length / 2)).map(item => (
+                      <li set:html={item}></li>
+                    ))}
+                  </ul>
+                  <ul>
+                    {service.whatIsList.slice(Math.ceil(service.whatIsList.length / 2)).map(item => (
+                      <li set:html={item}></li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {service.whatIsParagraphs.slice(1).map(p => <p set:html={p}></p>)}
+            </>
+          ) : (
+            service.whatIsParagraphs.map(p => <p set:html={p}></p>)
+          )}
+        </div>
+      </section>
+    )}
+
+    <!-- Proceso del Servicio e Imágenes Optimizadas -->
+    <section class="service-img-section">
+      <h2 set:html={service.processTitle}></h2>
+      {service.processParagraph && (
+        service.processParagraph.trim().startsWith('<') ? (
+          <Fragment set:html={service.processParagraph} />
+        ) : (
+          <p set:html={service.processParagraph}></p>
+        )
+      )}
+      
+      {processImageObj && (
+        <Image 
+          src={processImageObj} 
+          alt="Process Image" 
+          loading="lazy" 
+          width={service.processImageWidth} 
+          height={service.processImageHeight} 
+          style="width: 100%; max-width: 1900px; height: 25vw; object-fit: cover; margin: 30px; display: block;" 
+        />
+      )}
+
+      {service.processList && service.processList.length > 0 && (
+        <div class="list">
+          <ul>
+            {service.processList.slice(0, Math.ceil(service.processList.length / 2)).map((item) => (
+              <li>
+                <strong set:html={item.title}></strong><br />
+                <span set:html={item.text}></span>
+              </li>
+            ))}
+          </ul>
+          <ul>
+            {service.processList.slice(Math.ceil(service.processList.length / 2)).map((item) => (
+              <li>
+                <strong set:html={item.title}></strong><br />
+                <span set:html={item.text}></span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      <!-- Comparaciones / Opciones del Servicio -->
+      {(service.considerItems.length > 0 || service.optionsItems.length > 0) && (
+        <div class="table-services">
+          <div class="table-box">
+            <h3>{service.considerTitle || `When Should You Consider ${service.whatIsTitle ? service.whatIsTitle.replace(/<[^>]*>/g, '') : 'This Service'}?`}</h3>
+            {service.considerSubtitle && <p set:html={service.considerSubtitle}></p>}
+            <ul>
+              {service.considerItems.map(item => <li set:html={item}></li>)}
+            </ul>
+          </div>
+          <div class="table-box">
+            <h3>{service.optionsTitle || "Popular Featured Options in NY"}</h3>
+            <ul>
+              {service.optionsItems.map(item => <li set:html={item}></li>)}
+            </ul>
+          </div>
+        </div>
+      )}
+    </section>
+
+    <!-- Por Qué Elegir F3 Construction -->
+    <section class="services-section">
+      <div class="services-container">
+        <div class="service-item">
+          <div class="service-text">
+            <h2 set:html={service.whyTitle}></h2>
+            {service.whyParagraphs.map(p => <p set:html={p}></p>)}
+          </div>
+          <div class="service-media right">
+            {whyImageObj && (
+              <Image 
+                src={whyImageObj} 
+                alt="Service Media Image" 
+                loading="lazy" 
+                width={service.whyImageWidth} 
+                height={service.whyImageHeight} 
+                style="width: 100%; height: auto; display: block;" 
+              />
+            )}
+          </div>
+        </div>
+        <div class="banner-cta">
+          <a href="/contact" class="btn-banner">{service.whyCtaText || "Free Quote Service"}</a>
+        </div>
+      </div>
+    </section>
+
+    {service.video && (
+      <section class="video-presentation-section" style="padding: 40px 20px; text-align: center; background-color: #f9f9f9;">
+        <div style="max-width: 800px; margin: 0 auto;">
+          <h2 style="font-family: 'Poppins', sans-serif; font-weight: 700; color: #e52a32; margin-bottom: 10px; font-size: 2rem;" set:html={service.video.title}></h2>
+          <p style="font-family: 'Poppins', sans-serif; font-weight: 100; color: #000; margin-bottom: 25px; font-size: 1.1rem; line-height: 1.4;" set:html={service.video.text}></p>
+          <div class="video-wrapper" style="box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-radius: 12px; overflow: hidden; line-height: 0; aspect-ratio: 16 / 9; background-color: #000; max-height: 450px;">
+            <video controls poster={cleanMediaUrl(service.video.poster)} style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              <source src={cleanMediaUrl(service.video.src)} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- Testimonios Reutilizables de Astro -->
+    <section class="testimonial-section">
+      <h2>Testimonials</h2>
+      <p style="text-align: center;">{service.reviewsSubheading}</p>
+      <Reviews />
+    </section>
+
+    <!-- Sección Ubicación & Mapa Google Maps (Para Patio en la parte inferior) -->
+    {service.mapText && service.slug === 'patio-contractor-long-island-ny' && (
+      <section class="find-us-section">
+        <div class="box-map">
+          <div class="info-map">
+            <h2>How to Find Us</h2>
+            <p set:html={service.mapText}></p>
+            <p><i class="fa-solid fa-location-dot"></i> View on Google Maps <i class="fa-solid fa-arrow-right"></i></p>
+            {service.mapSubtext && <p set:html={service.mapSubtext}></p>}
+            {service.mapCtaText && <a href="/contact">{service.mapCtaText}</a>}
+          </div>
+          <div class="map-section">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12319.910251301415!2d-73.2012657!3d40.7845822!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e831603776bac3%3A0x3c6a06c628b18ae0!2sF3%20Construction%20Corp!5e1!3m2!1sen!2sco!4v1761323817490!5m2!1sen!2sco"
+              width="600" 
+              height="450" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Google Maps Location">
+            </iframe>
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- FAQs del Servicio -->
+    {service.faqs && service.faqs.length > 0 && (
+      <section class="faqs-section">
+        <div class="title-faqs">
+          <h2>
+            <i class="fa-solid fa-circle-question"></i> Frequently Asked Questions
+          </h2>
+        </div>
+        <div class="items-faqs">
+          <ol>
+            {service.faqs.map(faq => (
+              <li>
+                <h3>
+                  <strong set:html={faq.q}></strong><br />
+                  <span set:html={faq.a}></span>
+                </h3>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+    )}
+  </main>
+</BaseLayout>
+
+<!-- Script inline para procesamiento del formulario utilizando jQuery global y grecaptcha -->
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", function() {
+    const submitBtn = document.getElementById("submit_button");
+    if (submitBtn) {
+      submitBtn.addEventListener("click", sendmail);
+    }
+  });
+
+  function sendmail(event) {
+    if (event) event.preventDefault();
+    if (!jQuery("#acept").is(":checked")) {
+      alert("Please accept the Privacy Policy.");
+      return false;
+    }
+    var captchaResponse = grecaptcha.getResponse();
+    if (!captchaResponse) {
+      alert("Please verify the reCAPTCHA.");
+      return false;
+    }
+
+    jQuery("#submit_button").prop("disabled", true).text("SENDING...");
+    jQuery("#load_form").show();
+
+    var formData = {
+      name: jQuery("#name").val(),
+      lastName: jQuery("#lastName").val(),
+      phone: jQuery("#phone").val(),
+      email: jQuery("#email").val(),
+      message: jQuery("#message").val(),
+      "g-recaptcha-response": captchaResponse
+    };
+
+    fetch("https://hooks.zapier.com/hooks/catch/26423574/uelrxfz/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        name: jQuery("#name").val(),
+        last_name: jQuery("#lastName").val(),
+        phone: jQuery("#phone").val(),
+        email: jQuery("#email").val(),
+        message: jQuery("#message").val(),
+        privacy_consent: jQuery("#acept").is(":checked")
+      })
+    }).catch(err => console.log("Zapier error:", err));
+
+    jQuery.post("/sendmail/send_contact.php", formData, function(result) {
+      jQuery("#load_form").hide();
+      jQuery("#submit_button").prop("disabled", false).text("SEND REQUEST");
+
+      try {
+        var res = JSON.parse(result);
+        if (res.success) {
+          jQuery("#message_box").html("<p style='color:#b71c1c; font-weight:700;'>Sent successfully!</p>").show();
+          jQuery("#contact_form_id")[0].reset();
+          grecaptcha.reset();
+        } else {
+          alert(res.message || "Error");
+          grecaptcha.reset();
+        }
+      } catch (e) {
+        alert("Sent, but check server response.");
+      }
+    });
+  }
+</script>

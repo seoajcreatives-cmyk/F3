@@ -1,0 +1,353 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import '../styles/gallery.css';
+
+// Metadatos
+const metaTitle = "Our Work – Construction Projects | F3 Construction NY";
+const metaDescription = "Explore F3 Construction projects in Long Island featuring basement finished, kitchen finished, bathroom finished, deck, tile, siding and masonry finishes.";
+const canonical = "https://f3constructionny.com/gallery";
+
+// Video Gallery Schema
+const videoGallerySchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "@id": "https://f3constructionny.com/gallery#video-gallery",
+  "name": "F3 Construction Corp Video Gallery",
+  "itemListOrder": "https://schema.org/ItemListUnordered",
+  "numberOfItems": 1,
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "item": {
+      "@type": "VideoObject",
+      "@id": "https://f3constructionny.com/gallery#video-1",
+      "name": "F3 Construction Corp – Project Gallery Video",
+      "description": "Project video showcasing F3 Construction Corp remodeling and construction work across Long Island, NY.",
+      "thumbnailUrl": [
+        "https://f3constructionny.com/thumb2.jpg"
+      ],
+      "uploadDate": "2026-02-06",
+      "contentUrl": "https://f3constructionny.com/media/video/video.mp4",
+      "embedUrl": "https://f3constructionny.com/media/video/video.mp4",
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://f3constructionny.com/#business",
+        "name": "F3 Construction Corp",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://f3constructionny.com/media/webp/png/logo.webp",
+          "width": 512,
+          "height": 512
+        },
+        "sameAs": [
+          "https://www.facebook.com/f3construction/",
+          "https://www.instagram.com/f3constructionny?igsh=dTZ2cTZ4NXp2aHRt"
+        ]
+      }
+    }
+  }]
+};
+
+// Listado de ítems de la galería
+const galleryItems = [
+  { type: "image", category: "builder", src: "../../public/media/webp/jpg/gallery1.webp", alt: "white portico" },
+  { type: "image", category: "deck", src: "../../public/media/webp/jpg/deck-slide.webp", alt: "orange deck" },
+  { type: "image", category: "builder", src: "../../public/media/webp/jpg/portico-slide.webp", alt: "black portico" },
+  { type: "image", category: "kitchen", src: "../../public/media/webp/jpg/kitchen-slide.webp", alt: "white counter" },
+  { type: "image", category: "bathrooms", src: "../../public/media/webp/jpg/batroom.webp", alt: "grey and white tiles" },
+  { type: "image", category: "builder", src: "../../public/media/webp/jpg/moldings-slide.webp", alt: "white modern moldings" },
+  { type: "image", category: "builder", src: "../../public/media/webp/jpg/house-front.webp", alt: "renovated portico" },
+  { type: "image", category: "remodeling", src: "../../public/media/webp/jpg/tiles-slide.webp", alt: "grey tiles" },
+  { type: "image", category: "builder", src: "../../public/media/webp/jpg/siding-slide.webp", alt: "white portico" },
+  { type: "image", category: "deck", src: "../../public/media/webp/jpg/gallery2.webp", alt: "backyard and pool" },
+  { type: "image", category: "deck", src: "../../public/media/webp/jpg/gallery3.webp", alt: "outdoor fireplace" },
+  { type: "image", category: "bathrooms", src: "../../public/media/webp/jpg/bathroom.webp", alt: "bathroom" },
+  { type: "image", category: "refurbishment", src: "../../public/media/webp/jpg/masonry.webp", alt: "masonry" },
+  { type: "image", category: "refurbishment", src: "../../public/media/webp/jpg/trim.webp", alt: "trim" },
+  { type: "image", category: "kitchen", src: "../../public/media/webp/jpg/windows.webp", alt: "windows" },
+  { type: "image", category: "builder", src: "../../public/media/webp/jpg/doors.webp", alt: "doors" },
+  { type: "image", category: "remodeling", src: "../../public/media/webp/jpg/painting.webp", alt: "painting" },
+  { type: "image", category: "Pressure-washing", src: "../../public/media/webp/jpg/power-wash.webp", alt: "power wash" },
+  { type: "image", category: "bathrooms", src: "../../public/media/webp/jpg/gallery-bath1.webp", alt: "bathroom" },
+  { type: "image", category: "bathrooms", src: "../../public/media/webp/jpg/galerry-bath2.webp", alt: "bathroom" },
+  { type: "image", category: "bathrooms", src: "../../public/media/webp/jpg/gallery-bath3.webp", alt: "bathroom" },
+  { type: "image", category: "remodeling", src: "../../public/media/webp/jpg/gallery-remoldel1.webp", alt: "remodeling" },
+  { type: "image", category: "remodeling", src: "../../public/media/webp/jpg/gallery-remoldel2.webp", alt: "remodeling" },
+  { type: "image", category: "builder", src: "../../public/media/webp/jpg/gallery-builder1.webp", alt: "builder" },
+  { type: "image", category: "builder", src: "../../public/media/webp/jpg/gallery-builder2.webp", alt: "builder" },
+  { type: "video", category: "bathrooms", src: "/media/video/bathroom renovation.mp4", poster: "/media/video/Bathrooms renovation.jpg" },
+  { type: "video", category: "deck", src: "/media/video/deck builder cost.mp4", poster: "/media/video/deck builder cost.jpg" },
+  { type: "video", category: "kitchen", src: "/media/video/kitchen remodel.mp4", poster: "/media/video/kitchen remodel.jpg" }
+];
+
+const images = import.meta.glob<{ default: ImageMetadata }>('../../public/media/**/*.{jpeg,jpg,png,gif,webp,svg}');
+
+const resolvedGalleryItems = await Promise.all(
+  galleryItems.map(async (item) => {
+    if (item.type === "image") {
+      const loader = images[item.src];
+      const imageObj = loader ? (await loader()).default : null;
+      return { ...item, imageObj };
+    }
+    return item;
+  })
+);
+---
+<BaseLayout title={metaTitle} description={metaDescription} canonical={canonical}>
+  <Fragment slot="head">
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(videoGallerySchema)} />
+  </Fragment>
+
+  <main style="position: relative;">
+    <section class="banner-section">
+      <div class="banner-container">
+        <video id="hero-video" autoplay muted loop playsinline fetchpriority="high" poster="/hero.webp" width="1920" height="1080">
+        </video>
+        
+        <script is:inline>
+          (function() {
+            function loadVideo() {
+              setTimeout(function() {
+                var video = document.getElementById("hero-video");
+                if (window.innerWidth > 996 && video) {
+                  var source = document.createElement("source");
+                  source.src = "/media/video/video.mp4";
+                  source.type = "video/mp4";
+                  video.appendChild(source);
+                  video.load();
+                }
+              }, 500);
+            }
+            if (document.readyState === "complete") {
+              loadVideo();
+            } else {
+              window.addEventListener("load", loadVideo);
+            }
+          })();
+        </script>
+
+        <div class="gallery-banner">
+          <h1>F3 Construction Project Gallery</h1>
+          <center>
+            <div class="banner-cta">
+              <a href="tel:+16312788693" class="btn-banner"><span id="btn-about-call">Call Us Today</span></a>
+            </div>
+          </center>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery-intro">
+      <h2>Quality Construction Finishes in Central Islip, Long Island, NY</h2>
+      <p>
+        Explore the F3 Construction Gallery to see the craftsmanship, quality, and attention to detail behind
+        our remodeling and construction projects across Long Island, NY. From interior and exterior renovations
+        to additions, kitchens, bathrooms, and new home construction, each project highlights our commitment to
+        delivering durable, functional, and visually impressive results.
+      </p>
+      <h3>Interior Renovation Projects</h3>
+      <p>
+        Inside the home, our gallery showcases beautifully completed basement finished transformations, <strong><a href="/services/kitchen-remodeling-long-island-ny">modern kitchen finished upgrades</a></strong>, and <strong><a href="/services/bathroom-renovation-long-island-ny">elegant bathroom finished</a></strong> spaces designed to improve comfort, usability, and property value.
+      </p>
+      <h3>Exterior Construction and Finishing</h3>
+      <p>
+        Outside, you can explore projects featuring durable <strong><a href="/services/siding-installation-long-island-ny">siding finish installations</a></strong>, <strong><a href="/services/masonry-contractors-long-island-ny">custom masonry finish work</a></strong>, and <a href="/services/deck-builders-long-island-ny">professionally crafted deck finish structures</a> that enhance both curb appeal and functionality.
+      </p>
+      <h3>Detailed Craftsmanship and Finishes</h3>
+      <p>
+        Our gallery also highlights the fine details that define quality construction, including precision <strong><a href="/services/tile-installation-service-long-island-ny">tile finish installations</a></strong> and custom <strong><a href="/services/trim-carpentry-services-long-island-ny">carpentry finish</a></strong> work that add character and long-lasting performance to every home.
+      </p><br />
+
+      <div style="display:flex; justify-content:center; align-items:center; gap:40px; flex-wrap:wrap;">
+        <img src="/media/png/certified%20wolf%20pro_f3%20construction.png" alt="Certification 1" style="width:100px; height:auto;" loading="lazy" width="387" height="388" />
+        <a href="https://trexrainescape.com/installers/olman-flores/" target="_blank">
+          <img src="/media/png/trex_rain_escape_certified_olman_flores_f3-.png" alt="Certification 2" style="width:140px; height:auto;" loading="lazy" width="580" height="430" />
+        </a>
+        <img class="logo-3" src="/media/png/Logo-cerrebel-color.png" alt="Certification 3" style="width:auto; height:55px; margin-top:20px;" loading="lazy" width="360" height="106" />
+      </div>
+
+      <br />
+      <h2>Discover the Quality Behind Every Project</h2>
+      <p>
+        Whether you’re looking for inspiration or evaluating the quality we bring to every job, these examples
+        <strong>demonstrate why F3 Construction is a trusted contractor throughout Long Island, NY</strong>.
+      </p>
+    </section>
+
+    <section class="gallery-section">
+      <center>
+        <div class="portfolio-filter">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="bathrooms">Bathrooms</button>
+          <button class="filter-btn" data-filter="builder">Builder</button>
+          <button class="filter-btn" data-filter="deck">Deck</button>
+          <button class="filter-btn" data-filter="refurbishment">Refurbishment</button>
+          <button class="filter-btn" data-filter="remodeling">Remodeling</button>
+          <button class="filter-btn" data-filter="kitchen">Kitchen</button>
+          <button class="filter-btn" data-filter="Pressure-washing">Pressure Washing</button>
+        </div>
+      </center>
+
+      <div class="gallery-container">
+        {resolvedGalleryItems.map((item, idx) => {
+          if (item.type === "image") {
+            return (
+              <div class={`gallery-item ${item.category}`}>
+                {item.imageObj ? (
+                  <Image
+                    class="img"
+                    id={idx.toString()}
+                    src={item.imageObj}
+                    alt={item.alt}
+                    loading="lazy"
+                    width={1100}
+                    height={900}
+                  />
+                ) : (
+                  <img
+                    class="img"
+                    id={idx.toString()}
+                    src={item.src.replace('../../public', '')}
+                    alt={item.alt}
+                    loading="lazy"
+                    width={1100}
+                    height={900}
+                  />
+                )}
+              </div>
+            );
+          } else {
+            return (
+              <div class={`gallery-item ${item.category}`}>
+                <video 
+                  class="img" 
+                  controls 
+                  poster={item.poster} 
+                  style="object-fit: cover; width: 100%; height: 100%;" 
+                  preload="none"
+                >
+                  <source src={item.src} type="video/mp4" />
+                </video>
+              </div>
+            );
+          }
+        })}
+
+        <!-- Modal Viewer -->
+        <div class="modal" id="modal">
+          <div class="image">
+            <button class="prev">&#60;</button>
+            <a href="javascript:void(0)">
+              <img id="modal-img-tag" class="modal_img" loading="lazy" src="/media/webp/jpg/gallery3.webp" alt="F3 Construction Corp" />
+            </a>
+            <button class="next">></button>
+          </div>
+          <button class="cerrar"><i class="fa-solid fa-x"></i></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="find-us-section">
+      <div class="box-map">
+        <div class="info-map">
+          <h2>How to Find Us</h2>
+          <p>Visit us in Long Island, NY for a consultation and estimate on your crown molding or trim project.</p>
+          <p><i class="fa-solid fa-location-dot"></i> View on Google Maps <i class="fa-solid fa-arrow-right"></i></p>
+          <p>Request Your Crown Molding and Trim Estimate Today!</p>
+          <a href="/contact">Contact Us Now</a>
+        </div>
+        <div class="map-section">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12319.910251301415!2d-73.2012657!3d40.7845822!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e831603776bac3%3A0x3c6a06c628b18ae0!2sF3%20Construction%20Corp!5e1!3m2!1sen!2sco!4v1761323817490!5m2!1sen!2sco"
+            width="600" 
+            height="450" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Google Maps Location">
+          </iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", function() {
+    const images = document.querySelectorAll('.img');
+    const modal_img = document.querySelector('.modal_img');
+    const prev = document.querySelector('.prev');
+    const next = document.querySelector('.next');
+    const modal = document.querySelector('.modal');
+    const cerrar = document.querySelector('.cerrar');
+
+    if (prev && next && modal_img && modal && cerrar) {
+      prev.addEventListener('click', () => {
+        const idImgAct = parseInt(modal_img.getAttribute("id"));
+        if (idImgAct > 0) {
+          const nextImg = images[idImgAct - 1];
+          if (nextImg) {
+            modal_img.setAttribute("src", nextImg.getAttribute("src"));
+            modal_img.setAttribute("id", nextImg.getAttribute("id"));
+          }
+        }
+      });
+
+      next.addEventListener('click', () => {
+        const idImgAct = parseInt(modal_img.getAttribute("id"));
+        if (idImgAct < images.length - 1) {
+          const nextImg = images[idImgAct + 1];
+          if (nextImg) {
+            modal_img.setAttribute("src", nextImg.getAttribute("src"));
+            modal_img.setAttribute("id", nextImg.getAttribute("id"));
+          }
+        }
+      });
+
+      cerrar.addEventListener('click', () => {
+        modal.style.display = "none";
+      });
+
+      images.forEach(item => {
+        // Enlazar solo elementos que sean de tipo imagen, ignorando videos
+        if (item.tagName.toLowerCase() === 'img') {
+          item.addEventListener('click', () => {
+            abrirModal(item.getAttribute("src"), item.getAttribute("id"));
+          });
+        }
+      });
+
+      function abrirModal(src, id) {
+        modal.style.display = "flex";
+        modal_img.setAttribute("src", src);
+        modal_img.setAttribute("id", id);
+      }
+    }
+
+    // Lógica del filtro de portafolio
+    const buttons = document.querySelectorAll(".filter-btn");
+    const items = document.querySelectorAll(".gallery-item");
+
+    buttons.forEach(button => {
+      button.addEventListener("click", () => {
+        const filter = button.dataset.filter;
+        buttons.forEach(btn => btn.classList.remove("active"));
+        button.classList.add("active");
+
+        items.forEach(item => {
+          if (filter === "all") {
+            item.style.display = "block";
+          } else {
+            if (item.classList.contains(filter)) {
+              item.style.display = "block";
+            } else {
+              item.style.display = "none";
+            }
+          }
+        });
+      });
+    });
+  });
+</script>

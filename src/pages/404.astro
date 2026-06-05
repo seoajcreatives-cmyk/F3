@@ -1,0 +1,23 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import '../styles/404.css';
+
+const metaTitle = "Error 404 – Page Not Found | F3 Construction Corp";
+const metaDescription = "The page you're looking for doesn't exist or has been moved.";
+const canonical = "https://f3constructionny.com/404";
+---
+<BaseLayout title={metaTitle} description={metaDescription} canonical={canonical}>
+  <Fragment slot="head">
+    <meta name="robots" content="noindex, nofollow" />
+  </Fragment>
+
+  <main class="error-main">
+    <div class="title-error">
+      <h1>Error <br /><strong>404</strong></h1>
+    </div>
+    <div class="info-error">
+      <p>The page you're looking for, <br />doesn't exist or has been moved.</p>
+      <a href="/">Go back to homepage</a>
+    </div>
+  </main>
+</BaseLayout>

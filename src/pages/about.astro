@@ -1,0 +1,313 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumb from '@components/Breadcrumb.astro';
+import { Image } from 'astro:assets';
+import '../styles/about.css';
+
+// Metadatos
+const metaTitle = "About F3 Construction – Long Island, NY";
+const metaDescription = "Learn more about F3 Construction, a trusted provider of professional construction services for residential and commercial projects in Long Island, NY.";
+const canonical = "https://f3constructionny.com/about";
+
+// Importación de imágenes locales para optimización automática (formatos WebP/AVIF y dimensiones)
+import kitchenSlideImg from '../../public/media/webp/jpg/kitchen-slide.webp';
+import deckSlideImg from '../../public/media/webp/jpg/deck-slide.webp';
+import moldingsSlideImg from '../../public/media/webp/jpg/moldings-slide.webp';
+import porticoSlideImg from '../../public/media/webp/jpg/portico-slide.webp';
+import tilesSlideImg from '../../public/media/webp/jpg/tiles-slide.webp';
+import sidingSlideImg from '../../public/media/webp/jpg/siding-slide.webp';
+import bathroomImg from '../../public/media/webp/jpg/bathroom.webp';
+import masonryImg from '../../public/media/webp/jpg/masonry.webp';
+import trimImg from '../../public/media/webp/jpg/trim.webp';
+import windowsImg from '../../public/media/webp/jpg/windows.webp';
+import doorsImg from '../../public/media/webp/jpg/doors.webp';
+import paintingImg from '../../public/media/webp/jpg/painting.webp';
+import powerWashImg from '../../public/media/webp/jpg/power-wash.webp';
+import basementImg from '../../public/media/webp/jpg/basement.webp';
+import patioImg from '../../public/media/webp/jpg/banner-patio-contractor.webp';
+
+// Iconos de las tarjetas
+import icon1 from '../../public/media/svg/icono1.svg';
+import icon2 from '../../public/media/svg/icono2.svg';
+import icon3 from '../../public/media/svg/icono3.svg';
+---
+<BaseLayout title={metaTitle} description={metaDescription} canonical={canonical}>
+  <main>
+    <section class="banner-about-section">
+      <div class="banner-about-container">
+        <div class="banner-media"></div>
+        <div class="banner-title">
+          <h2><span>ABOUT US</span></h2><br />
+          <p>Making your project ideas a reality</p>
+          <div class="banner-cta">
+            <a href="tel:+16312788693" class="btn-banner"><span id="btn-about-call">Call Us Today</span></a>
+          </div>
+        </div>
+      </div>
+
+      <Breadcrumb />
+
+      <section class="info-services-section">
+        <h1 class="info-services-title">Experience and Reliable Construction Services In Long Insland, NY</h1>
+
+        <div class="about-us-content">
+          <div class="about-text">
+            <p>
+              Having a team of experts with more than 20 years of experience in all fields of home improvement allows us to be sure that you, our valued customers, can trust us to meet all your project needs.
+              <br /><br />
+              Our company’s success comes from a steadfast commitment to the client’s vision and a culture of balance, integrity, leadership and loyalty. At F3 Construction Corp, we transform the construction experience through creation of an environment that fosters collaboration and project team engagement.
+              <br /><br />
+              With a workplace that attracts and retains the best employees in every field. We are proud of the dedication, skill, and integrity of each of our employees, and their unique contributions in building our high-performance teams where everyone is committed with each project to have the best results.
+              <br /><br />
+            </p>
+            <h2 style="text-align: center; color: var(--red); font-size: 2rem; margin-top: 2rem; margin-bottom: 1rem;">Construction Services Backed by Skilled Professionals</h2>
+            <p style="text-align: center; margin-bottom: 2rem;">
+              F3 Construction Corp is a fully licensed and insured company and you can secure your trust in this great organization.
+            </p>
+          </div>
+          <div class="about-cards">
+            <div class="about-card">
+              <div class="icon-box">
+                <Image src={icon1} alt="construction services ny" width={498} height={497} />
+              </div>
+              <div class="card-text">
+                <h2>PROFESSIONAL SERVICES</h2>
+                <p>Our contractors come to work happy and prepared to construct your dream home. We have a passion for renovating and meeting all your project needs.</p>
+              </div>
+            </div>
+
+            <div class="about-card">
+              <div class="icon-box">
+                <Image src={icon2} alt="construction services 11706" width={498} height={497} />
+              </div>
+              <div class="card-text">
+                <h2>INTEGRITY</h2>
+                <p>Transparency and honesty are at the core of our work as general contractors. We have many clients that can attest to this. Feel free to ask about us.</p>
+              </div>
+            </div>
+
+            <div class="about-card">
+              <div class="icon-box">
+                <Image src={icon3} alt="remodeling contractors long island" width={498} height={497} />
+              </div>
+              <div class="card-text">
+                <h2>CREATIVE EXCELLENCE</h2>
+                <p>Creative excellence is the result of our meticulous approach to all the details of building.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section class="services-section">
+      <div class="services-container">
+        
+        <!-- Kitchens -->
+        <div class="service-item">
+          <div class="service-text">
+            <h2>KITCHENS</h2>
+            <p>Designing and creating the perfect kitchen can be a real headache without professional help. However, with our specialized design team you get the professional knowledge and insight to help simplify the process.</p>
+            <a href="/services/kitchen-remodeling-long-island-ny" class="btn-banner"><span>Learn more</span></a>
+          </div>
+          <div class="service-media right">
+            <Image src={kitchenSlideImg} alt="white kitchen counter" loading="lazy" width={1100} height={900} />
+          </div>
+        </div>
+
+        <!-- Decks -->
+        <div class="service-item order">
+          <div class="service-text">
+            <h2>DECKS</h2>
+            <p>At F3 Construction Corp we are skilled at working with high quality materials and can design, repair and construct a beautiful deck for your home.</p>
+            <a href="/services/deck-builders-long-island-ny" class="btn-banner"><span>Learn more</span></a>
+          </div>
+          <div class="service-media left">
+            <Image src={deckSlideImg} alt="orange deck" loading="lazy" width={1100} height={900} />
+          </div>
+        </div>
+
+        <!-- Moldings -->
+        <div class="service-item">
+          <div class="service-text">
+            <h2>MOLDINGS</h2>
+            <p>To add both value and style to your home, consider the installation of molding. This is a small touch that can make a world of difference in a room, regardless of whether you are considering a colonial style or something more modern.</p>
+            <a href="/services/crown-molding-long-island-ny" class="btn-banner"><span>Learn more</span></a>
+          </div>
+          <div class="service-media right">
+            <Image src={moldingsSlideImg} alt="white molding" loading="lazy" width={1100} height={900} />
+          </div>
+        </div>
+
+        <!-- Portico -->
+        <div class="service-item order">
+          <div class="service-text">
+            <h2>PORTICO</h2>
+            <p>The addition of a portico to your front entrance sets your home apart from the rest. A covered porch serves many functions, both practical and aesthetic. If you are looking to replace or install a new portico for your home, we are here to help.</p>
+            <a href="/services/portico-contractor-long-island-ny" class="btn-banner"><span>Learn more</span></a>
+          </div>
+          <div class="service-media left">
+            <Image src={porticoSlideImg} alt="modern portico" loading="lazy" width={1100} height={900} />
+          </div>
+        </div>
+
+        <!-- Tiles -->
+        <div class="service-item">
+          <div class="service-text">
+            <h2>TILES</h2>
+            <p>Our professional team with tiling work on walls, floors, stairs and patterns, doing repair and renovation work on tiling. We use the best quality products to provide you great results.</p>
+            <a href="/services/tile-installation-service-long-island-ny" class="btn-banner"><span>Learn more</span></a>
+          </div>
+          <div class="service-media right">
+            <Image src={tilesSlideImg} alt="grey tiles" loading="lazy" width={1100} height={900} />
+          </div>
+        </div>
+
+        <!-- Siding -->
+        <div class="service-item order">
+          <div class="service-text">
+            <h2>SIDING</h2>
+            <p>Bathrooms are often a place to escape from day-to-day stresses and get some peace and quiet. Make the most out of your alone time by maximizing relaxation time with a bathroom renovation from the professionals at At F3 Construction Corp.</p>
+            <a href="/services/siding-installation-long-island-ny" class="btn-banner"><span>Learn more</span></a>
+          </div>
+          <div class="service-media left">
+            <Image src={sidingSlideImg} alt="modern siding" loading="lazy" width={1100} height={900} />
+          </div>
+        </div>
+
+        <!-- Bathroom -->
+        <div class="service-item">
+          <div class="service-text">
+            <h2>BATHROOM</h2>
+            <p>Our professional team with tiling work on walls, floors, stairs and patterns, doing repair and renovation work on tiling. We use the best quality products to provide you great results.</p>
+            <a href="/services/bathroom-renovation-long-island-ny" class="btn-banner"><span>Learn more</span></a>
+          </div>
+          <div class="service-media right">
+            <Image src={bathroomImg} alt="grey tiles" loading="lazy" width={1100} height={900} />
+          </div>
+        </div>
+
+        <!-- Masonry -->
+        <div class="service-item order">
+          <div class="service-text">
+            <h2>MASONRY</h2>
+            <p>We provide structural and decorative masonry services for a wide range of home construction and remodeling services, including concrete construction and concrete repair, brick masonry, stone masonry, and block masonry. We work with all styles of brick, block, or stone in all phases of construction and remodeling. We deliver quality workmanship and reliability.</p>
+            <a href="/services/masonry-contractors-long-island-ny" class="btn-banner"><span>Learn more</span></a>
+          </div>
+          <div class="service-media left">
+            <Image src={masonryImg} alt="modern siding" loading="lazy" width={1100} height={900} />
+          </div>
+        </div>
+
+        <!-- Trim -->
+        <div class="service-item">
+          <div class="service-text">
+            <h2>TRIM</h2>
+            <p>Our F3 Construction Corp team offers quality trim services. From molding packages, to framing and drywall repair and replacement, our skilled and experienced team will help you design, install, repair or replace anything you may need!</p>
+            <a href="/services/trim-carpentry-services-long-island-ny" class="btn-banner"><span>Learn more</span></a>
+          </div>
+          <div class="service-media right">
+            <Image src={trimImg} alt="grey tiles" loading="lazy" width={1100} height={900} />
+          </div>
+        </div>
+
+        <!-- Windows -->
+        <div class="service-item order">
+          <div class="service-text">
+            <h2>WINDOWS</h2>
+            <p>Our team will manage every step of your windows replacement project, offering suggestions on the best color and window style that complements your home. We use only the best high-quality materials, whether you need patio windows replacement or interior windows replacement for a new adorable look, you will benefit from a personalized experience with the remodeling experts at F3 Construction Corp.</p>
+            <a href="/services/replacement-windows-long-island-ny" class="btn-banner"><span>Learn more</span></a>
+          </div>
+          <div class="service-media left">
+            <Image src={windowsImg} alt="modern siding" loading="lazy" width={1100} height={900} />
+          </div>
+        </div>
+
+        <!-- Doors -->
+        <div class="service-item">
+          <div class="service-text">
+            <h2>DOORS</h2>
+            <p>At some point, every home needs to have its doors. This may be due to damage from weather or age, or simply a need to refresh and update the look of your home. F3 Construction Corp full-service team will work with you to bring your dream to life.</p>
+            <a href="/services/door-installation-long-island-ny" class="btn-banner"><span>Learn more</span></a>
+          </div>
+          <div class="service-media right">
+            <Image src={doorsImg} alt="grey tiles" loading="lazy" width={1100} height={900} />
+          </div>
+        </div>
+
+        <!-- Painting -->
+        <div class="service-item order">
+          <div class="service-text">
+            <h2>PAINTING</h2>
+            <p>Hiring a professional team for painting services is critically important. Our team of painting contractors is here for you. Offering a comprehensive suite of painting services, our team will provide all the preparation and attention to detail you need.</p>
+            <a href="/services/house-painting-long-island-ny" class="btn-banner"><span>Learn more</span></a>
+          </div>
+          <div class="service-media left">
+            <Image src={paintingImg} alt="modern siding" loading="lazy" width={1100} height={900} />
+          </div>
+        </div>
+
+        <!-- Power Wash -->
+        <div class="service-item">
+          <div class="service-text">
+            <h2>POWER WASH</h2>
+            <p>Construction and remodeling jobs often result in dirty structures and equipment, so it’s important to have access to a professional power washing service. F3 Construction Corp is a full service company, with our power washing service, we ensure your place is spotless after hours of digging, building and moving materials.</p>
+            <a href="/services/power-washing-long-island-ny" class="btn-banner"><span>Learn more</span></a>
+          </div>
+          <div class="service-media right">
+            <Image src={powerWashImg} alt="grey tiles" loading="lazy" width={1100} height={900} />
+          </div>
+        </div>
+
+        <!-- Basement Solutions -->
+        <div class="service-item order">
+          <div class="service-text">
+            <h2>BASMENT SOLUTIONS</h2>
+            <p>Enhance your home’s value and usability with expert basement solutions. From waterproofing to full remodels, we turn underused basements into functional, stylish spaces.</p>
+            <a href="/services/basement-solutions-long-island-ny" class="btn-banner"><span>Learn more</span></a>
+          </div>
+          <div class="service-media left">
+            <Image src={basementImg} alt="modern siding" loading="lazy" width={1100} height={900} />
+          </div>
+        </div>
+
+        <!-- Patio Contractor -->
+        <div class="service-item patio">
+          <div class="service-text">
+            <h2>PATIO CONTRACTOR</h2>
+            <p>Enhance your outdoor living with custom patio solutions designed for style, durability, and functionality. From paver and concrete installations to landscaping integration and poolside designs, we create seamless, high-quality spaces tailored to your home—ensuring beauty and long-lasting value in every project.</p>
+            <a href="/services/patio-contractor-long-island-ny" class="btn-banner"><span>Learn more</span></a>
+          </div>
+          <div class="patio-media right">
+            <Image src={patioImg} alt="patio contractor" loading="lazy" width={2000} height={1331} />
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="find-us-section">
+      <div class="box-map">
+        <div class="info-map">
+          <h2>How to Find Us</h2>
+          <p>Visit us in Long Island, NY for a consultation and estimate on your crown molding or trim project.</p>
+          <p><i class="fa-solid fa-location-dot"></i> View on Google Maps <i class="fa-solid fa-arrow-right"></i></p>
+          <p>Request Your Crown Molding and Trim Estimate Today!</p>
+          <a href="/contact">Contact Us Now</a>
+        </div>
+        <div class="map-section">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12319.910251301415!2d-73.2012657!3d40.7845822!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e831603776bac3%3A0x3c6a06c628b18ae0!2sF3%20Construction%20Corp!5e1!3m2!1sen!2sco!4v1761323817490!5m2!1sen!2sco"
+            width="600" 
+            height="450" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Google Maps Location">
+          </iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
