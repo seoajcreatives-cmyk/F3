@@ -27,6 +27,252 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <!-- Defer render-blocking stylesheets using MutationObserver -->
+    <script is:inline>
+      (function() {
+        const observer = new MutationObserver((mutations) => {
+          for (const mutation of mutations) {
+            for (const node of mutation.addedNodes) {
+              if (node.tagName === 'LINK' && node.rel === 'stylesheet') {
+                const href = node.getAttribute('href') || '';
+                // Target bundled Astro CSS files and Swiper CSS
+                if (href.includes('_astro/') || href.includes('swiper')) {
+                  node.setAttribute('media', 'print');
+                  node.setAttribute('onload', "this.media='all'");
+                }
+              }
+            }
+          }
+        });
+        observer.observe(document.documentElement, { childList: true, subtree: true });
+        
+        // Disconnect observer after page load
+        window.addEventListener('load', () => {
+          observer.disconnect();
+        });
+      })();
+    </script>
+
+    <!-- Inline Critical CSS (Above-the-fold) -->
+    <style is:inline>
+      :root {
+        --red: #e31e24;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: 'Poppins', sans-serif;
+        overflow-x: hidden;
+        background-color: #fff;
+      }
+      header {
+        width: 100%;
+        position: sticky;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        background: #fff;
+      }
+      header .mobile-header {
+        display: none;
+      }
+      header .line-address {
+        background: #1c1c1c;
+        display: flex;
+        justify-content: space-around;
+        padding: 7px;
+        align-items: center;
+      }
+      header .line-address .social-icon {
+        display: flex;
+        gap: 40px;
+      }
+      header .line-address a {
+        display: flex;
+        gap: 10px;
+        color: white;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+      }
+      header .header-desktop {
+        display: grid;
+        grid-template-columns: 70% 30%;
+      }
+      header .header-desktop .header-left {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 2% 5%;
+        background-color: #fff;
+      }
+      header .header-desktop .header-left .logo {
+        width: 160px;
+        flex-shrink: 0;
+      }
+      header .header-desktop .header-left .logo img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      header .header-desktop .header-left .bbb-logo {
+        width: 150px;
+        flex-shrink: 0;
+      }
+      header .header-desktop .header-left .menu ul {
+        display: flex;
+        gap: 30px;
+        list-style: none;
+      }
+      header .header-desktop .header-left .menu a {
+        font-weight: 500;
+        position: relative;
+        color: #000;
+        text-decoration: none;
+      }
+      header .header-desktop .header-right {
+        background: var(--red);
+        padding: 3% 10%;
+        display: grid;
+        grid-template-columns: 1fr;
+        align-items: center;
+      }
+      header .header-desktop .header-right .contact-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      header .header-desktop .header-right .contact-button a {
+        background: linear-gradient(to right, transparent 50%, #fff 50%);
+        width: fit-content;
+        padding: 2% 10%;
+        border: 2px solid #fff;
+        font-weight: 700;
+        background-size: 200%;
+        background-position: 100%;
+        transform: skewX(-15deg);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--red);
+        text-decoration: none;
+      }
+      .banner-section {
+        width: 100vw;
+        height: 100vh;
+        min-height: 100vh;
+        padding: 0;
+        position: relative;
+        overflow: hidden;
+      }
+      .banner-section .banner-container {
+        display: flex;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        min-height: 100vh;
+      }
+      .banner-container video, .banner-container img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+      }
+      .banner-section .banner-container .banner-content {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 2;
+      }
+      .banner-section .banner-container .banner-content h1 {
+        color: white;
+        line-height: 35px;
+        font-size: 25px;
+        text-align: center;
+        font-weight: 500;
+      }
+      .banner-section .banner-container .banner-content span {
+        font-size: 35px;
+        font-weight: 700;
+      }
+      .banner-section .banner-container .banner-content a {
+        background: linear-gradient(to right, white 50%, var(--red) 50%);
+        width: fit-content;
+        padding: 12px 42px;
+        font-weight: 700;
+        background-size: 200%;
+        background-position: 100%;
+        transform: skewX(-15deg);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        text-decoration: none;
+      }
+      @media (max-width: 996px) {
+        header .header-desktop {
+          display: none;
+        }
+        header .mobile-header {
+          display: block;
+        }
+        header .mobile-header .mobile-header-container {
+          padding: 10px 5% !important;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          position: relative;
+          background-color: #fff;
+        }
+        header .mobile-header .mobile-header-container .logo {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 40% !important;
+          max-width: 150px !important;
+        }
+        header .mobile-header .mobile_toggle {
+          width: 40px;
+          height: 40px;
+          position: absolute;
+          display: flex;
+          right: 5%;
+          top: 50%;
+          transform: translateY(-50%);
+          border-radius: 50px;
+          flex-direction: column;
+          align-items: flex-end;
+          padding: 10px;
+          background: white;
+          box-shadow: -1px 1px 3px #00000030;
+          z-index: 99;
+        }
+        .banner-section {
+          width: 100%;
+          height: auto;
+          min-height: auto;
+          aspect-ratio: 16 / 9;
+        }
+        .banner-section .banner-container {
+          width: 100%;
+          height: auto;
+          min-height: auto;
+          aspect-ratio: 16 / 9;
+        }
+      }
+    </style>
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content={author} />
@@ -50,19 +296,14 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
     <!-- Preloads & Fonts -->
     <link rel="preload" as="image" href={`${base}hero.webp`} fetchpriority="high" />
     
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
-    
     <!-- Local self-hosted Poppins fonts preloads -->
     <link rel="preload" as="font" href={`${base}fonts/poppins-400.woff2`} type="font/woff2" crossorigin />
+    <link rel="preload" as="font" href={`${base}fonts/poppins-500.woff2`} type="font/woff2" crossorigin />
+    <link rel="preload" as="font" href={`${base}fonts/poppins-600.woff2`} type="font/woff2" crossorigin />
     <link rel="preload" as="font" href={`${base}fonts/poppins-700.woff2`} type="font/woff2" crossorigin />
 
-    <!-- FontAwesome & CSS libraries -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'" />
+    <!-- CSS libraries -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" media="print" onload="this.media='all'" />
-    
-    <!-- External scripts (jQuery) deferred -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous" defer></script>
     
     <!-- Custom Contact Form Handler Script -->
     <script src={base + "js/contact-handler.js"} defer></script>

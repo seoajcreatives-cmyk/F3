@@ -1,5 +1,6 @@
 ---
 // src/components/Footer.astro
+import Icon from './Icon.astro';
 
 const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
 ---
@@ -17,19 +18,19 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
 
       <div class="social-icon">
         <a class="btn_social" href="https://www.facebook.com/f3construction/" target="_blank" aria-label="Facebook">
-          <i class="fa-brands fa-facebook-f"></i>
+          <i class="fa-brands fa-facebook-f"><Icon name="facebook-f" /></i>
         </a>
         <a class="btn_social" href="https://www.tiktok.com/@f3construction_ny" target="_blank" aria-label="tiktok">
-          <i class="fa-brands fa-tiktok"></i>
+          <i class="fa-brands fa-tiktok"><Icon name="tiktok" /></i>
         </a>
         <a class="btn_social" href="https://www.instagram.com/f3constructionny?igsh=dTZ2cTZ4NXp2aHRt" target="_blank" aria-label="instagram">
-          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-instagram"><Icon name="instagram" /></i>
         </a>
         <a class="btn_social" href="https://www.google.com/search?hl=en&authuser=0&gl=co&output=search&q=F3+Construction+Corp&ludocid=4353299437963021024&gsas=1&lsig=AB86z5Uhqch1JIsGnD4QLuWF2d_2&ved=1i%3A2%2Ct%3A109124%2Ce%3A1%2Cp%3AZmLZY8WEOZ6BkvQPiICT8Ac%3A1" target="_blank" aria-label="gmb">
-          <i class="fa-solid fa-store"></i>
+          <i class="fa-solid fa-store"><Icon name="store" /></i>
         </a>
         <a class="btn_social" href="https://yelp.com/biz/f3-construction-central-islip" target="_blank" aria-label="yelp">
-          <i class="fa-brands fa-yelp"></i>
+          <i class="fa-brands fa-yelp"><Icon name="yelp" /></i>
         </a>
       </div>
     </div>
@@ -107,10 +108,10 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
   </div>
 
   <a href="tel:+16312788693" id="call-Button" aria-label="Call F3 Construction Corp Now">
-    <i class="fa-solid fa-phone"></i>
+    <i class="fa-solid fa-phone"><Icon name="phone" /></i>
   </a>
   
-  <button id="backToTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+  <button id="backToTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"><Icon name="arrow-up" /></i></button>
 </footer>
 
 <script>

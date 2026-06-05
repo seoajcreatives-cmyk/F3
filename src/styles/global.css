@@ -1335,6 +1335,8 @@ footer {
   background-color: var(--red);
   background-blend-mode: multiply;
   background-image: url("../media/jpg/fondo.jpg");
+  background-image: -webkit-image-set(url("../media/webp/jpg/fondo.webp") type("image/webp"), url("../media/jpg/fondo.jpg") type("image/jpeg"));
+  background-image: image-set(url("../media/webp/jpg/fondo.webp") type("image/webp"), url("../media/jpg/fondo.jpg") type("image/jpeg"));
 }
 
 footer .footer-container {

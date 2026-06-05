@@ -3,6 +3,8 @@ import BaseLayout from '@layouts/BaseLayout.astro';
 import { Image, getImage } from 'astro:assets';
 import Blogs from '@components/Blogs.astro';
 import Reviews from '@components/Reviews.astro';
+import GoogleMap from '@components/GoogleMap.astro';
+import Icon from '@components/Icon.astro';
 
 // Importación de imágenes locales para optimización automática (formatos WebP/AVIF y dimensiones)
 import bathroomImg from '../../public/media/webp/jpg/batroom.webp';
@@ -17,8 +19,8 @@ import cerrebelColorImg from '../../public/media/png/Logo-cerrebel-color.png';
 import deckSlideMobile from '../../public/media/webp/mobile/deck-slide.webp';
 import patioMobileImg from '../../public/media/webp/mobile/banner-patio-contractor.jpg';
 
-const optimizedDeck = await getImage({ src: deckSlideMobile, width: 280, height: 400, format: 'webp', quality: 85 });
-const optimizedPatio = await getImage({ src: patioMobileImg, width: 280, height: 400, format: 'webp', quality: 85 });
+const optimizedDeck = await getImage({ src: deckSlideMobile, width: 280, height: 400, format: 'webp', quality: 60 });
+const optimizedPatio = await getImage({ src: patioMobileImg, width: 280, height: 400, format: 'webp', quality: 60 });
 
 // Importación de estilos específicos de la página
 import '../styles/index.css';
@@ -156,7 +158,7 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
           }
       }
     </script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" media="print" onload="this.media='all'" />
   </Fragment>
 
   <!-- Banner Hero con carga diferida del Video -->
@@ -167,6 +169,9 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
       <script is:inline>
         (function() {
           function loadVideo() {
+            if (window.innerWidth < 768) {
+              return; // Do not load video on mobile
+            }
             setTimeout(function() {
               var video = document.getElementById("hero-video");
               if (video) {
@@ -379,22 +384,11 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
           <div class="info-map">
             <h2>How to Find Us</h2>
             <p>Visit us in Long Island, NY for a consultation and estimate on your free quote <a href={base + "services/tile-installation-service-long-island-ny"}>Tile Installation</a> and <a href={base + "services/trim-carpentry-services-long-island-ny"}>Trim Carpentry Services</a></p>
-            <p><i class="fa-solid fa-location-dot"></i> View on Google Maps <i class="fa-solid fa-arrow-right"></i></p>
+            <p><i class="fa-solid fa-location-dot"><Icon name="location-dot" /></i> View on Google Maps <i class="fa-solid fa-arrow-right"><Icon name="arrow-right" /></i></p>
             <p>Request Your Estimate Today!</p>
             <a href={base + "contact"}>Contact Us Now</a>
           </div>
-          <div class="map-section">
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12319.910251301415!2d-73.2012657!3d40.7845822!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e831603776bac3%3A0x3c6a06c628b18ae0!2sF3%20Construction%20Corp!5e1!3m2!1sen!2sco!4v1761323817490!5m2!1sen!2sco"
-              width="600" 
-              height="450" 
-              style="border:0;" 
-              allowfullscreen="" 
-              loading="lazy" 
-              referrerpolicy="no-referrer-when-downgrade" 
-              title="Google Maps Location">
-            </iframe>
-          </div>
+          <GoogleMap />
         </div>
       </section>
 
@@ -444,8 +438,8 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
                 src={laddersImg} 
                 alt="stairs and portico" 
                 loading="lazy" 
-                width={522} 
-                height={612} 
+                widths={[320, 480, 522]}
+                sizes="(max-width: 768px) 50vw, 361px"
                 style="width: 100%; height: 100%; object-fit: cover; display: block;" 
               />
             </div>

@@ -2,6 +2,8 @@
 import BaseLayout from '@layouts/BaseLayout.astro';
 import Breadcrumb from '@components/Breadcrumb.astro';
 import { Image } from 'astro:assets';
+import GoogleMap from '@components/GoogleMap.astro';
+import Icon from '@components/Icon.astro';
 import '../styles/about.css';
 
 // Metadatos
@@ -293,22 +295,11 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
         <div class="info-map">
           <h2>How to Find Us</h2>
           <p>Visit us in Long Island, NY for a consultation and estimate on your crown molding or trim project.</p>
-          <p><i class="fa-solid fa-location-dot"></i> View on Google Maps <i class="fa-solid fa-arrow-right"></i></p>
+          <p><i class="fa-solid fa-location-dot"><Icon name="location-dot" /></i> View on Google Maps <i class="fa-solid fa-arrow-right"><Icon name="arrow-right" /></i></p>
           <p>Request Your Crown Molding and Trim Estimate Today!</p>
           <a href={base + "contact"}>Contact Us Now</a>
         </div>
-        <div class="map-section">
-          <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12319.910251301415!2d-73.2012657!3d40.7845822!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e831603776bac3%3A0x3c6a06c628b18ae0!2sF3%20Construction%20Corp!5e1!3m2!1sen!2sco!4v1761323817490!5m2!1sen!2sco"
-            width="600" 
-            height="450" 
-            style="border:0;" 
-            allowfullscreen="" 
-            loading="lazy" 
-            referrerpolicy="no-referrer-when-downgrade"
-            title="Google Maps Location">
-          </iframe>
-        </div>
+        <GoogleMap />
       </div>
     </section>
   </main>

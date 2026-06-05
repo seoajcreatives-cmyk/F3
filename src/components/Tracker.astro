@@ -10,50 +10,66 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     let trackersInitialized = false;
     let timeoutId = null;
 
+    const triggerEvents = ['mousedown', 'keydown', 'scroll', 'touchstart'];
+
     function initTrackers() {
       if (trackersInitialized) return;
       trackersInitialized = true;
 
-      // Limpiar el timeout de seguridad si se activa por interacción del usuario
+      // Clear the timeout if initialized by interaction
       if (timeoutId) {
         clearTimeout(timeoutId);
       }
 
-      // 1. Google Tag (gtag.js)
+      // Remove trigger event listeners
+      triggerEvents.forEach(event => {
+        window.removeEventListener(event, initTrackers);
+      });
+
+      // 1. Initialize dataLayer and gtag global function
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = window.gtag || function() { window.dataLayer.push(arguments); };
+      
+      // Initialize Analytics configuration
+      gtag('js', new Date());
+      gtag('config', 'G-PFCD90JNJ7');
+
+      // 2. Load Google Tag (gtag.js) dynamically
       const gtagScript = document.createElement('script');
       gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-PFCD90JNJ7";
       gtagScript.async = true;
-      document.head.appendChild(gtagScript);
+      document.body.appendChild(gtagScript);
 
-      gtagScript.onload = () => {
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-PFCD90JNJ7');
-      };
+      // 3. Load Google Tag Manager (gtm.js) dynamically
+      window.dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+      const gtmScript = document.createElement('script');
+      gtmScript.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-N5BNJZJB';
+      gtmScript.async = true;
+      document.body.appendChild(gtmScript);
 
-      // 2. Google Tag Manager
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-N5BNJZJB');
-
-      // 3. Microsoft Clarity
-      (function(c,l,a,r,i,t,y){
-          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-      })(window, document, "clarity", "script", "tqlfr5xzsw");
+      // 4. Load Microsoft Clarity dynamically
+      window.clarity = window.clarity || function() { (window.clarity.q = window.clarity.q || []).push(arguments); };
+      const clarityScript = document.createElement('script');
+      clarityScript.src = "https://www.clarity.ms/tag/tqlfr5xzsw";
+      clarityScript.async = true;
+      document.body.appendChild(clarityScript);
     }
 
-    // Escuchar eventos de interacción común para activar trackers
-    const triggerEvents = ['mousedown', 'mousemove', 'keypress', 'scroll', 'touchstart'];
-    triggerEvents.forEach(event => {
-      window.addEventListener(event, initTrackers, { once: true, passive: true });
-    });
+    function setupTrackerListeners() {
+      // Listen for early user interactions after page load to initialize trackers immediately
+      triggerEvents.forEach(event => {
+        window.addEventListener(event, initTrackers, { once: true, passive: true });
+      });
 
-    // Fallback de seguridad: 3.5 segundos para no perder rebotadores
-    timeoutId = setTimeout(initTrackers, 3500);
+      // Fallback: load trackers 3 seconds after page load if no interaction occurs
+      timeoutId = setTimeout(initTrackers, 3000);
+    }
+
+    // Wait until the window is fully loaded to avoid blocking page load
+    if (document.readyState === 'complete') {
+      setupTrackerListeners();
+    } else {
+      window.addEventListener('load', setupTrackerListeners);
+    }
   })();
 </script>

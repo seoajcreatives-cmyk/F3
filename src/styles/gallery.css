@@ -90,6 +90,8 @@
 /** gallery section **/
 .gallery-section {
   background-image: url("../media/jpg/fondo.jpg");
+  background-image: -webkit-image-set(url("../media/webp/jpg/fondo.webp") type("image/webp"), url("../media/jpg/fondo.jpg") type("image/jpeg"));
+  background-image: image-set(url("../media/webp/jpg/fondo.webp") type("image/webp"), url("../media/jpg/fondo.jpg") type("image/jpeg"));
   background-repeat: no-repeat;
   background-size: cover;
 }

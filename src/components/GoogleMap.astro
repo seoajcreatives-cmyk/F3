@@ -1,0 +1,158 @@
+---
+import Icon from './Icon.astro';
+
+interface Props {
+  src?: string;
+  width?: string;
+  height?: string;
+  title?: string;
+}
+
+const {
+  src = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12319.910251301415!2d-73.2012657!3d40.7845822!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e831603776bac3%3A0x3c6a06c628b18ae0!2sF3%20Construction%20Corp!5e1!3m2!1sen!2sco!4v1761323817490!5m2!1sen!2sco",
+  width = "600",
+  height = "450",
+  title = "Google Maps Location"
+} = Astro.props;
+---
+
+<div class="map-lazy-wrapper" data-src={src} data-width={width} data-height={height} data-title={title}>
+  <div class="map-placeholder">
+    <div class="map-placeholder-content">
+      <i class="fa-solid fa-map-location-dot map-icon"><Icon name="map-location-dot" /></i>
+      <span class="map-text">Click to load interactive map</span>
+    </div>
+  </div>
+</div>
+
+<style>
+  .map-lazy-wrapper {
+    position: relative;
+    width: 100%;
+    height: 25vw;
+    background-color: #eaeaea;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  @media (max-width: 996px) {
+    .map-lazy-wrapper {
+      height: 60vw;
+    }
+  }
+
+  .map-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+  }
+
+  .map-placeholder:hover {
+    background-color: #dfdfdf;
+  }
+
+  .map-placeholder:hover .map-icon {
+    transform: scale(1.1);
+  }
+
+  .map-placeholder-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .map-icon {
+    font-size: 3.5rem;
+    color: #e62a33; /* Using the brand red color */
+    transition: transform 0.3s ease;
+  }
+
+  .map-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #333333;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+</style>
+
+<script>
+  // IntersectionObserver to automatically load the map
+  const initLazyMaps = () => {
+    const wrappers = document.querySelectorAll('.map-lazy-wrapper');
+
+    const loadMap = (wrapper: Element) => {
+      if (wrapper.getAttribute('data-loaded')) return;
+      wrapper.setAttribute('data-loaded', 'true');
+
+      const src = wrapper.getAttribute('data-src');
+      const width = wrapper.getAttribute('data-width') || '600';
+      const height = wrapper.getAttribute('data-height') || '450';
+      const title = wrapper.getAttribute('data-title') || 'Google Maps Location';
+
+      if (!src) return;
+
+      const iframe = document.createElement('iframe');
+      iframe.src = src;
+      iframe.width = width;
+      iframe.height = height;
+      iframe.style.border = '0';
+      iframe.style.width = '100%';
+      iframe.style.height = '100%';
+      iframe.style.borderRadius = '12px';
+      iframe.allowFullscreen = true;
+      iframe.loading = 'lazy';
+      iframe.referrerPolicy = 'no-referrer-when-downgrade';
+      iframe.title = title;
+
+      // Clear wrapper contents and append the iframe
+      wrapper.innerHTML = '';
+      wrapper.appendChild(iframe);
+    };
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '200px', // start loading when map is 200px close to viewport
+      threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          loadMap(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    wrappers.forEach(wrapper => {
+      observer.observe(wrapper);
+
+      // Also support click to load immediately
+      wrapper.addEventListener('click', () => {
+        loadMap(wrapper);
+      });
+    });
+  };
+
+  // Run on page load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initLazyMaps);
+  } else {
+    initLazyMaps();
+  }
+
+  // Support Astro view transitions / page lifecycle if necessary
+  document.addEventListener('astro:page-load', initLazyMaps);
+</script>

@@ -772,6 +772,8 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-image: url("../media/jpg/fondo.jpg");
+  background-image: -webkit-image-set(url("../media/webp/jpg/fondo.webp") type("image/webp"), url("../media/jpg/fondo.jpg") type("image/jpeg"));
+  background-image: image-set(url("../media/webp/jpg/fondo.webp") type("image/webp"), url("../media/jpg/fondo.jpg") type("image/jpeg"));
 }
 
 .experience-section .experience-container {
@@ -908,6 +910,8 @@
 .years-experience-section .years-experience-container .first-box {
   position: relative;
   background-image: url("../media/jpg/house-front-years.jpg");
+  background-image: -webkit-image-set(url("../media/webp/jpg/house-front-years.webp") type("image/webp"), url("../media/jpg/house-front-years.jpg") type("image/jpeg"));
+  background-image: image-set(url("../media/webp/jpg/house-front-years.webp") type("image/webp"), url("../media/jpg/house-front-years.jpg") type("image/jpeg"));
   background-position: center;
   background-size: cover;
 }
@@ -977,6 +981,8 @@
     justify-content: center;
     align-items: center;
     background-image: url("../media/jpg/house-front-years.jpg");
+    background-image: -webkit-image-set(url("../media/webp/jpg/house-front-years.webp") type("image/webp"), url("../media/jpg/house-front-years.jpg") type("image/jpeg"));
+    background-image: image-set(url("../media/webp/jpg/house-front-years.webp") type("image/webp"), url("../media/jpg/house-front-years.jpg") type("image/jpeg"));
     background-position: center;
     background-size: cover;
   }

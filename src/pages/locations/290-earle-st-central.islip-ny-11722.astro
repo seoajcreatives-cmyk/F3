@@ -3,6 +3,8 @@ import BaseLayout from '@layouts/BaseLayout.astro';
 import Breadcrumb from '@components/Breadcrumb.astro';
 import Reviews from '@components/Reviews.astro';
 import { Image } from 'astro:assets';
+import GoogleMap from '@components/GoogleMap.astro';
+import Icon from '@components/Icon.astro';
 import '../../styles/locations.css';
 import '../../styles/internal-services.css';
 import '../../styles/services.css';
@@ -147,23 +149,13 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
                   Monday – Friday: 9:00 AM – 6:00 PM <br />
                   Saturday: 9:00 AM – 2:00 PM <br />
                   Sunday: Closed </p>
-                <p><i class="fa-solid fa-location-dot"></i> View on Google Maps <i class="fa-solid fa-arrow-right"></i></p>
+                <p><i class="fa-solid fa-location-dot"><Icon name="location-dot" /></i> View on Google Maps <i class="fa-solid fa-arrow-right"><Icon name="arrow-right" /></i></p>
                 <p><strong>Contact</strong><br />
                   <a href="tel:+16312788693">(631) 278-8693</a>
                   <a href="mailto:f3ccorp@gmail.com">f3ccorp@gmail.com</a>
                 </p>
               </div>
-              <div class="map-section">
-                <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12319.910251301415!2d-73.2012657!3d40.7845822!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e831603776bac3%3A0x3c6a06c628b18ae0!2sF3%20Construction%20Corp!5e1!3m2!1sen!2sco!4v1761323817490!5m2!1sen!2sco"
-                  width="600" 
-                  style="border:0; height: 30vw !important" 
-                  allowfullscreen="" 
-                  loading="lazy" 
-                  referrerpolicy="no-referrer-when-downgrade"
-                  title="Google Maps Location">
-                </iframe>
-              </div>
+              <GoogleMap />
             </div>
           </section>
 
@@ -361,52 +353,93 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
 
   function sendmail(event) {
     if (event) event.preventDefault();
-    if (!jQuery("#acept").is(":checked")) {
+    
+    const aceptCheck = document.getElementById("acept");
+    if (aceptCheck && !aceptCheck.checked) {
       alert("Please accept the Privacy Policy.");
       return false;
     }
-    var captchaResponse = grecaptcha.getResponse();
+    
+    var captchaResponse = typeof grecaptcha !== "undefined" ? grecaptcha.getResponse() : "";
     if (!captchaResponse) {
       alert("Please verify the reCAPTCHA.");
       return false;
     }
 
-    jQuery("#submit_button").prop("disabled", true).text("SENDING...");
-    jQuery("#load_form").show();
+    const submitBtn = document.getElementById("submit_button");
+    const loaderEl = document.getElementById("load_form");
+
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = "SENDING...";
+    }
+    if (loaderEl) {
+      loaderEl.style.display = "block";
+    }
+
+    const nameVal = document.getElementById("name")?.value || "";
+    const lastNameVal = document.getElementById("lastName")?.value || "";
+    const phoneVal = document.getElementById("phone")?.value || "";
+    const emailVal = document.getElementById("email")?.value || "";
+    const messageVal = document.getElementById("message")?.value || "";
 
     var formData = {
-      name: jQuery("#name").val(),
-      lastName: jQuery("#lastName").val(),
-      phone: jQuery("#phone").val(),
-      email: jQuery("#email").val(),
-      message: jQuery("#message").val(),
+      name: nameVal,
+      lastName: lastNameVal,
+      phone: phoneVal,
+      email: emailVal,
+      message: messageVal,
       "g-recaptcha-response": captchaResponse
     };
 
+    // Envío secundario opcional a Zapier (esquema heredado)
     fetch("https://hooks.zapier.com/hooks/catch/26423574/uelrxfz/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        name: jQuery("#name").val(),
-        last_name: jQuery("#lastName").val(),
-        phone: jQuery("#phone").val(),
-        email: jQuery("#email").val(),
-        message: jQuery("#message").val(),
-        privacy_consent: jQuery("#acept").is(":checked")
+        name: nameVal,
+        last_name: lastNameVal,
+        phone: phoneVal,
+        email: emailVal,
+        message: messageVal,
+        privacy_consent: aceptCheck ? aceptCheck.checked : false
       })
     }).catch(err => console.log("Zapier error:", err));
 
-    jQuery.post("/sendmail/send_contact.php", formData, function(result) {
-      jQuery("#load_form").hide();
-      jQuery("#submit_button").prop("disabled", false).text("SEND REQUEST");
+    // Envío principal al script PHP ubicado en la ruta absoluta
+    const contactForm = document.getElementById("contact_form_id");
+    var base = contactForm ? (contactForm.getAttribute("data-base") || "/") : "/";
+    
+    var urlParams = new URLSearchParams(formData);
+
+    fetch(base + "sendmail/send_contact.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      body: urlParams
+    })
+    .then(response => response.text())
+    .then(result => {
+      if (loaderEl) loaderEl.style.display = "none";
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "SEND REQUEST";
+      }
 
       try {
         var res = JSON.parse(result);
         if (res.success) {
-          jQuery("#message_box").html("<p style='color:#b71c1c; font-weight:700;'>Sent successfully!</p>").show();
-          jQuery("#contact_form_id")[0].reset();
+          const msgBox = document.getElementById("message_box");
+          if (msgBox) {
+            msgBox.innerHTML = "<p style='color:#b71c1c; font-weight:700;'>Sent successfully!</p>";
+            msgBox.style.display = "block";
+          }
+          if (contactForm) {
+            contactForm.reset();
+          }
           grecaptcha.reset();
         } else {
           alert(res.message || "Error");
@@ -415,6 +448,14 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
       } catch (e) {
         alert("Sent, but check server response.");
       }
+    })
+    .catch(err => {
+      if (loaderEl) loaderEl.style.display = "none";
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "SEND REQUEST";
+      }
+      alert("An error occurred during submission.");
     });
   }
 </script>

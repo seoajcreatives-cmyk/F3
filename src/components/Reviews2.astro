@@ -3,6 +3,7 @@
 import '../styles/review.css';
 import '../styles/review2.css';
 import '../styles/internal-services.css';
+import Icon from './Icon.astro';
 
 const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
 ---
@@ -21,11 +22,11 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
         <div>
           <h3 class="review-name">Solange Guirand</h3>
           <div class="review-stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
+            <i class="fas fa-star"><Icon name="star" /></i>
+            <i class="fas fa-star"><Icon name="star" /></i>
+            <i class="fas fa-star"><Icon name="star" /></i>
+            <i class="fas fa-star"><Icon name="star" /></i>
+            <i class="fas fa-star"><Icon name="star" /></i>
           </div>
           <p class="review-time">2 Weeks Ago</p>
         </div>
@@ -46,11 +47,11 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
         <div>
           <h3 class="review-name">William ODonnell</h3>
           <div class="review-stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
+            <i class="fas fa-star"><Icon name="star" /></i>
+            <i class="fas fa-star"><Icon name="star" /></i>
+            <i class="fas fa-star"><Icon name="star" /></i>
+            <i class="fas fa-star"><Icon name="star" /></i>
+            <i class="fas fa-star"><Icon name="star" /></i>
           </div>
           <p class="review-time">A Year Ago</p>
         </div>
@@ -70,11 +71,11 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
         <div>
           <h3 class="review-name">Robert Massey</h3>
           <div class="review-stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
+            <i class="fas fa-star"><Icon name="star" /></i>
+            <i class="fas fa-star"><Icon name="star" /></i>
+            <i class="fas fa-star"><Icon name="star" /></i>
+            <i class="fas fa-star"><Icon name="star" /></i>
+            <i class="fas fa-star"><Icon name="star" /></i>
           </div>
           <p class="review-time">A Year Ago</p>
         </div>
@@ -94,11 +95,11 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
         <div>
           <h3 class="review-name">Lisa Carabott</h3>
           <div class="review-stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
+            <i class="fas fa-star"><Icon name="star" /></i>
+            <i class="fas fa-star"><Icon name="star" /></i>
+            <i class="fas fa-star"><Icon name="star" /></i>
+            <i class="fas fa-star"><Icon name="star" /></i>
+            <i class="fas fa-star"><Icon name="star" /></i>
           </div>
           <p class="review-time">A Year Ago</p>
         </div>
@@ -118,11 +119,11 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
         <div>
           <h3 class="review-name">OLGA RODRIGUEZ</h3>
           <div class="review-stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
+            <i class="fas fa-star"><Icon name="star" /></i>
+            <i class="fas fa-star"><Icon name="star" /></i>
+            <i class="fas fa-star"><Icon name="star" /></i>
+            <i class="fas fa-star"><Icon name="star" /></i>
+            <i class="fas fa-star"><Icon name="star" /></i>
           </div>
           <p class="review-time">A Year Ago</p>
         </div>
@@ -138,12 +139,16 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
 </div>
 
 <script>
-  // Carga no bloqueante de Swiper mediante importación dinámica
-  import('https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs').then(({ default: Swiper }) => {
-    const initSwiper2 = () => {
+  const loadAndInitSwiper2 = () => {
+    Promise.all([
+      import('https://cdn.jsdelivr.net/npm/swiper@11/swiper.min.mjs'),
+      import('https://cdn.jsdelivr.net/npm/swiper@11/modules/autoplay.min.mjs'),
+      import('https://cdn.jsdelivr.net/npm/swiper@11/modules/pagination.min.mjs')
+    ]).then(([{ default: Swiper }, { default: Autoplay }, { default: Pagination }]) => {
       const sliderEl = document.querySelector(".review-slider2");
       if (sliderEl) {
         new Swiper(".review-slider2", {
+          modules: [Autoplay, Pagination],
           slidesPerView: 1,
           spaceBetween: 20,
           loop: true,
@@ -162,12 +167,20 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
           },
         });
       }
-    };
+    });
+  };
 
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initSwiper2);
+  const deferInit2 = () => {
+    if (window.requestIdleCallback) {
+      window.requestIdleCallback(loadAndInitSwiper2);
     } else {
-      initSwiper2();
+      setTimeout(loadAndInitSwiper2, 50);
     }
-  });
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', deferInit2);
+  } else {
+    deferInit2();
+  }
 </script>
