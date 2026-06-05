@@ -9,24 +9,35 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Deploy via FTP
+      # 1. Configurar Node.js en el servidor de GitHub
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-node-version: 20
+          cache: 'npm'
+
+      # 2. Instalar dependencias y compilar el sitio estático de Astro
+      - name: Install dependencies and Build Astro
+        run: |
+          npm ci
+          npm run build
+
+      # 3. Subir EXCLUSIVAMENTE la carpeta de producción (/dist) usando FTPS
+      - name: Deploy via FTPS
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          port: 21
-          protocol: ftp
-          security: loose
+          port: 990                 # Cambiado a puerto seguro FTPS
+          protocol: ftps            # Forzar seguridad implícita
+          security: strict          # Conexión cifrada y estable
           timeout: 600000
-          retries: 5
-          local-dir: ./          
-          server-dir: ./
+          retries: 10               # Más intentos automáticos si Hostinger parpadea
+          local-dir: ./dist/        # ¡Ojo! Solo subimos lo compilado por Astro
+          server-dir: ./            # Se aloja en la raíz de tu hosting (public_html)
