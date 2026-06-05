@@ -1,5 +1,8 @@
 ---
 // src/components/Header.astro
+import { Image } from 'astro:assets';
+import bbbLogo from '../../public/media/png/acreditation-f3-2.png';
+import bbbLogoMobile from '../../public/media/png/acreditation-f3-2-1.png';
 
 const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
 ---
@@ -93,7 +96,7 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
       
       <div class="bbb-logo" style="width: 150px; height: 57px; flex-shrink: 0; display: block;">
         <a href="https://www.bbb.org/us/ny/central-islip/profile/home-improvement/f3-constructions-corp-0121-87182765" style="display: block; width: 100%; height: 100%;">
-          <img src={base + "media/png/acreditation-f3-2.png"} alt="BBB" width="689" height="261" style="width: 100%; height: auto; display: block; aspect-ratio: 689 / 261;" />
+          <Image src={bbbLogo} alt="BBB" width={150} height={57} format="webp" quality={85} style="width: 100%; height: auto; display: block; aspect-ratio: 150 / 57;" />
         </a>
       </div>
     </div>
@@ -157,7 +160,7 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
         </ul>
 
         <a href="https://www.bbb.org/us/ny/central-islip/profile/home-improvement/f3-constructions-corp-0121-87182765">
-          <img src={base + "media/png/acreditation-f3-2-1.png"} alt="BBB" width="689" height="261" style="width: 100%; height: auto;" />
+          <Image src={bbbLogoMobile} alt="BBB" width={150} height={57} format="webp" quality={85} style="width: 100%; height: auto;" />
         </a>
 
         <div class="button-header-mobile">

@@ -1,6 +1,15 @@
 ---
 // src/components/Reviews.astro
+import { Image } from 'astro:assets';
 import '../styles/review.css';
+
+import review1 from '../../public/media/png/review-1.png';
+import review2 from '../../public/media/png/review-2.png';
+import review3 from '../../public/media/png/review-3.png';
+import review4 from '../../public/media/png/review-4.png';
+import review5 from '../../public/media/png/review-5.png';
+import review6 from '../../public/media/png/review-6.png';
+import review7 from '../../public/media/png/review-7.png';
 
 const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
 ---
@@ -14,7 +23,7 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
     <div class="swiper-slide review-card">
       <div class="review-header">
         <div class="review-avatar">
-          <img src={base + "media/png/review-1.png"} alt="Review 1" loading="lazy" width="72" height="72" style="width: 72px; height: 72px; object-fit: cover; border-radius: 50%;" />
+          <Image src={review1} alt="Review 1" loading="lazy" width={72} height={72} style="width: 72px; height: 72px; object-fit: cover; border-radius: 50%;" />
         </div>
         <div>
           <h3 class="review-name">Jeanette Lutin</h3>
@@ -40,7 +49,7 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
     <div class="swiper-slide review-card">
       <div class="review-header">
         <div class="review-avatar">
-          <img src={base + "media/png/review-2.png"} alt="Review 2" loading="lazy" width="72" height="72" style="width: 72px; height: 72px; object-fit: cover; border-radius: 50%;" />
+          <Image src={review2} alt="Review 2" loading="lazy" width={72} height={72} style="width: 72px; height: 72px; object-fit: cover; border-radius: 50%;" />
         </div>
         <div>
           <h3 class="review-name">John Penza</h3>
@@ -66,7 +75,7 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
     <div class="swiper-slide review-card">
       <div class="review-header">
         <div class="review-avatar">
-          <img src={base + "media/png/review-3.png"} alt="Review 3" loading="lazy" width="72" height="72" style="width: 72px; height: 72px; object-fit: cover; border-radius: 50%;" />
+          <Image src={review3} alt="Review 3" loading="lazy" width={72} height={72} style="width: 72px; height: 72px; object-fit: cover; border-radius: 50%;" />
         </div>
         <div>
           <h3 class="review-name">George Macrelli</h3>
@@ -92,7 +101,7 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
     <div class="swiper-slide review-card">
       <div class="review-header">
         <div class="review-avatar">
-          <img src={base + "media/png/review-4.png"} alt="Review 4" loading="lazy" width="72" height="72" style="width: 72px; height: 72px; object-fit: cover; border-radius: 50%;" />
+          <Image src={review4} alt="Review 4" loading="lazy" width={72} height={72} style="width: 72px; height: 72px; object-fit: cover; border-radius: 50%;" />
         </div>
         <div>
           <h3 class="review-name">Laura Parker</h3>
@@ -118,7 +127,7 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
     <div class="swiper-slide review-card">
       <div class="review-header">
         <div class="review-avatar">
-          <img src={base + "media/png/review-5.png"} alt="Review 5" loading="lazy" width="72" height="72" style="width: 72px; height: 72px; object-fit: cover; border-radius: 50%;" />
+          <Image src={review5} alt="Review 5" loading="lazy" width={72} height={72} style="width: 72px; height: 72px; object-fit: cover; border-radius: 50%;" />
         </div>
         <div>
           <h3 class="review-name">Paul Anderson</h3>
@@ -144,7 +153,7 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
     <div class="swiper-slide review-card">
       <div class="review-header">
         <div class="review-avatar">
-          <img src={base + "media/png/review-6.png"} alt="Review 6" loading="lazy" width="72" height="72" style="width: 72px; height: 72px; object-fit: cover; border-radius: 50%;" />
+          <Image src={review6} alt="Review 6" loading="lazy" width={72} height={72} style="width: 72px; height: 72px; object-fit: cover; border-radius: 50%;" />
         </div>
         <div>
           <h3 class="review-name">Edward Freudenberg</h3>
@@ -168,7 +177,7 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
     <div class="swiper-slide review-card">
       <div class="review-header">
         <div class="review-avatar">
-          <img src={base + "media/png/review-7.png"} alt="Review 7" loading="lazy" width="72" height="72" style="width: 72px; height: 72px; object-fit: cover; border-radius: 50%;" />
+          <Image src={review7} alt="Review 7" loading="lazy" width={72} height={72} style="width: 72px; height: 72px; object-fit: cover; border-radius: 50%;" />
         </div>
         <div>
           <h3 class="review-name">Karen Obrien</h3>
@@ -194,11 +203,12 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
   <div class="swiper-pagination"></div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" is:inline></script>
-<script is:inline>
-  (function() {
-    function initSwiper() {
-      if (typeof Swiper !== 'undefined') {
+<script>
+  // Carga no bloqueante de Swiper mediante importación dinámica
+  import('https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs').then(({ default: Swiper }) => {
+    const initSwiper = () => {
+      const sliderEl = document.querySelector(".review-slider");
+      if (sliderEl) {
         new Swiper(".review-slider", {
           slidesPerView: 1,
           spaceBetween: 20,
@@ -217,10 +227,13 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
             },
           },
         });
-      } else {
-        setTimeout(initSwiper, 50);
       }
+    };
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initSwiper);
+    } else {
+      initSwiper();
     }
-    initSwiper();
-  })();
+  });
 </script>

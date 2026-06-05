@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 import Blogs from '@components/Blogs.astro';
 import Reviews from '@components/Reviews.astro';
 
@@ -12,6 +12,13 @@ import carImg from '../../public/media/webp/png/car.webp';
 import certifiedWolfImg from '../../public/media/png/certified wolf pro_f3 construction.png';
 import trexRainImg from '../../public/media/png/trex_rain_escape_certified_olman_flores_f3-.png';
 import cerrebelColorImg from '../../public/media/png/Logo-cerrebel-color.png';
+
+// Importar imágenes móviles para optimizar de forma no bloqueante como fondos
+import deckSlideMobile from '../../public/media/webp/mobile/deck-slide.webp';
+import patioMobileImg from '../../public/media/webp/mobile/banner-patio-contractor.jpg';
+
+const optimizedDeck = await getImage({ src: deckSlideMobile, width: 280, height: 400, format: 'webp', quality: 85 });
+const optimizedPatio = await getImage({ src: patioMobileImg, width: 280, height: 400, format: 'webp', quality: 85 });
 
 // Importación de estilos específicos de la página
 import '../styles/index.css';
@@ -165,14 +172,24 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
               if (video) {
                 var base = video.getAttribute("data-base") || "/";
                 if (!base.endsWith('/')) base += '/';
-                var source = document.createElement("source");
                 if (window.innerWidth <= 996) {
+                  var source = document.createElement("source");
                   source.src = base + "media/video/optimized video.mp4";
+                  source.type = "video/mp4";
+                  video.appendChild(source);
                 } else {
-                  source.src = base + "media/video/video.mp4";
+                  // Source WebM first (lighter, supported by modern browsers)
+                  var sourceWebm = document.createElement("source");
+                  sourceWebm.src = base + "media/video/video.webm";
+                  sourceWebm.type = "video/webm";
+                  video.appendChild(sourceWebm);
+
+                  // Source MP4 as fallback
+                  var sourceMp4 = document.createElement("source");
+                  sourceMp4.src = base + "media/video/video.mp4";
+                  sourceMp4.type = "video/mp4";
+                  video.appendChild(sourceMp4);
                 }
-                source.type = "video/mp4";
-                video.appendChild(source);
                 video.load();
               }
             }, 500);
@@ -214,7 +231,7 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
             </div>
             
             <div class="card_box">
-              <div class="info_box decks">
+              <div class="info_box decks" style={`background-image: url(${optimizedDeck.src});`}>
                 <h2>DECKS</h2>
                 <div class="hover_info">
                   <p>At F3 Construction Corp we are skilled at working with high quality materials and can design, repair and construct a beautiful deck for your home.</p>
@@ -344,7 +361,7 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
             </div>
 
             <div class="card_box">
-              <div class="info_box patio">
+              <div class="info_box patio" style={`background-image: url(${optimizedPatio.src});`}>
                 <h2>PATIO</h2>
                 <div class="hover_info">
                   <p>Our experienced patio contractors Long Island deliver custom solutions—whether you need paver patio installation Long Island, pool and patio contractors.</p>

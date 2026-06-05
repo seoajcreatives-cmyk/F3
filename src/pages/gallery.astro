@@ -114,11 +114,20 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
                 var video = document.getElementById("hero-video");
                 if (window.innerWidth > 996 && video) {
                   var base = video.getAttribute("data-base") || "/";
-                if (!base.endsWith('/')) base += '/';
-                  var source = document.createElement("source");
-                  source.src = base + "media/video/video.mp4";
-                  source.type = "video/mp4";
-                  video.appendChild(source);
+                  if (!base.endsWith('/')) base += '/';
+                  
+                  // Source WebM first (lighter, supported by modern browsers)
+                  var sourceWebm = document.createElement("source");
+                  sourceWebm.src = base + "media/video/video.webm";
+                  sourceWebm.type = "video/webm";
+                  video.appendChild(sourceWebm);
+
+                  // Source MP4 as fallback
+                  var sourceMp4 = document.createElement("source");
+                  sourceMp4.src = base + "media/video/video.mp4";
+                  sourceMp4.type = "video/mp4";
+                  video.appendChild(sourceMp4);
+                  
                   video.load();
                 }
               }, 500);
