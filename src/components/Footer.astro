@@ -41,39 +41,39 @@
     </div>
 
     <div class="footer-menu">
-      <h3><a href="/">Home</a></h3>
+      <h3><a href={import.meta.env.BASE_URL}>Home</a></h3>
       <ul>
-        <li><a href="/about">About Us</a></li>
-        <li><a href="/gallery">Gallery</a></li>
-        <li><a href="/contact">Contact</a></li>
+        <li><a href={import.meta.env.BASE_URL + "about"}>About Us</a></li>
+        <li><a href={import.meta.env.BASE_URL + "gallery"}>Gallery</a></li>
+        <li><a href={import.meta.env.BASE_URL + "contact"}>Contact</a></li>
         <li><a href="/blog">Blog</a></li>
-        <li><a href="/locations/290-earle-st-central.islip-ny-11722">Location</a></li>
+        <li><a href={import.meta.env.BASE_URL + "locations/290-earle-st-central.islip-ny-11722"}>Location</a></li>
       </ul>
     </div>
 
     <div class="footer-menu">
-      <h3><a href="/services">Services</a></h3>
+      <h3><a href={import.meta.env.BASE_URL + "services"}>Services</a></h3>
       <div class="separador-servicios">
         <div class="footer-menu">
           <ul>
-            <li><a href="/services/masonry-contractors-long-island-ny">Masonry</a></li>
-            <li><a href="/services/trim-carpentry-services-long-island-ny">Trim Carpentry</a></li>
-            <li><a href="/services/replacement-windows-long-island-ny">Window Replacement</a></li>
-            <li><a href="/services/door-installation-long-island-ny">Door Installation</a></li>
-            <li><a href="/services/house-painting-long-island-ny">House painting</a></li>
-            <li><a href="/services/power-washing-long-island-ny">Power Washing</a></li>
-            <li><a href="/services/basement-solutions-long-island-ny">Basement Solutions</a></li>
+            <li><a href={import.meta.env.BASE_URL + "services/masonry-contractors-long-island-ny"}>Masonry</a></li>
+            <li><a href={import.meta.env.BASE_URL + "services/trim-carpentry-services-long-island-ny"}>Trim Carpentry</a></li>
+            <li><a href={import.meta.env.BASE_URL + "services/replacement-windows-long-island-ny"}>Window Replacement</a></li>
+            <li><a href={import.meta.env.BASE_URL + "services/door-installation-long-island-ny"}>Door Installation</a></li>
+            <li><a href={import.meta.env.BASE_URL + "services/house-painting-long-island-ny"}>House painting</a></li>
+            <li><a href={import.meta.env.BASE_URL + "services/power-washing-long-island-ny"}>Power Washing</a></li>
+            <li><a href={import.meta.env.BASE_URL + "services/basement-solutions-long-island-ny"}>Basement Solutions</a></li>
           </ul>
         </div>
         <div class="footer-menu">
           <ul>
-            <li><a href="/services/kitchen-remodeling-long-island-ny">Kitchen Remodeling</a></li>
-            <li><a href="/services/deck-builders-long-island-ny">Deck Building</a></li>
-            <li><a href="/services/crown-molding-long-island-ny">Crown Molding</a></li>
-            <li><a href="/services/portico-contractor-long-island-ny">Portico Construction</a></li>
-            <li><a href="/services/tile-installation-service-long-island-ny">Tile Installation</a></li>
-            <li><a href="/services/bathroom-renovation-long-island-ny">Bathroom Remodeling</a></li>
-            <li><a href="/services/patio-contractor-long-island-ny">Patio Contractor</a></li>
+            <li><a href={import.meta.env.BASE_URL + "services/kitchen-remodeling-long-island-ny"}>Kitchen Remodeling</a></li>
+            <li><a href={import.meta.env.BASE_URL + "services/deck-builders-long-island-ny"}>Deck Building</a></li>
+            <li><a href={import.meta.env.BASE_URL + "services/crown-molding-long-island-ny"}>Crown Molding</a></li>
+            <li><a href={import.meta.env.BASE_URL + "services/portico-contractor-long-island-ny"}>Portico Construction</a></li>
+            <li><a href={import.meta.env.BASE_URL + "services/tile-installation-service-long-island-ny"}>Tile Installation</a></li>
+            <li><a href={import.meta.env.BASE_URL + "services/bathroom-renovation-long-island-ny"}>Bathroom Remodeling</a></li>
+            <li><a href={import.meta.env.BASE_URL + "services/patio-contractor-long-island-ny"}>Patio Contractor</a></li>
           </ul>
         </div>
       </div>
@@ -83,23 +83,23 @@
   <div class="privacy-ctn">
     <div class="privacy-logos">
       <div class="logos-row">
-        <img class="logo-1" src="/media/png/certified%20wolf%20pro_f3%20construction.png" alt="Certification 1" loading="lazy" width="387" height="388" />
+        <img class="logo-1" src={import.meta.env.BASE_URL + "media/png/certified%20wolf%20pro_f3%20construction.png"} alt="Certification 1" loading="lazy" width="387" height="388" />
         <a href="https://trexrainescape.com/installers/olman-flores/" target="_blank">
-          <img class="logo-2" src="/media/png/trex_rain_escape_certified_olman_flores_f3-.png" alt="Certification 2" loading="lazy" width="580" height="430" />
+          <img class="logo-2" src={import.meta.env.BASE_URL + "media/png/trex_rain_escape_certified_olman_flores_f3-.png"} alt="Certification 2" loading="lazy" width="580" height="430" />
         </a>
-        <a href="/media/pdf/certrebel-olman_flores-f3.pdf" target="_blank" download>
-          <img class="logo-3" src="/media/png/certrebel-logo3.png" alt="Certification 3" loading="lazy" width="350" height="103" />
+        <a href={import.meta.env.BASE_URL + "media/pdf/certrebel-olman_flores-f3.pdf"} target="_blank" download>
+          <img class="logo-3" src={import.meta.env.BASE_URL + "media/png/certrebel-logo3.png"} alt="Certification 3" loading="lazy" width="350" height="103" />
         </a>
       </div>
-      <a href="/privacy">Privacy Policy</a>
-      <a href="/terms">Terms and Conditions</a>
-      <a href="/sitemap.xml">Sitemap</a>
+      <a href={import.meta.env.BASE_URL + "privacy"}>Privacy Policy</a>
+      <a href={import.meta.env.BASE_URL + "terms"}>Terms and Conditions</a>
+      <a href={import.meta.env.BASE_URL + "sitemap.xml"}>Sitemap</a>
     </div>
   </div>
 
   <div class="created-box">
     <p>
-      <a href="/">© 2026 F3 Construction Corp</a> <span>|</span>
+      <a href={import.meta.env.BASE_URL}>© 2026 F3 Construction Corp</a> <span>|</span>
       <a href="https://ajcreativestudios.com/" target="_blank">Created by AJ Creative Studios</a>
     </p>
   </div>

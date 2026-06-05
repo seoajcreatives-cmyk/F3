@@ -35,15 +35,15 @@ const {
 
     <!-- Favicon & Touch Icons -->
     <link rel="shortcut icon" href="https://f3constructionny.com/media/iconified/favicon.ico" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="/media/iconified/apple-touch-icon.png" />
-    <link rel="apple-touch-icon" sizes="57x57" href="/media/iconified/apple-touch-icon-57x57.png" />
-    <link rel="apple-touch-icon" sizes="72x72" href="/media/iconified/apple-touch-icon-72x72.png" />
-    <link rel="apple-touch-icon" sizes="76x76" href="/media/iconified/apple-touch-icon-76x76.png" />
-    <link rel="apple-touch-icon" sizes="114x114" href="/media/iconified/apple-touch-icon-114x114.png" />
-    <link rel="apple-touch-icon" sizes="120x120" href="/media/iconified/apple-touch-icon-120x120.png" />
-    <link rel="apple-touch-icon" sizes="144x144" href="/media/iconified/apple-touch-icon-144x144.png" />
-    <link rel="apple-touch-icon" sizes="152x152" href="/media/iconified/apple-touch-icon-152x152.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/media/iconified/apple-touch-icon-180x180.png" />
+    <link rel="apple-touch-icon" href={import.meta.env.BASE_URL + "media/iconified/apple-touch-icon.png"} />
+    <link rel="apple-touch-icon" sizes="57x57" href={import.meta.env.BASE_URL + "media/iconified/apple-touch-icon-57x57.png"} />
+    <link rel="apple-touch-icon" sizes="72x72" href={import.meta.env.BASE_URL + "media/iconified/apple-touch-icon-72x72.png"} />
+    <link rel="apple-touch-icon" sizes="76x76" href={import.meta.env.BASE_URL + "media/iconified/apple-touch-icon-76x76.png"} />
+    <link rel="apple-touch-icon" sizes="114x114" href={import.meta.env.BASE_URL + "media/iconified/apple-touch-icon-114x114.png"} />
+    <link rel="apple-touch-icon" sizes="120x120" href={import.meta.env.BASE_URL + "media/iconified/apple-touch-icon-120x120.png"} />
+    <link rel="apple-touch-icon" sizes="144x144" href={import.meta.env.BASE_URL + "media/iconified/apple-touch-icon-144x144.png"} />
+    <link rel="apple-touch-icon" sizes="152x152" href={import.meta.env.BASE_URL + "media/iconified/apple-touch-icon-152x152.png"} />
+    <link rel="apple-touch-icon" sizes="180x180" href={import.meta.env.BASE_URL + "media/iconified/apple-touch-icon-180x180.png"} />
 
     <!-- Preloads & Fonts -->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
@@ -69,7 +69,7 @@ const {
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" defer></script>
     
     <!-- Custom Contact Form Handler Script -->
-    <script src="/js/contact-handler.js" defer></script>
+    <script src={import.meta.env.BASE_URL + "js/contact-handler.js"} defer></script>
 
     <!-- Page Specific head tags placeholder -->
     <slot name="head" />

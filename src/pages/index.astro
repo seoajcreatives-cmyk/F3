@@ -153,7 +153,7 @@ import '../styles/review.css';
   <!-- Banner Hero con carga diferida del Video -->
   <section class="banner-section">
     <div class="banner-container">
-      <video id="hero-video" autoplay muted loop playsinline fetchpriority="high" poster="/hero.webp" width="1920" height="1080">
+      <video id="hero-video" autoplay muted loop playsinline fetchpriority="high" poster={import.meta.env.BASE_URL + "hero.webp"} width="1920" height="1080" data-base={import.meta.env.BASE_URL}>
       </video>
       <script is:inline>
         (function() {
@@ -161,11 +161,12 @@ import '../styles/review.css';
             setTimeout(function() {
               var video = document.getElementById("hero-video");
               if (video) {
+                var base = video.getAttribute("data-base") || "/";
                 var source = document.createElement("source");
                 if (window.innerWidth <= 996) {
-                  source.src = "/media/video/optimized video.mp4";
+                  source.src = base + "media/video/optimized video.mp4";
                 } else {
-                  source.src = "/media/video/video.mp4";
+                  source.src = base + "media/video/video.mp4";
                 }
                 source.type = "video/mp4";
                 video.appendChild(source);
@@ -204,7 +205,7 @@ import '../styles/review.css';
                 <h2>KITCHENS</h2>
                 <div class="hover_info">
                   <p>Designing and creating the perfect kitchen can be a real headache without professional help. However, with our specialized design team you get the professional knowledge and insight to help simplify the process.</p>
-                  <a href="/services/kitchen-remodeling-long-island-ny">View Kitchens</a>
+                  <a href={import.meta.env.BASE_URL + "services/kitchen-remodeling-long-island-ny"}>View Kitchens</a>
                 </div>
               </div>
             </div>
@@ -214,7 +215,7 @@ import '../styles/review.css';
                 <h2>DECKS</h2>
                 <div class="hover_info">
                   <p>At F3 Construction Corp we are skilled at working with high quality materials and can design, repair and construct a beautiful deck for your home.</p>
-                  <a href="/services/deck-builders-long-island-ny">View Decks</a>
+                  <a href={import.meta.env.BASE_URL + "services/deck-builders-long-island-ny"}>View Decks</a>
                 </div>
               </div>
             </div>
@@ -224,7 +225,7 @@ import '../styles/review.css';
                 <h2>MOLDINGS</h2>
                 <div class="hover_info">
                   <p>To add both value and style to your home, consider the installation of molding.</p>
-                  <a href="/services/crown-molding-long-island-ny">View Moldings</a>
+                  <a href={import.meta.env.BASE_URL + "services/crown-molding-long-island-ny"}>View Moldings</a>
                 </div>
               </div>
             </div>
@@ -234,7 +235,7 @@ import '../styles/review.css';
                 <h2>PORTICO</h2>
                 <div class="hover_info">
                   <p>The addition of a portico to your front entrance sets your home apart from the rest. A covered porch serves many functions, both practical and aesthetic.</p>
-                  <a href="/services/portico-contractor-long-island-ny">View Portico</a>
+                  <a href={import.meta.env.BASE_URL + "services/portico-contractor-long-island-ny"}>View Portico</a>
                 </div>
               </div>
             </div>
@@ -244,7 +245,7 @@ import '../styles/review.css';
                 <h2>TILES</h2>
                 <div class="hover_info">
                   <p>Our professional team works with tiling on walls, floors, stairs and patterns, doing repair and renovation work on tiling. We use the best quality products to provide you great results.</p>
-                  <a href="/services/tile-installation-service-long-island-ny">View Tiles Installation</a>
+                  <a href={import.meta.env.BASE_URL + "services/tile-installation-service-long-island-ny"}>View Tiles Installation</a>
                 </div>
               </div>
             </div>
@@ -254,7 +255,7 @@ import '../styles/review.css';
                 <h2>SIDING</h2>
                 <div class="hover_info">
                   <p>Our installers are manufacturer trained and certified to install a wide variety of siding and siding applications.</p>
-                  <a href="/services/siding-installation-long-island-ny">View Siding</a>
+                  <a href={import.meta.env.BASE_URL + "services/siding-installation-long-island-ny"}>View Siding</a>
                 </div>
               </div>
             </div>
@@ -264,7 +265,7 @@ import '../styles/review.css';
                 <h2>BATHROOM</h2>
                 <div class="hover_info">
                   <p>Our professional team with tiling work on walls, floors, stairs and patterns, doing repair and renovation work on tiling.</p>
-                  <a href="/services/bathroom-renovation-long-island-ny">View Bathroom</a>
+                  <a href={import.meta.env.BASE_URL + "services/bathroom-renovation-long-island-ny"}>View Bathroom</a>
                 </div>
               </div>
             </div>
@@ -274,7 +275,7 @@ import '../styles/review.css';
                 <h2>MANSORY</h2>
                 <div class="hover_info">
                   <p>We provide structural and decorative masonry services for a wide range of home construction and remodeling services</p>
-                  <a href="/services/masonry-contractors-long-island-ny">View Masonry</a>
+                  <a href={import.meta.env.BASE_URL + "services/masonry-contractors-long-island-ny"}>View Masonry</a>
                 </div>
               </div>
             </div>
@@ -284,7 +285,7 @@ import '../styles/review.css';
                 <h2>CARPENTRY</h2>
                 <div class="hover_info">
                   <p>Our F3 Construction Corp team offers quality trim services. From molding packages</p>
-                  <a href="/services/trim-carpentry-services-long-island-ny">View Trim Carpentry</a>
+                  <a href={import.meta.env.BASE_URL + "services/trim-carpentry-services-long-island-ny"}>View Trim Carpentry</a>
                 </div>
               </div>
             </div>
@@ -294,7 +295,7 @@ import '../styles/review.css';
                 <h2>WINDOWS</h2>
                 <div class="hover_info">
                   <p>Our team will manage every step of your windows replacement project, offering suggestions on the best color and window style that complements your home</p>
-                  <a href="/services/replacement-windows-long-island-ny">View Windows</a>
+                  <a href={import.meta.env.BASE_URL + "services/replacement-windows-long-island-ny"}>View Windows</a>
                 </div>
               </div>
             </div>
@@ -304,7 +305,7 @@ import '../styles/review.css';
                 <h2>DOORS</h2>
                 <div class="hover_info">
                   <p>At some point, every home needs to have its doors. This may be due to damage from weather or age</p>
-                  <a href="/services/door-installation-long-island-ny">View Doors</a>
+                  <a href={import.meta.env.BASE_URL + "services/door-installation-long-island-ny"}>View Doors</a>
                 </div>
               </div>
             </div>
@@ -314,7 +315,7 @@ import '../styles/review.css';
                 <h2>PAINTING</h2>
                 <div class="hover_info">
                   <p>Hiring a professional team for painting services is critically important</p>
-                  <a href="/services/house-painting-long-island-ny">View Painting</a>
+                  <a href={import.meta.env.BASE_URL + "services/house-painting-long-island-ny"}>View Painting</a>
                 </div>
               </div>
             </div>
@@ -324,7 +325,7 @@ import '../styles/review.css';
                 <h2>POWER WASH</h2>
                 <div class="hover_info">
                   <p>Construction and remodeling jobs often result in dirty structures and equipment, so it’s important to have access to a professional power washing service</p>
-                  <a href="/services/power-washing-long-island-ny">View Power Wash</a>
+                  <a href={import.meta.env.BASE_URL + "services/power-washing-long-island-ny"}>View Power Wash</a>
                 </div>
               </div>
             </div>
@@ -334,7 +335,7 @@ import '../styles/review.css';
                 <h2>BASEMENT</h2>
                 <div class="hover_info">
                   <p>Enhance your home’s value and usability with expert basement solutions. From waterproofing to full remodels, we turn underused basements into functional, stylish spaces.</p>
-                  <a href="/services/basement-solutions-long-island-ny">View Basement</a>
+                  <a href={import.meta.env.BASE_URL + "services/basement-solutions-long-island-ny"}>View Basement</a>
                 </div>
               </div>
             </div>
@@ -344,7 +345,7 @@ import '../styles/review.css';
                 <h2>PATIO</h2>
                 <div class="hover_info">
                   <p>Our experienced patio contractors Long Island deliver custom solutions—whether you need paver patio installation Long Island, pool and patio contractors.</p>
-                  <a href="/services/patio-contractor-long-island-ny">View Patio</a>
+                  <a href={import.meta.env.BASE_URL + "services/patio-contractor-long-island-ny"}>View Patio</a>
                 </div>
               </div>
             </div>
@@ -357,10 +358,10 @@ import '../styles/review.css';
         <div class="box-map">
           <div class="info-map">
             <h2>How to Find Us</h2>
-            <p>Visit us in Long Island, NY for a consultation and estimate on your free quote <a href="/services/tile-installation-service-long-island-ny">Tile Installation</a> and <a href="/services/trim-carpentry-services-long-island-ny">Trim Carpentry Services</a></p>
+            <p>Visit us in Long Island, NY for a consultation and estimate on your free quote <a href={import.meta.env.BASE_URL + "services/tile-installation-service-long-island-ny"}>Tile Installation</a> and <a href={import.meta.env.BASE_URL + "services/trim-carpentry-services-long-island-ny"}>Trim Carpentry Services</a></p>
             <p><i class="fa-solid fa-location-dot"></i> View on Google Maps <i class="fa-solid fa-arrow-right"></i></p>
             <p>Request Your Estimate Today!</p>
-            <a href="/contact">Contact Us Now</a>
+            <a href={import.meta.env.BASE_URL + "contact"}>Contact Us Now</a>
           </div>
           <div class="map-section">
             <iframe 
@@ -387,7 +388,7 @@ import '../styles/review.css';
         <div class="text">
           <h3>WE ARE HOME RENOVATION COMPANY IN NEW YORK</h3>
           <p>Our team of experts has over 20 years of experience in all fields of home improvement, which allows us to be sure that you, our valued customers, can trust us to meet all your project needs.</p>
-          <a href="/about">LEARN MORE</a>
+          <a href={import.meta.env.BASE_URL + "about"}>LEARN MORE</a>
         </div>
       </div>
 
@@ -492,7 +493,7 @@ import '../styles/review.css';
   <section class="years-experience-section">
     <div class="years-experience-container">
       <div class="first-box">
-        <img src="/media/svg/20solo.svg" alt="grey renovated portico" loading="lazy" width="425" height="368" />
+        <img src={import.meta.env.BASE_URL + "media/svg/20solo.svg"} alt="grey renovated portico" loading="lazy" width="425" height="368" />
         <h2>years</h2>
       </div>
       <div class="second-box">
@@ -504,7 +505,7 @@ import '../styles/review.css';
 
     <div class="years-experience-mobile">
       <div class="first-box">
-        <img src="/media/svg/20yearsofexperience12.svg" alt="F3 - 20 Years - Experience General Contractor" loading="lazy" width="104" height="115" />
+        <img src={import.meta.env.BASE_URL + "media/svg/20yearsofexperience12.svg"} alt="F3 - 20 Years - Experience General Contractor" loading="lazy" width="104" height="115" />
       </div>
       <div class="second-box">
         <p>F3 Constructions Corp is here to make all our customers' project ideas a reality. We provide full home improvement services and deliver the highest quality results to our valued customers.</p>

@@ -34,9 +34,9 @@
   <div class="header-desktop">
     <div class="header-left">
       <div class="logo" style="width: 160px; height: 109px; flex-shrink: 0; display: block;">
-        <a href="/" aria-label="F3 Construction Logo" style="display: block; width: 100%; height: 100%;">
+        <a href={import.meta.env.BASE_URL} aria-label="F3 Construction Logo" style="display: block; width: 100%; height: 100%;">
           <img class="primary-logo" 
-               src="/media/webp/png/logo.webp" 
+               src={import.meta.env.BASE_URL + "media/webp/png/logo.webp"} 
                alt="F3 Construction" 
                width="300" 
                height="205" 
@@ -46,32 +46,32 @@
       </div>
       <div class="menu">
         <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About Us</a></li>
+          <li><a href={import.meta.env.BASE_URL}>Home</a></li>
+          <li><a href={import.meta.env.BASE_URL + "about"}>About Us</a></li>
 
           <li class="dropdown">
-            <a href="/services">Services <i class="fa-solid fa-angle-down"></i></a>
+            <a href={import.meta.env.BASE_URL + "services"}>Services <i class="fa-solid fa-angle-down"></i></a>
             <ul class="dropdown-menu">
-              <li><a href="/services/kitchen-remodeling-long-island-ny">Kitchen Remodeling</a></li>
-              <li><a href="/services/deck-builders-long-island-ny">Deck Building</a></li>
-              <li><a href="/services/crown-molding-long-island-ny">Crown Molding</a></li>
-              <li><a href="/services/portico-contractor-long-island-ny">Portico Construction</a></li>
-              <li><a href="/services/tile-installation-service-long-island-ny">Tile Installation</a></li>
-              <li><a href="/services/siding-installation-long-island-ny">Siding Installation</a></li>
-              <li><a href="/services/bathroom-renovation-long-island-ny">Bathroom Renovation</a></li>
-              <li><a href="/services/masonry-contractors-long-island-ny">Masonry Contractor</a></li>
-              <li><a href="/services/trim-carpentry-services-long-island-ny">Trim Carpentry</a></li>
-              <li><a href="/services/replacement-windows-long-island-ny">Window Replacement</a></li>
-              <li><a href="/services/door-installation-long-island-ny">Door Installation</a></li>
-              <li><a href="/services/house-painting-long-island-ny">House Painting</a></li>
-              <li><a href="/services/power-washing-long-island-ny">Power Washing</a></li>
-              <li><a href="/services/basement-solutions-long-island-ny">Basement Solutions</a></li>
-              <li><a href="/services/patio-contractor-long-island-ny">Patio Contractor</a></li>
+              <li><a href={import.meta.env.BASE_URL + "services/kitchen-remodeling-long-island-ny"}>Kitchen Remodeling</a></li>
+              <li><a href={import.meta.env.BASE_URL + "services/deck-builders-long-island-ny"}>Deck Building</a></li>
+              <li><a href={import.meta.env.BASE_URL + "services/crown-molding-long-island-ny"}>Crown Molding</a></li>
+              <li><a href={import.meta.env.BASE_URL + "services/portico-contractor-long-island-ny"}>Portico Construction</a></li>
+              <li><a href={import.meta.env.BASE_URL + "services/tile-installation-service-long-island-ny"}>Tile Installation</a></li>
+              <li><a href={import.meta.env.BASE_URL + "services/siding-installation-long-island-ny"}>Siding Installation</a></li>
+              <li><a href={import.meta.env.BASE_URL + "services/bathroom-renovation-long-island-ny"}>Bathroom Renovation</a></li>
+              <li><a href={import.meta.env.BASE_URL + "services/masonry-contractors-long-island-ny"}>Masonry Contractor</a></li>
+              <li><a href={import.meta.env.BASE_URL + "services/trim-carpentry-services-long-island-ny"}>Trim Carpentry</a></li>
+              <li><a href={import.meta.env.BASE_URL + "services/replacement-windows-long-island-ny"}>Window Replacement</a></li>
+              <li><a href={import.meta.env.BASE_URL + "services/door-installation-long-island-ny"}>Door Installation</a></li>
+              <li><a href={import.meta.env.BASE_URL + "services/house-painting-long-island-ny"}>House Painting</a></li>
+              <li><a href={import.meta.env.BASE_URL + "services/power-washing-long-island-ny"}>Power Washing</a></li>
+              <li><a href={import.meta.env.BASE_URL + "services/basement-solutions-long-island-ny"}>Basement Solutions</a></li>
+              <li><a href={import.meta.env.BASE_URL + "services/patio-contractor-long-island-ny"}>Patio Contractor</a></li>
             </ul>
           </li>
 
-          <li><a href="/gallery">Gallery</a></li>
-          <li><a href="/contact">Contact</a></li>
+          <li><a href={import.meta.env.BASE_URL + "gallery"}>Gallery</a></li>
+          <li><a href={import.meta.env.BASE_URL + "contact"}>Contact</a></li>
 
           <li class="dropdown">
             <a href="/blog">Blog <i class="fa-solid fa-angle-down"></i></a>
@@ -91,14 +91,14 @@
       
       <div class="bbb-logo" style="width: 150px; height: 57px; flex-shrink: 0; display: block;">
         <a href="https://www.bbb.org/us/ny/central-islip/profile/home-improvement/f3-constructions-corp-0121-87182765" style="display: block; width: 100%; height: 100%;">
-          <img src="/media/png/acreditation-f3-2.png" alt="BBB" width="689" height="261" style="width: 100%; height: auto; display: block; aspect-ratio: 689 / 261;" />
+          <img src={import.meta.env.BASE_URL + "media/png/acreditation-f3-2.png"} alt="BBB" width="689" height="261" style="width: 100%; height: auto; display: block; aspect-ratio: 689 / 261;" />
         </a>
       </div>
     </div>
 
     <div class="header-right">
       <div class="contact-button">
-        <a href="/contact">Free Quote Service</a>
+        <a href={import.meta.env.BASE_URL + "contact"}>Free Quote Service</a>
       </div>
     </div>
   </div>
@@ -106,9 +106,9 @@
   <div class="mobile-header" id="mobile-header">
     <div class="mobile-header-container">
       <div style="width: 120px; aspect-ratio: 300 / 205; flex-shrink: 0; overflow: hidden; display: block;">
-        <a href="/" aria-label="logo" style="display: block; width: 100%; height: 100%;">
+        <a href={import.meta.env.BASE_URL} aria-label="logo" style="display: block; width: 100%; height: 100%;">
           <img class="primary-logo" 
-               src="/media/webp/png/logo.webp" 
+               src={import.meta.env.BASE_URL + "media/webp/png/logo.webp"} 
                alt="F3 Construction" 
                width="300" 
                height="205" 
@@ -124,38 +124,38 @@
 
       <div class="side-bar-box">
         <ul class="menu">
-          <li><a href="/"> Home</a></li>
-          <li><a href="/about"> About Us</a></li>
-          <li><a href="/services">Services</a></li>
+          <li><a href={import.meta.env.BASE_URL}> Home</a></li>
+          <li><a href={import.meta.env.BASE_URL + "about"}> About Us</a></li>
+          <li><a href={import.meta.env.BASE_URL + "services"}>Services</a></li>
 
           <li class="dropdown">
             <p><i class="fa-solid fa-angle-down"></i></p>
             <ul class="dropdown-menu">
-              <li><a href="/services/kitchen-remodeling-long-island-ny">Kitchen Remodeling</a></li>
-              <li><a href="/services/deck-builders-long-island-ny">Deck Building</a></li>
-              <li><a href="/services/crown-molding-long-island-ny">Crown Molding</a></li>
-              <li><a href="/services/portico-contractor-long-island-ny">Portico Construction</a></li>
-              <li><a href="/services/tile-installation-service-long-island-ny">Tile Installation</a></li>
-              <li><a href="/services/siding-installation-long-island-ny">Siding Installation</a></li>
-              <li><a href="/services/bathroom-renovation-long-island-ny">Bathroom Renovation</a></li>
-              <li><a href="/services/masonry-contractors-long-island-ny">Masonry</a></li>
-              <li><a href="/services/trim-carpentry-services-long-island-ny">Trim Carpentry</a></li>
-              <li><a href="/services/replacement-windows-long-island-ny">Window Replacement</a></li>
-              <li><a href="/services/door-installation-long-island-ny">Door Installation</a></li>
-              <li><a href="/services/house-painting-long-island-ny">House Painting</a></li>
-              <li><a href="/services/power-washing-long-island-ny">Power Washing</a></li>
-              <li><a href="/services/basement-solutions-long-island-ny">Basement Solutions</a></li>
-              <li><a href="/services/patio-contractor-long-island-ny">Patio Contractor</a></li>
+              <li><a href={import.meta.env.BASE_URL + "services/kitchen-remodeling-long-island-ny"}>Kitchen Remodeling</a></li>
+              <li><a href={import.meta.env.BASE_URL + "services/deck-builders-long-island-ny"}>Deck Building</a></li>
+              <li><a href={import.meta.env.BASE_URL + "services/crown-molding-long-island-ny"}>Crown Molding</a></li>
+              <li><a href={import.meta.env.BASE_URL + "services/portico-contractor-long-island-ny"}>Portico Construction</a></li>
+              <li><a href={import.meta.env.BASE_URL + "services/tile-installation-service-long-island-ny"}>Tile Installation</a></li>
+              <li><a href={import.meta.env.BASE_URL + "services/siding-installation-long-island-ny"}>Siding Installation</a></li>
+              <li><a href={import.meta.env.BASE_URL + "services/bathroom-renovation-long-island-ny"}>Bathroom Renovation</a></li>
+              <li><a href={import.meta.env.BASE_URL + "services/masonry-contractors-long-island-ny"}>Masonry</a></li>
+              <li><a href={import.meta.env.BASE_URL + "services/trim-carpentry-services-long-island-ny"}>Trim Carpentry</a></li>
+              <li><a href={import.meta.env.BASE_URL + "services/replacement-windows-long-island-ny"}>Window Replacement</a></li>
+              <li><a href={import.meta.env.BASE_URL + "services/door-installation-long-island-ny"}>Door Installation</a></li>
+              <li><a href={import.meta.env.BASE_URL + "services/house-painting-long-island-ny"}>House Painting</a></li>
+              <li><a href={import.meta.env.BASE_URL + "services/power-washing-long-island-ny"}>Power Washing</a></li>
+              <li><a href={import.meta.env.BASE_URL + "services/basement-solutions-long-island-ny"}>Basement Solutions</a></li>
+              <li><a href={import.meta.env.BASE_URL + "services/patio-contractor-long-island-ny"}>Patio Contractor</a></li>
             </ul>
           </li>
 
-          <li><a href="/gallery"> Gallery</a></li>
-          <li><a href="/contact"> Contact</a></li>
+          <li><a href={import.meta.env.BASE_URL + "gallery"}> Gallery</a></li>
+          <li><a href={import.meta.env.BASE_URL + "contact"}> Contact</a></li>
           <li><a href="/blog">Blog</a></li>
         </ul>
 
         <a href="https://www.bbb.org/us/ny/central-islip/profile/home-improvement/f3-constructions-corp-0121-87182765">
-          <img src="/media/png/acreditation-f3-2-1.png" alt="BBB" width="689" height="261" style="width: 100%; height: auto;" />
+          <img src={import.meta.env.BASE_URL + "media/png/acreditation-f3-2-1.png"} alt="BBB" width="689" height="261" style="width: 100%; height: auto;" />
         </a>
 
         <div class="button-header-mobile">

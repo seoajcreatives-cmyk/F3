@@ -102,7 +102,7 @@ const resolvedGalleryItems = await Promise.all(
   <main style="position: relative;">
     <section class="banner-section">
       <div class="banner-container">
-        <video id="hero-video" autoplay muted loop playsinline fetchpriority="high" poster="/hero.webp" width="1920" height="1080">
+        <video id="hero-video" autoplay muted loop playsinline fetchpriority="high" poster={import.meta.env.BASE_URL + "hero.webp"} width="1920" height="1080" data-base={import.meta.env.BASE_URL}>
         </video>
         
         <script is:inline>
@@ -111,8 +111,9 @@ const resolvedGalleryItems = await Promise.all(
               setTimeout(function() {
                 var video = document.getElementById("hero-video");
                 if (window.innerWidth > 996 && video) {
+                  var base = video.getAttribute("data-base") || "/";
                   var source = document.createElement("source");
-                  source.src = "/media/video/video.mp4";
+                  source.src = base + "media/video/video.mp4";
                   source.type = "video/mp4";
                   video.appendChild(source);
                   video.load();
@@ -148,23 +149,23 @@ const resolvedGalleryItems = await Promise.all(
       </p>
       <h3>Interior Renovation Projects</h3>
       <p>
-        Inside the home, our gallery showcases beautifully completed basement finished transformations, <strong><a href="/services/kitchen-remodeling-long-island-ny">modern kitchen finished upgrades</a></strong>, and <strong><a href="/services/bathroom-renovation-long-island-ny">elegant bathroom finished</a></strong> spaces designed to improve comfort, usability, and property value.
+        Inside the home, our gallery showcases beautifully completed basement finished transformations, <strong><a href={import.meta.env.BASE_URL + "services/kitchen-remodeling-long-island-ny"}>modern kitchen finished upgrades</a></strong>, and <strong><a href={import.meta.env.BASE_URL + "services/bathroom-renovation-long-island-ny"}>elegant bathroom finished</a></strong> spaces designed to improve comfort, usability, and property value.
       </p>
       <h3>Exterior Construction and Finishing</h3>
       <p>
-        Outside, you can explore projects featuring durable <strong><a href="/services/siding-installation-long-island-ny">siding finish installations</a></strong>, <strong><a href="/services/masonry-contractors-long-island-ny">custom masonry finish work</a></strong>, and <a href="/services/deck-builders-long-island-ny">professionally crafted deck finish structures</a> that enhance both curb appeal and functionality.
+        Outside, you can explore projects featuring durable <strong><a href={import.meta.env.BASE_URL + "services/siding-installation-long-island-ny"}>siding finish installations</a></strong>, <strong><a href={import.meta.env.BASE_URL + "services/masonry-contractors-long-island-ny"}>custom masonry finish work</a></strong>, and <a href={import.meta.env.BASE_URL + "services/deck-builders-long-island-ny"}>professionally crafted deck finish structures</a> that enhance both curb appeal and functionality.
       </p>
       <h3>Detailed Craftsmanship and Finishes</h3>
       <p>
-        Our gallery also highlights the fine details that define quality construction, including precision <strong><a href="/services/tile-installation-service-long-island-ny">tile finish installations</a></strong> and custom <strong><a href="/services/trim-carpentry-services-long-island-ny">carpentry finish</a></strong> work that add character and long-lasting performance to every home.
+        Our gallery also highlights the fine details that define quality construction, including precision <strong><a href={import.meta.env.BASE_URL + "services/tile-installation-service-long-island-ny"}>tile finish installations</a></strong> and custom <strong><a href={import.meta.env.BASE_URL + "services/trim-carpentry-services-long-island-ny"}>carpentry finish</a></strong> work that add character and long-lasting performance to every home.
       </p><br />
 
       <div style="display:flex; justify-content:center; align-items:center; gap:40px; flex-wrap:wrap;">
-        <img src="/media/png/certified%20wolf%20pro_f3%20construction.png" alt="Certification 1" style="width:100px; height:auto;" loading="lazy" width="387" height="388" />
+        <img src={import.meta.env.BASE_URL + "media/png/certified%20wolf%20pro_f3%20construction.png"} alt="Certification 1" style="width:100px; height:auto;" loading="lazy" width="387" height="388" />
         <a href="https://trexrainescape.com/installers/olman-flores/" target="_blank">
-          <img src="/media/png/trex_rain_escape_certified_olman_flores_f3-.png" alt="Certification 2" style="width:140px; height:auto;" loading="lazy" width="580" height="430" />
+          <img src={import.meta.env.BASE_URL + "media/png/trex_rain_escape_certified_olman_flores_f3-.png"} alt="Certification 2" style="width:140px; height:auto;" loading="lazy" width="580" height="430" />
         </a>
-        <img class="logo-3" src="/media/png/Logo-cerrebel-color.png" alt="Certification 3" style="width:auto; height:55px; margin-top:20px;" loading="lazy" width="360" height="106" />
+        <img class="logo-3" src={import.meta.env.BASE_URL + "media/png/Logo-cerrebel-color.png"} alt="Certification 3" style="width:auto; height:55px; margin-top:20px;" loading="lazy" width="360" height="106" />
       </div>
 
       <br />
@@ -239,7 +240,7 @@ const resolvedGalleryItems = await Promise.all(
           <div class="image">
             <button class="prev">&#60;</button>
             <a href="javascript:void(0)">
-              <img id="modal-img-tag" class="modal_img" loading="lazy" src="/media/webp/jpg/gallery3.webp" alt="F3 Construction Corp" />
+              <img id="modal-img-tag" class="modal_img" loading="lazy" src={import.meta.env.BASE_URL + "media/webp/jpg/gallery3.webp"} alt="F3 Construction Corp" />
             </a>
             <button class="next">></button>
           </div>
@@ -255,7 +256,7 @@ const resolvedGalleryItems = await Promise.all(
           <p>Visit us in Long Island, NY for a consultation and estimate on your crown molding or trim project.</p>
           <p><i class="fa-solid fa-location-dot"></i> View on Google Maps <i class="fa-solid fa-arrow-right"></i></p>
           <p>Request Your Crown Molding and Trim Estimate Today!</p>
-          <a href="/contact">Contact Us Now</a>
+          <a href={import.meta.env.BASE_URL + "contact"}>Contact Us Now</a>
         </div>
         <div class="map-section">
           <iframe 

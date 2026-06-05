@@ -65,7 +65,7 @@ import '../styles/contact.css';
       <div class="contact-container">
         <div class="media-ctn">
           <video muted playsinline loop autoplay>
-            <source src="/media/video/contact.mp4" type="video/mp4" />
+            <source src={import.meta.env.BASE_URL + "media/video/contact.mp4"} type="video/mp4" />
           </video>
         </div>
         
@@ -77,7 +77,7 @@ import '../styles/contact.css';
             <p>F3 Construction Corp located in New York with over 20 years of a long and successful history. Our team of experts will help you in any area of remodeling that you require for your home, whether it be interior or exterior remodeling. We work tirelessly for our clients, adapting to their budgets, implementing the highest quality materials and guaranteeing the best results. Your happiness is our success!</p>
           </div>
 
-          <form id="contact_form_id" class="form-tag">
+          <form id="contact_form_id" class="form-tag" data-base={import.meta.env.BASE_URL}>
             <div class="request-ctn">
               <div class="title">
                 <h2>CONNECT WITH US</h2>
@@ -94,7 +94,7 @@ import '../styles/contact.css';
               <div class="privacy-row">
                 <input type="checkbox" id="acept" name="accept" required />
                 <label for="acept">
-                  I have read and accept the <a href="/privacy" target="_blank">Privacy Policy</a>.
+                  I have read and accept the <a href={import.meta.env.BASE_URL + "privacy"} target="_blank">Privacy Policy</a>.
                 </label>
               </div>
 
@@ -189,8 +189,9 @@ import '../styles/contact.css';
       })
     }).catch(err => console.log("Zapier error:", err));
 
-    // Envío principal al script PHP ubicado en la ruta absoluta /sendmail/send_contact.php
-    jQuery.post("/sendmail/send_contact.php", formData, function(result) {
+    // Envío principal al script PHP ubicado en la ruta absoluta
+    var base = jQuery("#contact_form_id").attr("data-base") || "/";
+    jQuery.post(base + "sendmail/send_contact.php", formData, function(result) {
       jQuery("#load_form").hide();
       jQuery("#submit_button").prop("disabled", false).text("SEND REQUEST");
 
