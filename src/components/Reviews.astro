@@ -1,6 +1,8 @@
 ---
 // src/components/Reviews.astro
 import '../styles/review.css';
+
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
 ---
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" media="print" onload="this.media='all'" />
 <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /></noscript>
@@ -12,7 +14,7 @@ import '../styles/review.css';
     <div class="swiper-slide review-card">
       <div class="review-header">
         <div class="review-avatar">
-          <img src={import.meta.env.BASE_URL + "media/png/review-1.png"} alt="Review 1" loading="lazy" width="72" height="72" style="width: 72px; height: 72px; object-fit: cover; border-radius: 50%;" />
+          <img src={base + "media/png/review-1.png"} alt="Review 1" loading="lazy" width="72" height="72" style="width: 72px; height: 72px; object-fit: cover; border-radius: 50%;" />
         </div>
         <div>
           <h3 class="review-name">Jeanette Lutin</h3>
@@ -38,7 +40,7 @@ import '../styles/review.css';
     <div class="swiper-slide review-card">
       <div class="review-header">
         <div class="review-avatar">
-          <img src={import.meta.env.BASE_URL + "media/png/review-2.png"} alt="Review 2" loading="lazy" width="72" height="72" style="width: 72px; height: 72px; object-fit: cover; border-radius: 50%;" />
+          <img src={base + "media/png/review-2.png"} alt="Review 2" loading="lazy" width="72" height="72" style="width: 72px; height: 72px; object-fit: cover; border-radius: 50%;" />
         </div>
         <div>
           <h3 class="review-name">John Penza</h3>
@@ -64,7 +66,7 @@ import '../styles/review.css';
     <div class="swiper-slide review-card">
       <div class="review-header">
         <div class="review-avatar">
-          <img src={import.meta.env.BASE_URL + "media/png/review-3.png"} alt="Review 3" loading="lazy" width="72" height="72" style="width: 72px; height: 72px; object-fit: cover; border-radius: 50%;" />
+          <img src={base + "media/png/review-3.png"} alt="Review 3" loading="lazy" width="72" height="72" style="width: 72px; height: 72px; object-fit: cover; border-radius: 50%;" />
         </div>
         <div>
           <h3 class="review-name">George Macrelli</h3>
@@ -90,7 +92,7 @@ import '../styles/review.css';
     <div class="swiper-slide review-card">
       <div class="review-header">
         <div class="review-avatar">
-          <img src={import.meta.env.BASE_URL + "media/png/review-4.png"} alt="Review 4" loading="lazy" width="72" height="72" style="width: 72px; height: 72px; object-fit: cover; border-radius: 50%;" />
+          <img src={base + "media/png/review-4.png"} alt="Review 4" loading="lazy" width="72" height="72" style="width: 72px; height: 72px; object-fit: cover; border-radius: 50%;" />
         </div>
         <div>
           <h3 class="review-name">Laura Parker</h3>
@@ -116,7 +118,7 @@ import '../styles/review.css';
     <div class="swiper-slide review-card">
       <div class="review-header">
         <div class="review-avatar">
-          <img src={import.meta.env.BASE_URL + "media/png/review-5.png"} alt="Review 5" loading="lazy" width="72" height="72" style="width: 72px; height: 72px; object-fit: cover; border-radius: 50%;" />
+          <img src={base + "media/png/review-5.png"} alt="Review 5" loading="lazy" width="72" height="72" style="width: 72px; height: 72px; object-fit: cover; border-radius: 50%;" />
         </div>
         <div>
           <h3 class="review-name">Paul Anderson</h3>
@@ -142,7 +144,7 @@ import '../styles/review.css';
     <div class="swiper-slide review-card">
       <div class="review-header">
         <div class="review-avatar">
-          <img src={import.meta.env.BASE_URL + "media/png/review-6.png"} alt="Review 6" loading="lazy" width="72" height="72" style="width: 72px; height: 72px; object-fit: cover; border-radius: 50%;" />
+          <img src={base + "media/png/review-6.png"} alt="Review 6" loading="lazy" width="72" height="72" style="width: 72px; height: 72px; object-fit: cover; border-radius: 50%;" />
         </div>
         <div>
           <h3 class="review-name">Edward Freudenberg</h3>
@@ -166,7 +168,7 @@ import '../styles/review.css';
     <div class="swiper-slide review-card">
       <div class="review-header">
         <div class="review-avatar">
-          <img src={import.meta.env.BASE_URL + "media/png/review-7.png"} alt="Review 7" loading="lazy" width="72" height="72" style="width: 72px; height: 72px; object-fit: cover; border-radius: 50%;" />
+          <img src={base + "media/png/review-7.png"} alt="Review 7" loading="lazy" width="72" height="72" style="width: 72px; height: 72px; object-fit: cover; border-radius: 50%;" />
         </div>
         <div>
           <h3 class="review-name">Karen Obrien</h3>

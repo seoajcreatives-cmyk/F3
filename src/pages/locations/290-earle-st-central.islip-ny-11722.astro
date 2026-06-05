@@ -98,6 +98,8 @@ const locationSchema = {
   },
   "image": "https://f3constructionny.com/media/webp/png/logo.webp"
 };
+
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
 ---
 <BaseLayout title={metaTitle} description={metaDescription} canonical={canonical}>
   <Fragment slot="head">
@@ -192,28 +194,28 @@ const locationSchema = {
             <div class="service-box interior">
               <h2>Interior Remodeling</h2>
               <ul>
-                <li><strong><a href={import.meta.env.BASE_URL + "services/kitchen-remodeling-long-island-ny"}>Kitchen Remodeling</a></strong>: Custom layouts, cabinets, countertops, backsplashes, lighting, and flooring.</li>
-                <li><strong><a href={import.meta.env.BASE_URL + "services/bathroom-renovation-long-island-ny"}>Bathroom Renovation</a></strong>: Modern showers, tiles, vanities, and waterproof finishes.</li>
-                <li><strong><a href={import.meta.env.BASE_URL + "services/trim-carpentry-services-long-island-ny"}>Trim Carpentry</a></strong>: Crown, baseboards, wainscoting, and detailed woodwork.</li>
-                <li><strong><a href={import.meta.env.BASE_URL + "services/tile-installation-service-long-island-ny"}>Tile Installation</a></strong>: Wall, floor, and pattern tiling for kitchens, bathrooms, and basements.</li>
-                <li><strong><a href={import.meta.env.BASE_URL + "services/house-painting-long-island-ny"}>Interior Painting</a></strong>: Clean, professional finishes that refresh your living spaces.</li>
-                <li><strong><a href={import.meta.env.BASE_URL + "services/basement-solutions-long-island-ny"}>Basement Solutions</a></strong>: We discuss your vision, structural conditions, waterproofing needs, and budget to create a custom plan.</li>
-                <li><strong><a href={import.meta.env.BASE_URL + "services/crown-molding-long-island-ny"}>Crown Molding</a></strong>: Elegant trim details that enhance ceilings and add a refined architectural touch.</li>
-                <li><strong><a href={import.meta.env.BASE_URL + "services/house-painting-long-island-ny"}>House Painting</a></strong>: Smooth, high-quality finishes that refresh and protect your home inside and out.</li>
+                <li><strong><a href={base + "services/kitchen-remodeling-long-island-ny"}>Kitchen Remodeling</a></strong>: Custom layouts, cabinets, countertops, backsplashes, lighting, and flooring.</li>
+                <li><strong><a href={base + "services/bathroom-renovation-long-island-ny"}>Bathroom Renovation</a></strong>: Modern showers, tiles, vanities, and waterproof finishes.</li>
+                <li><strong><a href={base + "services/trim-carpentry-services-long-island-ny"}>Trim Carpentry</a></strong>: Crown, baseboards, wainscoting, and detailed woodwork.</li>
+                <li><strong><a href={base + "services/tile-installation-service-long-island-ny"}>Tile Installation</a></strong>: Wall, floor, and pattern tiling for kitchens, bathrooms, and basements.</li>
+                <li><strong><a href={base + "services/house-painting-long-island-ny"}>Interior Painting</a></strong>: Clean, professional finishes that refresh your living spaces.</li>
+                <li><strong><a href={base + "services/basement-solutions-long-island-ny"}>Basement Solutions</a></strong>: We discuss your vision, structural conditions, waterproofing needs, and budget to create a custom plan.</li>
+                <li><strong><a href={base + "services/crown-molding-long-island-ny"}>Crown Molding</a></strong>: Elegant trim details that enhance ceilings and add a refined architectural touch.</li>
+                <li><strong><a href={base + "services/house-painting-long-island-ny"}>House Painting</a></strong>: Smooth, high-quality finishes that refresh and protect your home inside and out.</li>
               </ul>
             </div>
 
             <div class="service-box exterior">
               <h2>Exterior Services</h2>
               <ul>
-                <li><strong><a href={import.meta.env.BASE_URL + "services/deck-builders-long-island-ny"}>Decks Building</a></strong>: Design, build, or repair decks and covered porches.</li>
-                <li><strong><a href={import.meta.env.BASE_URL + "services/siding-installation-long-island-ny"}>Siding Installation</a></strong>: Vinyl, fiber cement, and composite siding repairs or replacements.</li>
-                <li><strong><a href={import.meta.env.BASE_URL + "services/masonry-contractors-long-island-ny"}>Masonry & Concrete Work</a></strong>: Brick, stone, steps, driveways, patios, and walkways.</li>
-                <li><strong><a href={import.meta.env.BASE_URL + "services/replacement-windows-long-island-ny"}>Replacement Windows</a></strong> & <strong><a href={import.meta.env.BASE_URL + "services/door-installation-long-island-ny"}>Doors Installation</a></strong>: Energy-efficient replacement and installation for homes and patios.</li>
-                <li><strong><a href={import.meta.env.BASE_URL + "services/power-washing-long-island-ny"}>Power Washing</a></strong>: Exterior cleaning for siding, decks, driveways, and post-construction projects.</li>
-                <li><strong><a href={import.meta.env.BASE_URL + "services/portico-contractor-long-island-ny"}>Portico Construction</a></strong>: We use high-quality materials and skilled craftsmanship to build and restore porticos that increase your home’s value and charm.</li>
-                <li><strong><a href={import.meta.env.BASE_URL + "services/replacement-windows-long-island-ny"}>Windows Replacement</a></strong>: Energy-efficient windows that improve comfort, insulation, and curb appeal.</li>
-                <li><strong><a href={import.meta.env.BASE_URL + "services/patio-contractor-long-island-ny"}>Patio Contractor</a></strong>: Custom outdoor spaces designed for relaxation, entertainment, and durability.</li>
+                <li><strong><a href={base + "services/deck-builders-long-island-ny"}>Decks Building</a></strong>: Design, build, or repair decks and covered porches.</li>
+                <li><strong><a href={base + "services/siding-installation-long-island-ny"}>Siding Installation</a></strong>: Vinyl, fiber cement, and composite siding repairs or replacements.</li>
+                <li><strong><a href={base + "services/masonry-contractors-long-island-ny"}>Masonry & Concrete Work</a></strong>: Brick, stone, steps, driveways, patios, and walkways.</li>
+                <li><strong><a href={base + "services/replacement-windows-long-island-ny"}>Replacement Windows</a></strong> & <strong><a href={base + "services/door-installation-long-island-ny"}>Doors Installation</a></strong>: Energy-efficient replacement and installation for homes and patios.</li>
+                <li><strong><a href={base + "services/power-washing-long-island-ny"}>Power Washing</a></strong>: Exterior cleaning for siding, decks, driveways, and post-construction projects.</li>
+                <li><strong><a href={base + "services/portico-contractor-long-island-ny"}>Portico Construction</a></strong>: We use high-quality materials and skilled craftsmanship to build and restore porticos that increase your home’s value and charm.</li>
+                <li><strong><a href={base + "services/replacement-windows-long-island-ny"}>Windows Replacement</a></strong>: Energy-efficient windows that improve comfort, insulation, and curb appeal.</li>
+                <li><strong><a href={base + "services/patio-contractor-long-island-ny"}>Patio Contractor</a></strong>: Custom outdoor spaces designed for relaxation, entertainment, and durability.</li>
               </ul>
             </div>
           </section>
@@ -268,7 +270,7 @@ const locationSchema = {
                 <p class="note">We invite you to browse our gallery to see the quality and care in every project.</p>
               </div>
               <div class="work-button">
-                <a href={import.meta.env.BASE_URL + "gallery"}>Gallery</a>
+                <a href={base + "gallery"}>Gallery</a>
               </div>
             </div>
           </section>
@@ -286,7 +288,7 @@ const locationSchema = {
               </ul>
             </div>
             <div class="cta-button">
-              <a href={import.meta.env.BASE_URL + "contact"} class="btn-contact">Contact Now</a>
+              <a href={base + "contact"} class="btn-contact">Contact Now</a>
             </div>
           </section>
 
@@ -308,7 +310,7 @@ const locationSchema = {
                 <div class="privacy-row">
                   <input type="checkbox" id="acept" name="accept" required />
                   <label for="acept">
-                    I have read and accept the <a href={import.meta.env.BASE_URL + "privacy"} target="_blank">Privacy Policy</a>.
+                    I have read and accept the <a href={base + "privacy"} target="_blank">Privacy Policy</a>.
                   </label>
                 </div>
 
@@ -333,7 +335,7 @@ const locationSchema = {
             <div class="contact-lines">
               <p><strong>Call:</strong> <a href="tel:+16312788693">(631) 278-8693</a></p>
               <p><strong>Email:</strong> <a href="mailto:f3ccorp@gmail.com">f3ccorp@gmail.com</a></p>
-              <p><strong>Visit:</strong> <a href={import.meta.env.BASE_URL}>f3constructionny.com</a></p>
+              <p><strong>Visit:</strong> <a href={base}>f3constructionny.com</a></p>
             </div>
           </div>
 
