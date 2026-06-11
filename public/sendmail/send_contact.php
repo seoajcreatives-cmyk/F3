@@ -23,10 +23,9 @@ if (trim($name) == "" || trim($lastName) == "" || trim($phone) == "" || trim($em
     exit();
 }
 
-$to = "f3ccorp@gmail.com, ajconversionsseo@gmail.com"; 
+$to = "antoniagallegom2@gmail.com";
 $subject = "F3 Construction Corp - Contact Form";
-
-$headers = "From: F3 Construction <noreply@f3constructionny.com>\r\n";
+$headers  = "From: noreply@f3constructionny.com\r\n";
 $headers .= "Reply-To: $email\r\n";
 $headers .= "MIME-Version: 1.0\r\n";
 $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
@@ -41,6 +40,7 @@ $fullmessage = "
 
 if (mail($to, $subject, $fullmessage, $headers)) {
     enviarAGoogleSheets($name, $lastName, $phone, $email, $message);
+    enviarAZapier($name, $lastName, $phone, $email, $message);
     echo json_encode(array("success" => true));
 } else {
     echo json_encode(array("success" => false, "message" => "Server error. Please try again."));
@@ -60,6 +60,27 @@ function enviarAGoogleSheets($name, $lastName, $phone, $email, $message) {
     ];
 
     $ch = curl_init($gs_url);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, ["Content-Type: application/json"]);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($payload));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 8);
+    curl_exec($ch);
+    curl_close($ch);
+}
+
+function enviarAZapier($name, $lastName, $phone, $email, $message) {
+    $zapier_url = "https://hooks.zapier.com/hooks/catch/26423574/uelrxfz/";
+    $payload = [
+        "name" => $name,
+        "last_name" => $lastName,
+        "phone" => $phone,
+        "email" => $email,
+        "message" => $message,
+        "privacy_consent" => true
+    ];
+
+    $ch = curl_init($zapier_url);
     curl_setopt($ch, CURLOPT_POST, true);
     curl_setopt($ch, CURLOPT_HTTPHEADER, ["Content-Type: application/json"]);
     curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($payload));

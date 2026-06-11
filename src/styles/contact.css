@@ -73,23 +73,35 @@
   grid-row: 3;
 }
 
-.contact-container .request-ctn .form-ctn input {
+.contact-container .request-ctn .form-ctn input,
+.contact-container .request-ctn .form-ctn textarea {
   background: transparent;
   border: 1px solid #00000070;
   padding: 10px 20px;
   color: var(--red);
   border-radius: 20px;
+  font-family: inherit;
+  font-size: inherit;
+  resize: none;
+  box-sizing: border-box;
 }
 
-.contact-container .request-ctn .form-ctn input:focus-visible {
+.contact-container .request-ctn .form-ctn textarea {
+  height: 42px;
+  overflow: hidden;
+}
+.contact-container .request-ctn .form-ctn input:focus-visible,
+.contact-container .request-ctn .form-ctn textarea:focus-visible {
   outline: none;
 }
 
-.contact-container .request-ctn .form-ctn input:focus-visible::placeholder {
+.contact-container .request-ctn .form-ctn input:focus-visible::placeholder,
+.contact-container .request-ctn .form-ctn textarea:focus-visible::placeholder {
   transform: scale(0.9);
 }
 
-.contact-container .request-ctn .form-ctn input::placeholder {
+.contact-container .request-ctn .form-ctn input::placeholder,
+.contact-container .request-ctn .form-ctn textarea::placeholder {
   color: #00000070;
   transition: all 0.3s;
 }

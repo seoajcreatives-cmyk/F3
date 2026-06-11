@@ -12,7 +12,7 @@ import '../../styles/services.css';
 // Metadatos
 const metaTitle = "Construction Services – Central Islip, Long Island NY";
 const metaDescription = "Remodeling and construction in Long Island, NY: kitchens, bathrooms, basement, siding, masonry, windows, doors, painting & power washing.";
-const canonical = "https://f3constructionny.com/locations/290-earle-st-central.islip-ny-11722";
+const canonical = "https://f3constructionny.com/locations/290-earle-st-central.islip-ny-11722/";
 
 // Resolver imagen de la oficina
 const images = import.meta.glob<{ default: ImageMetadata }>('../../public/media/**/*.{jpeg,jpg,png,gif,webp,svg}');
@@ -286,7 +286,7 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
           </section>
 
           <section class="contact-form-section">
-            <form id="contact_form_id" class="form-tag">
+            <form id="contact_form_id" class="form-tag" method="post" novalidate>
               <div class="request-ctn">
                 <div class="title">
                   <h2>CONNECT WITH US</h2>
@@ -391,22 +391,6 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
       message: messageVal,
       "g-recaptcha-response": captchaResponse
     };
-
-    // Envío secundario opcional a Zapier (esquema heredado)
-    fetch("https://hooks.zapier.com/hooks/catch/26423574/uelrxfz/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        name: nameVal,
-        last_name: lastNameVal,
-        phone: phoneVal,
-        email: emailVal,
-        message: messageVal,
-        privacy_consent: aceptCheck ? aceptCheck.checked : false
-      })
-    }).catch(err => console.log("Zapier error:", err));
 
     // Envío principal al script PHP ubicado en la ruta absoluta
     const contactForm = document.getElementById("contact_form_id");

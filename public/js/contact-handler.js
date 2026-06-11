@@ -41,22 +41,6 @@ if (typeof sendmail === "undefined") {
       "g-recaptcha-response": captchaResponse
     });
 
-    // Envío secundario opcional a Zapier
-    fetch("https://hooks.zapier.com/hooks/catch/26423574/uelrxfz/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        name: nameVal,
-        last_name: lastNameVal,
-        phone: phoneVal,
-        email: emailVal,
-        message: messageVal,
-        privacy_consent: privacyConsentEl ? privacyConsentEl.checked : false
-      })
-    }).catch(err => console.log("Zapier error:", err));
-
     // Envío principal al script PHP
     const contactForm = document.getElementById("contact_form_id");
 

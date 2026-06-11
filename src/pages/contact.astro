@@ -12,7 +12,7 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
 <BaseLayout 
   title="Contact: Commercial and Home Renovation in Long Island, NY" 
   description="F3 Construction Corp is the premier provider of full home improvement services in New York. We general contractors for interior and commercial." 
-  canonical="https://f3constructionny.com/contact"
+  canonical="https://f3constructionny.com/contact/"
 >
   <!-- Inyección de Schema Markup para la Página de Contacto -->
   <Fragment slot="head">
@@ -82,7 +82,7 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
             <p>F3 Construction Corp located in New York with over 20 years of a long and successful history. Our team of experts will help you in any area of remodeling that you require for your home, whether it be interior or exterior remodeling. We work tirelessly for our clients, adapting to their budgets, implementing the highest quality materials and guaranteeing the best results. Your happiness is our success!</p>
           </div>
 
-          <form id="contact_form_id" class="form-tag" data-base={base}>
+          <form id="contact_form_id" class="form-tag" method="post" novalidate data-base={base}>
             <div class="request-ctn">
               <div class="title">
                 <h2>CONNECT WITH US</h2>
@@ -93,7 +93,7 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
                 <input type="text" placeholder="Last Name" id="lastName" name="lastName" required />
                 <input type="text" placeholder="Phone" id="phone" name="phone" required />
                 <input type="email" placeholder="Email" id="email" name="email" required />
-                <input type="text" placeholder="Message" id="message" name="message" required />
+                <textarea id="message" name="message" placeholder="Message" required></textarea>
               </div>
 
               <div class="privacy-row">
@@ -183,22 +183,6 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
       message: messageVal,
       "g-recaptcha-response": captchaResponse
     };
-
-    // Envío secundario opcional a Zapier (esquema heredado)
-    fetch("https://hooks.zapier.com/hooks/catch/26423574/uelrxfz/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        name: nameVal,
-        last_name: lastNameVal,
-        phone: phoneVal,
-        email: emailVal,
-        message: messageVal,
-        privacy_consent: aceptCheck ? aceptCheck.checked : false
-      })
-    }).catch(err => console.log("Zapier error:", err));
 
     // Envío principal al script PHP ubicado en la ruta absoluta
     const contactForm = document.getElementById("contact_form_id");

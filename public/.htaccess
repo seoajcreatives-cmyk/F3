@@ -1,0 +1,69 @@
+# Disable directory listing
+Options -Indexes
+
+# Allow both WordPress and Astro
+DirectoryIndex index.php index.html
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# Skip Astro rewrites for WordPress blog
+RewriteCond %{REQUEST_URI} ^/blog
+RewriteRule ^ - [L]
+
+RewriteBase /
+
+# Force SSL / HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Redirect index.html to /
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/+(.*)index\.html [NC]
+RewriteRule ^ /%1 [R=301,L]
+
+# Redirect internal page.html to clean URL (if accessed directly)
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/+(.+)\.html [NC]
+RewriteRule ^ /%1 [R=301,L]
+
+# Skip WordPress blog
+RewriteCond %{REQUEST_URI} !^/blog
+
+# Resolve clean URL (e.g. /contact) to /contact.html internally if it exists
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.*)$ $1.html [L]
+
+</IfModule>
+
+# 301 Redirects from old PHP files to clean Astro routes
+Redirect 301 /index.php /
+Redirect 301 /about.php /about
+Redirect 301 /contact.php /contact
+Redirect 301 /contacto /contact
+Redirect 301 /contacto.php /contact
+Redirect 301 /contacto.html /contact
+Redirect 301 /gallery.php /gallery
+Redirect 301 /privacy.php /privacy
+Redirect 301 /terms.php /terms
+Redirect 301 /services.php /services
+Redirect 301 /404.php /404
+
+# Services 301 Redirects
+Redirect 301 /basement-solutions-long-island-ny.php /services/basement-solutions-long-island-ny
+Redirect 301 /bathroom-renovation-long-island-ny.php /services/bathroom-renovation-long-island-ny
+Redirect 301 /crown-molding-long-island-ny.php /services/crown-molding-long-island-ny
+Redirect 301 /deck-builders-long-island-ny.php /services/deck-builders-long-island-ny
+Redirect 301 /door-installation-long-island-ny.php /services/door-installation-long-island-ny
+Redirect 301 /house-painting-long-island-ny.php /services/house-painting-long-island-ny
+Redirect 301 /kitchen-remodeling-long-island-ny.php /services/kitchen-remodeling-long-island-ny
+Redirect 301 /masonry-contractors-long-island-ny.php /services/masonry-contractors-long-island-ny
+Redirect 301 /patio-contractor-long-island-ny.php /services/patio-contractor-long-island-ny
+Redirect 301 /portico-contractor-long-island-ny.php /services/portico-contractor-long-island-ny
+Redirect 301 /power-washing-long-island-ny.php /services/power-washing-long-island-ny
+Redirect 301 /replacement-windows-long-island-ny.php /services/replacement-windows-long-island-ny
+Redirect 301 /siding-installation-long-island-ny.php /services/siding-installation-long-island-ny
+Redirect 301 /tile-installation-service-long-island-ny.php /services/tile-installation-service-long-island-ny
+Redirect 301 /trim-carpentry-services-long-island-ny.php /services/trim-carpentry-services-long-island-ny
+
+# Locations 301 Redirects
+Redirect 301 /locations/290-earle-st-central.islip-ny-11722.php /locations/290-earle-st-central.islip-ny-11722
