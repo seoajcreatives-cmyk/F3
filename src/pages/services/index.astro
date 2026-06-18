@@ -27,6 +27,7 @@ import paintingImg from '../../../public/media/webp/jpg/painting.webp';
 import powerWashImg from '../../../public/media/webp/jpg/power-wash.webp';
 import basementImg from '../../../public/media/webp/jpg/basement.webp';
 import patioImg from '../../../public/media/webp/jpg/banner-patio-contractor.webp';
+import garageImg from '../../../public/media/jpg/banner-garage.jpg';
 
 // Collection Schema Markup estructurado
 const collectionSchema = {
@@ -139,6 +140,13 @@ const collectionSchema = {
       "name": "Patio Contractor",
       "serviceType": "Patio Contractor",
       "url": "https://f3constructionny.com/services/patio-contractor-long-island-ny"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://f3constructionny.com/services/garage-builder-long-island-ny#service",
+      "name": "Garage Builder",
+      "serviceType": "Garage Builder",
+      "url": "https://f3constructionny.com/services/garage-builder-long-island-ny"
     }
   ]
 };
@@ -411,6 +419,18 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
           </div>
           <div class="patio-media right">
             <Image src={patioImg} alt="patio contractor services ny" loading="lazy" width={2000} height={1331} />
+          </div>
+        </div>
+
+        <!-- Garage Builder -->
+        <div class="service-item order">
+          <div class="service-text">
+            <h3>GARAGE BUILDER</h3>
+            <p>Enhance your property with expert garage builders in Long Island, NY. Durable solutions, custom design, and vehicle protection. From detached garages to comprehensive home additions, we ensure your project is built to last.</p>
+            <a href={base + "services/garage-builder-long-island-ny"}>Free Quote Garage Builder Services</a>
+          </div>
+          <div class="service-media left">
+            <Image src={garageImg} alt="garage builder services ny" loading="lazy" width={2000} height={1331} />
           </div>
         </div>
 

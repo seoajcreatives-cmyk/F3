@@ -27,6 +27,7 @@ import paintingImg from '../../public/media/webp/jpg/painting.webp';
 import powerWashImg from '../../public/media/webp/jpg/power-wash.webp';
 import basementImg from '../../public/media/webp/jpg/basement.webp';
 import patioImg from '../../public/media/webp/jpg/banner-patio-contractor.webp';
+import garageImg from '../../public/media/jpg/banner-garage.jpg';
 
 // Iconos de las tarjetas
 import icon1 from '../../public/media/svg/icono1.svg';
@@ -284,6 +285,18 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
           </div>
           <div class="patio-media right">
             <Image src={patioImg} alt="patio contractor" loading="lazy" width={2000} height={1331} />
+          </div>
+        </div>
+
+        <!-- Garage Builder -->
+        <div class="service-item order">
+          <div class="service-text">
+            <h2>GARAGE BUILDER</h2>
+            <p>Enhance your property with expert garage builders in Long Island, NY. Durable solutions, custom design, and vehicle protection. From detached garages to comprehensive home additions, we ensure your project is built to last.</p>
+            <a href={base + "services/garage-builder-long-island-ny"} class="btn-banner"><span>Learn more</span></a>
+          </div>
+          <div class="service-media left">
+            <Image src={garageImg} alt="garage builder" loading="lazy" width={2000} height={1331} />
           </div>
         </div>
 
