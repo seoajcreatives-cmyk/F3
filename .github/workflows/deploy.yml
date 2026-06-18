@@ -43,3 +43,4 @@ jobs:
           timeout: 600000                       # 10 minutos de margen para archivos pesados
           local-dir: ./dist/                    # Subimos EXCLUSIVAMENTE lo optimizado por Astro
           server-dir: ./                        # Se aloja en la raíz (public_html)
+          state-name: .ftp-deploy-sync-state-v2.json # Forzar resincronización completa
