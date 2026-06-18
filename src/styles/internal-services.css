@@ -133,6 +133,15 @@
     background-blend-mode: overlay;
 }
 
+.banner-garage {
+    padding: 0;
+    height: 80vh;
+    background-image: url("../media/jpg/banner-garage.jpg");
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.6);
+    background-blend-mode: overlay;
+}
+
 .banner-services {
     position: relative;
     min-height: 80vh;

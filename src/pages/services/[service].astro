@@ -220,19 +220,7 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
           <h2 set:html={service.whatIsTitle}></h2>
         </div>
         <div class="text-section">
-          {service.slug === 'basement-solutions-long-island-ny' ? (
-            <>
-              {service.whatIsParagraphs.slice(0, 2).map(p => <p set:html={p}></p>)}
-              {service.whatIsList && (
-                <ul style="margin: 20px 0; padding-left: 20px; list-style-type: disc;">
-                  {service.whatIsList.map(item => (
-                    <li style="margin-bottom: 10px;" set:html={item}></li>
-                  ))}
-                </ul>
-              )}
-              {service.whatIsParagraphs.slice(2).map(p => <p set:html={p}></p>)}
-            </>
-          ) : service.slug === 'patio-contractor-long-island-ny' ? (
+          {service.slug === 'patio-contractor-long-island-ny' ? (
             <>
               {service.whatIsParagraphs.slice(0, 1).map(p => <p set:html={p}></p>)}
               {service.whatIsList && (
@@ -250,6 +238,16 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
                 </div>
               )}
               {service.whatIsParagraphs.slice(1).map(p => <p set:html={p}></p>)}
+            </>
+          ) : service.whatIsList && service.whatIsList.length > 0 ? (
+            <>
+              {service.whatIsParagraphs.slice(0, 2).map(p => <p set:html={p}></p>)}
+              <ul style="margin: 20px 0; padding-left: 20px; list-style-type: disc;">
+                {service.whatIsList.map(item => (
+                  <li style="margin-bottom: 10px;" set:html={item}></li>
+                ))}
+              </ul>
+              {service.whatIsParagraphs.slice(2).map(p => <p set:html={p}></p>)}
             </>
           ) : (
             service.whatIsParagraphs.map(p => <p set:html={p}></p>)
