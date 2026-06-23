@@ -1436,7 +1436,7 @@
     "bannerClass": "banner-garage",
     "metaTitle": "Contractor Garage Builder in Central Islip, Long Island | Car Garage Builders NY",
     "metaDescription": "Enhance your property with expert garage builders in Long Island, NY. Durable solutions, custom design, and vehicle protection.",
-    "canonical": "https://f3constructionny.com/services/garage-builder-long-island-ny",
+    "canonical": "https://f3constructionny.com/services/garage-builder-long-island-ny/",
     "h1": "Expert Carport Contractor in Long Island, NY - TESt",
     "mapText": "Visit us in Long Island, NY for a consultation and a personalized estimate for your new garage.",
     "mapSubtext": "Schedule Your Garage Consultation Today!",
@@ -1464,19 +1464,19 @@
     "processImageHeight": 768,
     "processList": [
       {
-        "title": "<strong>Consultation & Design:</strong>",
+        "title": "<h3><strong>Consultation & Design:</strong></h3>",
         "text": "We discuss layout, size, materials, and project goals."
       },
       {
-        "title": "<strong>Material Selection:</strong>",
+        "title": "<h3><strong>Material Selection:</strong></h3>",
         "text": "Choose from wood, steel, concrete, brick, and finishing options."
       },
       {
-        "title": "<strong>Construction & Installation:</strong>",
+        "title": "<h3><strong>Construction & Installation:</strong></h3>",
         "text": "Licensed contractors handle everything, from base preparation and foundations to the final installation of the roof and doors."
       },
       {
-        "title": "<strong>Final Walkthrough:</strong>",
+        "title": "<h3><strong>Final Walkthrough:</strong></h3>",
         "text": "We ensure structural quality, safety, and your complete satisfaction."
       }
     ],
