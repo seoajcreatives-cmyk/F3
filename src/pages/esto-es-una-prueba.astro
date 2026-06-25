@@ -1,0 +1,143 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Esto es una prueba | F3 Construction"
+  description="Página de prueba con contenido lorem ipsum para verificar el funcionamiento del sitio."
+  canonical="https://f3constructionny.com/esto-es-una-prueba"
+>
+
+  <section class="test-banner">
+    <div class="test-banner-overlay"></div>
+    <div class="test-banner-content">
+      <h1>Esto Es Una Prueba</h1>
+      <p>Página de demostración con texto de muestra</p>
+    </div>
+  </section>
+
+  <section class="test-content">
+    <div class="test-container">
+
+      <div class="test-block">
+        <h2>Lorem Ipsum Dolor Sit Amet</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula. Donec lobortis risus a elit. Etiam tempor. Ut ullamcorper, ligula ut dictum pharetra, nisi nunc fringilla magna, in commodo elit erat nec turpis.</p>
+      </div>
+
+      <div class="test-block">
+        <h2>Proin Eget Tortor Risus</h2>
+        <p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Nulla quis lorem ut libero malesuada feugiat.</p>
+        <p>Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Cras ultricies ligula sed magna dictum porta. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Pellentesque in ipsum id orci porta dapibus. Sed porttitor lectus nibh. Nulla porttitor accumsan tincidunt.</p>
+      </div>
+
+      <div class="test-block">
+        <h2>Curabitur Non Nulla</h2>
+        <p>Donec sollicitudin molestie malesuada. Vivamus suscipit tortor eget felis porttitor volutpat. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Nulla porttitor accumsan tincidunt. Curabitur aliquet quam id dui posuere blandit. Donec rutrum congue leo eget malesuada. Proin eget tortor risus.</p>
+        <p>Pellentesque in ipsum id orci porta dapibus. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Proin eget tortor risus. Cras ultricies ligula sed magna dictum porta. Nulla quis lorem ut libero malesuada feugiat.</p>
+      </div>
+
+      <div class="test-block">
+        <h2>Vestibulum Ante Ipsum</h2>
+        <p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Nulla quis lorem ut libero malesuada feugiat. Cras ultricies ligula sed magna dictum porta. Donec sollicitudin molestie malesuada. Sed porttitor lectus nibh. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis lorem ut libero malesuada feugiat. Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.</p>
+      </div>
+
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .test-banner {
+    position: relative;
+    width: 100%;
+    height: 40vh;
+    min-height: 300px;
+    background: linear-gradient(135deg, #1a1a1a 0%, #e31e24 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .test-banner-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  .test-banner-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    padding: 0 5%;
+  }
+
+  .test-banner-content h1 {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .test-banner-content p {
+    font-size: 18px;
+    font-weight: 400;
+    opacity: 0.9;
+  }
+
+  .test-content {
+    padding: 60px 5%;
+    background: #fff;
+  }
+
+  .test-container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .test-block {
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .test-block:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .test-block h2 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 16px;
+  }
+
+  .test-block p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 14px;
+  }
+
+  .test-block p:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 768px) {
+    .test-banner-content h1 {
+      font-size: 28px;
+    }
+
+    .test-banner-content p {
+      font-size: 15px;
+    }
+
+    .test-block h2 {
+      font-size: 22px;
+    }
+  }
+</style>
