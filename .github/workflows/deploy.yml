@@ -1,46 +1,43 @@
-name: Deploy to Hostinger via FTP
+name: Deploy TEST to Hostinger via FTP
 
 on:
   push:
     branches:
-      - main
+      - test
   workflow_dispatch:
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    
+
     env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true  # Activa Node 24 para limpiar las advertencias
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # 1. Configurar Node.js correctamente
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20                      # Corregido el nombre del input
+          node-version: 20
           cache: 'npm'
 
-      # 2. Instalar dependencias y compilar Astro
       - name: Install dependencies and Build Astro
         run: |
           npm ci
           npm run build
 
-      # 3. Subir la carpeta compilada por el puerto estable
-      - name: Deploy via FTP
+      - name: Deploy via FTP to /test/
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          port: 21                              # Volvemos al puerto 21 para evitar el bloqueo de Hostinger
+          port: 21
           protocol: ftp
-          security: loose                       # Conexión directa estándar para evitar Timeouts
-          timeout: 600000                       # 10 minutos de margen para archivos pesados
-          local-dir: ./dist/                    # Subimos EXCLUSIVAMENTE lo optimizado por Astro
-          server-dir: ./                        # Se aloja en la raíz (public_html)
-          state-name: .ftp-deploy-sync-state-v2.json # Forzar resincronización completa
+          security: loose
+          timeout: 600000
+          local-dir: ./dist/
+          server-dir: ./test/
+          state-name: .ftp-deploy-sync-state-test.json
