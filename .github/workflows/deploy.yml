@@ -39,5 +39,5 @@ jobs:
           security: loose
           timeout: 600000
           local-dir: ./dist/
-          server-dir: ./test/
+          server-dir: ./
           state-name: .ftp-deploy-sync-state-test.json
