@@ -1,123 +1,122 @@
-# Manual de Edicion - Sitio Web F3 Construction
-> Para quien es este manual: Cualquier persona del equipo que necesite editar el sitio, aunque no sea tecnica. No necesitas saber programar.
+# 📋 MANUAL DE TRABAJO — F3 Construction Website
+
+> Proyecto Astro + GitHub + Hostinger
+> Versión 2.0 — Para uso interno del equipo
 
 ---
 
-## Como funciona el sitio
+## ¿Cómo funciona este proyecto?
 
-El sitio web de F3 Construction tiene DOS ambientes:
+Este sitio no es un WordPress. Es un sitio estático construido con **Astro**, un framework que genera HTML/CSS/JS ultra-optimizado para obtener puntajes verdes en Google PageSpeed. El código fuente vive en GitHub y se publica en Hostinger de forma automática a través de un robot.
 
-- PRUEBA (TEST): f3constructionny.com/test/ — Ver los cambios antes de publicarlos
-- PRODUCCION (LIVE): f3constructionny.com — Lo que ven los clientes reales
-
-Los cambios siempre van primero a TEST, se revisan, y solo cuando estan bien se pasan a produccion.
+**La regla más importante:** El código fuente vive en GitHub. Hostinger solo recibe el resultado final compilado. Nunca se edita directamente en Hostinger.
 
 ---
 
-## Las herramientas que usamos
+## Las dos capas del proyecto
 
-- Google Antigravity: Editor de paginas web con IA — Aqui se hacen todos los cambios visuales
-- GitHub: Repositorio de codigo — Guarda todas las versiones del sitio
-- GitHub Actions: Sistema automatico — Detecta cambios y publica el sitio solo
-- Hostinger: Servidor web — Donde vive el sitio en internet
+**En GitHub (lo que edita el equipo):**
 
-El flujo completo:
-Google Antigravity → guarda en GitHub → GitHub Actions construye → publica en Hostinger
+- `src/pages/` → las páginas del sitio (archivos `.astro`)
+- `src/components/` → partes reutilizables: header, footer, secciones
+- `src/layouts/` → plantillas base de las páginas
+- `src/styles/` → estilos CSS globales
+- `src/data/` → textos, servicios y datos del sitio
+- `public/` → imágenes, fonts y archivos estáticos
 
-Tu solo necesitas trabajar en Antigravity. El resto pasa automaticamente.
+**En Hostinger (solo el resultado compilado — no se toca):**
 
----
-
-## Como hacer cambios en el sitio
-
-### Paso 1 — Abrir Google Antigravity
-
-Accede a tu cuenta de Google Antigravity y abre el proyecto F3 Construction.
-
-### Paso 2 — Verificar la rama correcta
-
-Antes de editar, verifica en que rama estas trabajando:
-
-- Rama `test` → los cambios van a f3constructionny.com/test/ (aqui debes trabajar normalmente)
-- Rama `main` → los cambios van directo a produccion (solo cuando estes seguro)
-
-REGLA DE ORO: Siempre edita en la rama `test` primero. Nunca edites directamente en `main` a menos que el equipo lo haya aprobado.
-
-### Paso 3 — Hacer tus cambios
-
-Edita el texto, imagenes o secciones que necesites usando las herramientas de Antigravity normalmente.
-
-### Paso 4 — Guardar en Antigravity
-
-Cuando termines de editar, guarda los cambios. Antigravity los enviara automaticamente a GitHub.
-
-### Paso 5 — Esperar el deploy automatico
-
-GitHub detectara el cambio y comenzara a construir el sitio automaticamente. Este proceso tarda entre 1 y 3 minutos.
-
-Puedes ver el progreso en: https://github.com/seoajcreatives-cmyk/F3/actions
-
-Mientras el proceso corre veras un circulo amarillo. Cuando termina bien, aparece una paloma verde.
-
-### Paso 6 — Revisar en TEST
-
-Abre f3constructionny.com/test/ en tu navegador.
-
-Si no ves los cambios, haz Ctrl + Shift + R (Windows) o Cmd + Shift + R (Mac) para forzar la recarga sin cache.
-
-### Paso 7 — Aprobar y pasar a produccion
-
-Si todo se ve bien en TEST, el encargado del equipo mueve los cambios a la rama `main` en GitHub. Eso dispara un nuevo deploy automatico que publica todo en f3constructionny.com.
+- `public_html/` → el sitio en producción
+- `public_html/test/` → el entorno de prueba
 
 ---
 
-## Semaforo de estados en GitHub Actions
+## Las dos ramas de trabajo
 
-Cuando entras a la pagina de Actions, cada deploy muestra un icono:
+El repositorio tiene dos ramas que cumplen funciones distintas:
 
-- Circulo amarillo (en progreso) → Esperar, no tocar nada
-- Paloma verde → Deploy exitoso → Revisar el sitio en el navegador
-- X roja → Deploy fallido → Avisar al encargado tecnico
+La **rama `test`** es para trabajo en progreso. Todo lo que va aquí se despliega automáticamente en `f3constructionny.com/test/` para que el equipo lo pueda revisar antes de publicar.
 
-IMPORTANTE: Nunca hagas otro cambio mientras el icono esta en amarillo. Espera siempre a que termine.
+La **rama `main`** es producción. Lo que va aquí se publica en `f3constructionny.com/` directamente.
 
----
-
-## Links importantes
-
-- Sitio de produccion: https://f3constructionny.com
-- Sitio de prueba: https://f3constructionny.com/test/
-- GitHub Actions (ver deploys): https://github.com/seoajcreatives-cmyk/F3/actions
-- Repositorio GitHub: https://github.com/seoajcreatives-cmyk/F3
+> **Nota:** El comportamiento exacto de cada rama está siendo ajustado por el equipo técnico. Ver la sección de pendientes al final.
 
 ---
 
-## Cosas que NUNCA debes hacer
+## Flujo de trabajo: cambios con Google Antigravity
 
-- NO subas archivos directamente a Hostinger — todo va por GitHub
-- NO edites archivos de configuracion como .github/workflows/, astro.config.mjs, package.json
-- NO borres ni muevas estos archivos en Hostinger: .htaccess, .ftp-deploy-sync-state.json
-- NO hagas cambios en produccion (main) sin probar antes en TEST (test)
-- NO hagas un segundo push mientras hay uno en progreso (icono amarillo)
+Este es el flujo para cambios medianos o cuando se usa el agente de IA.
 
----
+**Paso 1 — Editar en Antigravity.** El agente edita los archivos dentro de `src/` o `public/`. Indicar siempre con claridad qué página o sección se quiere cambiar y qué debe decir exactamente.
 
-## Que hacer si algo salio mal
+**Paso 2 — Push desde Antigravity.** Al confirmar los cambios, Antigravity sube el código a GitHub. En el mensaje de commit escribir qué se hizo, por ejemplo: `Actualizar número de teléfono en header`.
 
-- No veo mis cambios en /test/ → Espera 2-3 min, luego Ctrl+Shift+R para recargar
-- El deploy tiene X roja → Toma captura de pantalla del error y avisa al encargado tecnico
-- El sitio de produccion no abre → Avisar inmediatamente al encargado tecnico
-- Borre algo por error en Antigravity → No cierres la pestana, avisa al encargado para revertir desde GitHub
+**Paso 3 — El robot trabaja solo.** GitHub Actions detecta el push y automáticamente compila el proyecto con Astro y sube el resultado a Hostinger. Esto tarda entre 1 y 3 minutos. Se puede ver el progreso en GitHub → pestaña **Actions**.
+
+**Paso 4 — Verificar en /test/.** Abrir `f3constructionny.com/test/` y revisar que todo se vea bien.
+
+**Paso 5 — Aprobar para producción.** Si está bien, se hace push a `main` para que el robot despliegue a producción.
 
 ---
 
-## Informacion tecnica (solo referencia)
+## Flujo de trabajo: cambios pequeños desde GitHub directamente
 
-- Rama `test` usa el usuario FTP u560442877.F3Test (raiz: public_html/test/)
-- Rama `main` usa el usuario FTP u560442877.F3Prod (raiz: public_html/)
-- El servidor FTP usa la IP directa 82.197.84.251 (no el dominio ftp. que pasa por Cloudflare)
-- Las credenciales FTP estan guardadas como Secrets en GitHub — no se deben compartir
+Para correcciones rápidas de texto, datos o pequeños ajustes sin necesidad de usar Antigravity.
+
+**Paso 1 — Ir al archivo en GitHub.** Navegar a [github.com/seoajcreatives-cmyk/F3](https://github.com/seoajcreatives-cmyk/F3), luego a `src/pages/` y abrir el archivo de la página que se quiere editar.
+
+**Paso 2 — Clic en el lápiz (editar).** Botón con ícono de lápiz en la esquina superior derecha del archivo.
+
+**Paso 3 — Hacer el cambio.** Editar el texto directamente en el editor del navegador.
+
+**Paso 4 — Commit.** Clic en **"Commit changes"**. Aparece un diálogo con dos opciones:
+- `Commit directly to the main branch` → va a producción
+- `Create a new branch` → escribir `test` para enviar al entorno de prueba
+
+Elegir según si el cambio es seguro o necesita revisión previa.
+
+**Paso 5 — El robot despliega solo.** Igual que con Antigravity, GitHub Actions compila y publica automáticamente.
 
 ---
 
-Manual actualizado: Junio 2026 — F3 Construction Corp
+## ¿Qué NO hay que hacer nunca?
+
+**Nunca subir archivos manualmente a `public_html/` en Hostinger.** El robot es el único que debe escribir ahí. Subir archivos manualmente puede generar conflictos con el sistema de sincronización y causar que el próximo deploy sobreescriba o borre lo que se subió a mano.
+
+**Nunca editar o borrar estos archivos en Hostinger:**
+- `.ftp-deploy-sync-state-v2.json` — registro interno del robot
+- `.ftp-deploy-sync-state.json` — versión anterior del mismo registro
+- `.htaccess` — configuración del servidor
+- `DO_NOT_UPLOAD_HERE` — archivo centinela del sistema
+
+**Nunca hacer push mientras hay un deploy en curso.** Esperar a que el círculo en GitHub Actions pase de amarillo a verde antes de enviar más cambios.
+
+---
+
+## ¿Cómo saber si el deploy funcionó?
+
+Ir a [github.com/seoajcreatives-cmyk/F3/actions](https://github.com/seoajcreatives-cmyk/F3/actions) y revisar el último workflow run:
+
+- 🟡 Círculo amarillo → en progreso, esperar
+- 🟢 Círculo verde → éxito, el sitio está actualizado
+- 🔴 Círculo rojo → error, revisar el log para saber qué paso falló
+
+---
+
+## ¿Qué hacer si algo sale mal?
+
+Si el sitio en producción tiene un error visible y no se puede esperar el proceso normal, la única acción de emergencia válida es **revertir el último commit** en GitHub haciendo clic en el commit anterior en el historial y usando "Revert". Eso activa el robot automáticamente y vuelve al estado anterior. No se debe editar nada en Hostinger directamente.
+
+---
+
+## Dónde está cada cosa
+
+| Necesito... | Lo encuentro en... |
+|---|---|
+| Editar una página | GitHub → `src/pages/` |
+| Editar el header o footer | GitHub → `src/components/` |
+| Agregar una imagen | GitHub → `public/media/` |
+| Ver si el deploy está corriendo | GitHub → pestaña **Actions** |
+| Ver cambios en prueba | `f3constructionny.com/test/` |
+| Ver el sitio en producción | `f3constructionny.com/` |
+| Acceder al historial de cambios | GitHub → pestaña **Commits** |
