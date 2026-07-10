@@ -1578,6 +1578,13 @@ footer .created-box a:hover {
   display: block;
 }
 
+.logos-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
 .logos-row a {
   display: inline-flex;
   align-items: center;
@@ -1585,7 +1592,7 @@ footer .created-box a:hover {
   width: auto;
 }
 
-.logo-3 {
+.logos-row .logo-3 {
   width: 140px;
   height: auto;
   display: block;
@@ -1602,10 +1609,35 @@ footer .created-box a:hover {
   width: auto;
 }
 
-.logo-1,
-.logo-2 {
+.logos-row .logo-1,
+.logos-row .logo-2 {
   width: 270px;
   max-width: 270px;
+}
+
+.qr-container {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  vertical-align: middle;
+  padding: 12px 8px;
+  margin: 4px 6px;
+}
+
+.logo-qr {
+  width: 100px;
+  height: 100px;
+  display: block;
+}
+
+.qr-text {
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 500;
+  text-align: center;
+  max-width: 180px;
+  line-height: 1.2;
 }
 
 @media (max-width: 921px) {
@@ -1707,6 +1739,16 @@ footer .created-box a:hover {
     max-width: 120px !important;
     height: auto !important;
     display: block !important;
+  }
+
+  .logo-qr {
+    width: 75px !important;
+    height: 75px !important;
+  }
+
+  .qr-text {
+    font-size: 8px !important;
+    max-width: 120px !important;
   }
 
   .footer-container .contact-ctn ul {
