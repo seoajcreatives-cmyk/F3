@@ -107,7 +107,8 @@
   width: 90%;
   display: grid;
   position: relative;
-  grid-template-columns: 15% 95%;
+  grid-template-columns: max-content 1fr;
+  gap: 3%;
   padding: 5% 7% 5% 5%;
   border-radius: 999px 0 0 999px;
   background: var(--red);
@@ -123,6 +124,7 @@
   color: white;
   font-size: 65px;
   font-weight: bold;
+  white-space: nowrap;
 }
 
 .services_section .title_box .services-mobile {
@@ -234,6 +236,7 @@
 .services_section .info_box::after {
   content: "";
   width: 100%;
+  top: 0;
   left: 0;
   opacity: 0.3;
   height: 100%;

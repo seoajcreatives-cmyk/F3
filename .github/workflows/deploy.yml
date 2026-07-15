@@ -24,6 +24,8 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies and Build Astro
+        env:
+          DEPLOY_ENV: test
         run: |
           npm ci
           npm run build
