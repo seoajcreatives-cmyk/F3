@@ -223,13 +223,13 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
       <div class="services_section">
         <div class="services_box">
           <div class="title_box">
-            <h2 class="services-desktop">SER<br />VI<br />CES</h2>
+            <h2 class="services-desktop">SERVICES</h2>
             <h2 class="services-mobile">SERVICES</h2>
           </div>
           <div class="carousel_box">
             <div class="card_box">
               <div class="info_box">
-                <h2>KITCHENS</h2>
+                <h3>KITCHENS</h3>
                 <div class="hover_info">
                   <p>Designing and creating the perfect kitchen can be a real headache without professional help. However, with our specialized design team you get the professional knowledge and insight to help simplify the process.</p>
                   <a href={base + "services/kitchen-remodeling-long-island-ny"}>View Kitchens</a>
@@ -238,8 +238,8 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
             </div>
             
             <div class="card_box">
-              <div class="info_box decks" style={`background-image: url(${optimizedDeck.src});`}>
-                <h2>DECKS</h2>
+              <div class="info_box decks" style={`background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${optimizedDeck.src});`}>
+                <h3>DECKS</h3>
                 <div class="hover_info">
                   <p>At F3 Construction Corp we are skilled at working with high quality materials and can design, repair and construct a beautiful deck for your home.</p>
                   <a href={base + "services/deck-builders-long-island-ny"}>View Decks</a>
@@ -249,7 +249,7 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
 
             <div class="card_box">
               <div class="info_box moldings">
-                <h2>MOLDINGS</h2>
+                <h3>MOLDINGS</h3>
                 <div class="hover_info">
                   <p>To add both value and style to your home, consider the installation of molding.</p>
                   <a href={base + "services/crown-molding-long-island-ny"}>View Moldings</a>
@@ -259,7 +259,7 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
 
             <div class="card_box">
               <div class="info_box portico">
-                <h2>PORTICO</h2>
+                <h3>PORTICO</h3>
                 <div class="hover_info">
                   <p>The addition of a portico to your front entrance sets your home apart from the rest. A covered porch serves many functions, both practical and aesthetic.</p>
                   <a href={base + "services/portico-contractor-long-island-ny"}>View Portico</a>
@@ -269,7 +269,7 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
 
             <div class="card_box">
               <div class="info_box tiles">
-                <h2>TILES</h2>
+                <h3>TILES</h3>
                 <div class="hover_info">
                   <p>Our professional team works with tiling on walls, floors, stairs and patterns, doing repair and renovation work on tiling. We use the best quality products to provide you great results.</p>
                   <a href={base + "services/tile-installation-service-long-island-ny"}>View Tiles Installation</a>
@@ -279,7 +279,7 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
 
             <div class="card_box">
               <div class="info_box siding">
-                <h2>SIDING</h2>
+                <h3>SIDING</h3>
                 <div class="hover_info">
                   <p>Our installers are manufacturer trained and certified to install a wide variety of siding and siding applications.</p>
                   <a href={base + "services/siding-installation-long-island-ny"}>View Siding</a>
@@ -289,7 +289,7 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
 
             <div class="card_box">
               <div class="info_box bathroom">
-                <h2>BATHROOM</h2>
+                <h3>BATHROOM</h3>
                 <div class="hover_info">
                   <p>Our professional team with tiling work on walls, floors, stairs and patterns, doing repair and renovation work on tiling.</p>
                   <a href={base + "services/bathroom-renovation-long-island-ny"}>View Bathroom</a>
@@ -299,7 +299,7 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
 
             <div class="card_box">
               <div class="info_box mansory">
-                <h2>MANSORY</h2>
+                <h3>MANSORY</h3>
                 <div class="hover_info">
                   <p>We provide structural and decorative masonry services for a wide range of home construction and remodeling services</p>
                   <a href={base + "services/masonry-contractors-long-island-ny"}>View Masonry</a>
@@ -309,7 +309,7 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
 
             <div class="card_box">
               <div class="info_box trim">
-                <h2>CARPENTRY</h2>
+                <h3>CARPENTRY</h3>
                 <div class="hover_info">
                   <p>Our F3 Construction Corp team offers quality trim services. From molding packages</p>
                   <a href={base + "services/trim-carpentry-services-long-island-ny"}>View Trim Carpentry</a>
@@ -319,7 +319,7 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
 
             <div class="card_box">
               <div class="info_box windows">
-                <h2>WINDOWS</h2>
+                <h3>WINDOWS</h3>
                 <div class="hover_info">
                   <p>Our team will manage every step of your windows replacement project, offering suggestions on the best color and window style that complements your home</p>
                   <a href={base + "services/replacement-windows-long-island-ny"}>View Windows</a>
@@ -329,7 +329,7 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
 
             <div class="card_box">
               <div class="info_box doors">
-                <h2>DOORS</h2>
+                <h3>DOORS</h3>
                 <div class="hover_info">
                   <p>At some point, every home needs to have its doors. This may be due to damage from weather or age</p>
                   <a href={base + "services/door-installation-long-island-ny"}>View Doors</a>
@@ -339,7 +339,7 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
 
             <div class="card_box">
               <div class="info_box painting">
-                <h2>PAINTING</h2>
+                <h3>PAINTING</h3>
                 <div class="hover_info">
                   <p>Hiring a professional team for painting services is critically important</p>
                   <a href={base + "services/house-painting-long-island-ny"}>View Painting</a>
@@ -349,7 +349,7 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
 
             <div class="card_box">
               <div class="info_box power">
-                <h2>POWER WASH</h2>
+                <h3>POWER WASH</h3>
                 <div class="hover_info">
                   <p>Construction and remodeling jobs often result in dirty structures and equipment, so it’s important to have access to a professional power washing service</p>
                   <a href={base + "services/power-washing-long-island-ny"}>View Power Wash</a>
@@ -359,7 +359,7 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
 
             <div class="card_box">
               <div class="info_box basement">
-                <h2>BASEMENT</h2>
+                <h3>BASEMENT</h3>
                 <div class="hover_info">
                   <p>Enhance your home’s value and usability with expert basement solutions. From waterproofing to full remodels, we turn underused basements into functional, stylish spaces.</p>
                   <a href={base + "services/basement-solutions-long-island-ny"}>View Basement</a>
@@ -368,8 +368,8 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
             </div>
 
             <div class="card_box">
-              <div class="info_box patio" style={`background-image: url(${optimizedPatio.src});`}>
-                <h2>PATIO</h2>
+              <div class="info_box patio" style={`background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${optimizedPatio.src});`}>
+                <h3>PATIO</h3>
                 <div class="hover_info">
                   <p>Our experienced patio contractors Long Island deliver custom solutions—whether you need paver patio installation Long Island, pool and patio contractors.</p>
                   <a href={base + "services/patio-contractor-long-island-ny"}>View Patio</a>
@@ -378,8 +378,8 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
             </div>
 
             <div class="card_box">
-              <div class="info_box order" style={`background-image: url(${optimizedGarage.src});`}>
-                <h2>GARAGE BUILDER</h2>
+              <div class="info_box order" style={`background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${optimizedGarage.src});`}>
+                <h3>GARAGE BUILDER</h3>
                 <div class="hover_info">
                   <p>Enhance your property with expert garage builders in Long Island, NY. Durable solutions, custom design, and vehicle protection.</p>
                   <a href={base + "services/garage-builder-long-island-ny"}>View Garage</a>

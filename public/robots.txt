@@ -1,2 +1,14 @@
 User-agent: *
+Allow: /
+
+# Entorno de pruebas: no indexar
 Disallow: /test/
+
+# Backend y archivos no indexables
+Disallow: /sendmail/
+Disallow: /includes/
+Disallow: /cgi-bin/
+Disallow: /tmp/
+
+# Sitemap
+Sitemap: https://f3constructionny.com/sitemap.xml

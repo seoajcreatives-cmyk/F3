@@ -21,6 +21,13 @@ const {
 } = Astro.props;
 
 const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
+
+// @font-face de Poppins con la ruta base del entorno (raíz en prod/local, /test en la rama test).
+// Se inyecta desde aquí porque un CSS estático no puede leer import.meta.env.BASE_URL,
+// y una ruta fija no puede servir a la vez a la raíz y a la subcarpeta.
+const poppinsFontFace = [400, 500, 600, 700, 800]
+  .map((w) => `@font-face{font-family:'Poppins';font-style:normal;font-weight:${w};font-display:swap;src:url('${base}fonts/poppins-${w}.woff2') format('woff2');}`)
+  .join('');
 ---
 
 <!DOCTYPE html>
@@ -303,6 +310,9 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
     <!-- Local self-hosted Poppins fonts preloads -->
     <link rel="preload" as="font" href={`${base}fonts/poppins-500.woff2`} type="font/woff2" crossorigin />
     <link rel="preload" as="font" href={`${base}fonts/poppins-700.woff2`} type="font/woff2" crossorigin />
+
+    <!-- @font-face Poppins con ruta base del entorno -->
+    <style is:inline set:html={poppinsFontFace}></style>
 
     <!-- CSS libraries -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" media="print" onload="this.media='all'" />

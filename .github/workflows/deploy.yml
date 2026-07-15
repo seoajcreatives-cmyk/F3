@@ -24,6 +24,8 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies and Build Astro
+        env:
+          DEPLOY_ENV: test
         run: |
           npm ci
           npm run build
@@ -39,5 +41,5 @@ jobs:
           security: loose
           timeout: 600000
           local-dir: ./dist/
-          server-dir: ./test/
+          server-dir: ./
           state-name: .ftp-deploy-sync-state-test.json

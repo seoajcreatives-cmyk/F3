@@ -45,23 +45,43 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
 
           <li class="dropdown">
             <a href={base + "services"}>Services <Icon name="angle-down" /></a>
-            <ul class="dropdown-menu">
-              <li><a href={base + "services/kitchen-remodeling-long-island-ny"}>Kitchen Remodeling</a></li>
-              <li><a href={base + "services/deck-builders-long-island-ny"}>Deck Building</a></li>
-              <li><a href={base + "services/crown-molding-long-island-ny"}>Crown Molding</a></li>
-              <li><a href={base + "services/portico-contractor-long-island-ny"}>Portico Construction</a></li>
-              <li><a href={base + "services/tile-installation-service-long-island-ny"}>Tile Installation</a></li>
-              <li><a href={base + "services/siding-installation-long-island-ny"}>Siding Installation</a></li>
-              <li><a href={base + "services/bathroom-renovation-long-island-ny"}>Bathroom Renovation</a></li>
-              <li><a href={base + "services/masonry-contractors-long-island-ny"}>Masonry Contractor</a></li>
-              <li><a href={base + "services/trim-carpentry-services-long-island-ny"}>Trim Carpentry</a></li>
-              <li><a href={base + "services/replacement-windows-long-island-ny"}>Window Replacement</a></li>
-              <li><a href={base + "services/door-installation-long-island-ny"}>Door Installation</a></li>
-              <li><a href={base + "services/house-painting-long-island-ny"}>House Painting</a></li>
-              <li><a href={base + "services/power-washing-long-island-ny"}>Power Washing</a></li>
-              <li><a href={base + "services/basement-solutions-long-island-ny"}>Basement Solutions</a></li>
-              <li><a href={base + "services/patio-contractor-long-island-ny"}>Patio Contractor</a></li>
-              <li><a href={base + "services/garage-builder-long-island-ny"}>Garage Builder</a></li>
+            <ul class="dropdown-menu services-menu">
+              <li class="has-sub">
+                <span class="sub-cat">Interior Renovation Contractor <Icon name="angle-down" class="sub-arrow" /></span>
+                <ul class="submenu">
+                  <li><a href={base + "services/basement-solutions-long-island-ny"}>Basement Solutions</a></li>
+                  <li><a href={base + "services/kitchen-remodeling-long-island-ny"}>Kitchen Renovation</a></li>
+                  <li><a href={base + "services/bathroom-renovation-long-island-ny"}>Bathroom Renovation</a></li>
+                  <li><a href={base + "services/trim-carpentry-services-long-island-ny"}>Trim Carpentry</a></li>
+                  <li><a href={base + "services/crown-molding-long-island-ny"}>Crown Molding</a></li>
+                </ul>
+              </li>
+              <li class="has-sub">
+                <span class="sub-cat">Exterior Improvements Contractor <Icon name="angle-down" class="sub-arrow" /></span>
+                <ul class="submenu">
+                  <li><a href={base + "services/siding-installation-long-island-ny"}>Siding Installation</a></li>
+                  <li><a href={base + "services/replacement-windows-long-island-ny"}>Replacement Windows</a></li>
+                  <li><a href={base + "services/door-installation-long-island-ny"}>Door Installation</a></li>
+                  <li><a href={base + "services/house-painting-long-island-ny"}>House Painting</a></li>
+                  <li><a href={base + "services/power-washing-long-island-ny"}>Power Washing</a></li>
+                </ul>
+              </li>
+              <li class="has-sub">
+                <span class="sub-cat">Outdoor Structures Builder <Icon name="angle-down" class="sub-arrow" /></span>
+                <ul class="submenu">
+                  <li><a href={base + "services/garage-builder-long-island-ny"}>Garage Builders</a></li>
+                  <li><a href={base + "services/masonry-contractors-long-island-ny"}>Masonry Contractors</a></li>
+                  <li><a href={base + "services/deck-builders-long-island-ny"}>Deck Builders</a></li>
+                  <li><a href={base + "services/portico-contractor-long-island-ny"}>Portico Contractor</a></li>
+                  <li><a href={base + "services/tile-installation-service-long-island-ny"}>Tile Installation</a></li>
+                </ul>
+              </li>
+              <li class="has-sub">
+                <span class="sub-cat">Patio Installer <Icon name="angle-down" class="sub-arrow" /></span>
+                <ul class="submenu">
+                  <li><a href={base + "services/patio-contractor-long-island-ny"}>Paver Patio Installation</a></li>
+                </ul>
+              </li>
             </ul>
           </li>
 
@@ -128,24 +148,44 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
           <li><a href={base + "services"}>Services</a></li>
 
           <li class="dropdown">
-            <p><Icon name="angle-down" /></p>
-            <ul class="dropdown-menu">
-              <li><a href={base + "services/kitchen-remodeling-long-island-ny"}>Kitchen Remodeling</a></li>
-              <li><a href={base + "services/deck-builders-long-island-ny"}>Deck Building</a></li>
-              <li><a href={base + "services/crown-molding-long-island-ny"}>Crown Molding</a></li>
-              <li><a href={base + "services/portico-contractor-long-island-ny"}>Portico Construction</a></li>
-              <li><a href={base + "services/tile-installation-service-long-island-ny"}>Tile Installation</a></li>
-              <li><a href={base + "services/siding-installation-long-island-ny"}>Siding Installation</a></li>
-              <li><a href={base + "services/bathroom-renovation-long-island-ny"}>Bathroom Renovation</a></li>
-              <li><a href={base + "services/masonry-contractors-long-island-ny"}>Masonry</a></li>
-              <li><a href={base + "services/trim-carpentry-services-long-island-ny"}>Trim Carpentry</a></li>
-              <li><a href={base + "services/replacement-windows-long-island-ny"}>Window Replacement</a></li>
-              <li><a href={base + "services/door-installation-long-island-ny"}>Door Installation</a></li>
-              <li><a href={base + "services/house-painting-long-island-ny"}>House Painting</a></li>
-              <li><a href={base + "services/power-washing-long-island-ny"}>Power Washing</a></li>
-              <li><a href={base + "services/basement-solutions-long-island-ny"}>Basement Solutions</a></li>
-              <li><a href={base + "services/patio-contractor-long-island-ny"}>Patio Contractor</a></li>
-              <li><a href={base + "services/garage-builder-long-island-ny"}>Garage Builder</a></li>
+            <p class="services-toggle"><Icon name="angle-down" /></p>
+            <ul class="dropdown-menu services-menu">
+              <li class="has-sub">
+                <span class="sub-cat">Interior Renovation Contractor</span>
+                <ul class="submenu">
+                  <li><a href={base + "services/basement-solutions-long-island-ny"}>Basement Solutions</a></li>
+                  <li><a href={base + "services/kitchen-remodeling-long-island-ny"}>Kitchen Renovation</a></li>
+                  <li><a href={base + "services/bathroom-renovation-long-island-ny"}>Bathroom Renovation</a></li>
+                  <li><a href={base + "services/trim-carpentry-services-long-island-ny"}>Trim Carpentry</a></li>
+                  <li><a href={base + "services/crown-molding-long-island-ny"}>Crown Molding</a></li>
+                </ul>
+              </li>
+              <li class="has-sub">
+                <span class="sub-cat">Exterior Improvements Contractor</span>
+                <ul class="submenu">
+                  <li><a href={base + "services/siding-installation-long-island-ny"}>Siding Installation</a></li>
+                  <li><a href={base + "services/replacement-windows-long-island-ny"}>Replacement Windows</a></li>
+                  <li><a href={base + "services/door-installation-long-island-ny"}>Door Installation</a></li>
+                  <li><a href={base + "services/house-painting-long-island-ny"}>House Painting</a></li>
+                  <li><a href={base + "services/power-washing-long-island-ny"}>Power Washing</a></li>
+                </ul>
+              </li>
+              <li class="has-sub">
+                <span class="sub-cat">Outdoor Structures Builder</span>
+                <ul class="submenu">
+                  <li><a href={base + "services/garage-builder-long-island-ny"}>Garage Builders</a></li>
+                  <li><a href={base + "services/masonry-contractors-long-island-ny"}>Masonry Contractors</a></li>
+                  <li><a href={base + "services/deck-builders-long-island-ny"}>Deck Builders</a></li>
+                  <li><a href={base + "services/portico-contractor-long-island-ny"}>Portico Contractor</a></li>
+                  <li><a href={base + "services/tile-installation-service-long-island-ny"}>Tile Installation</a></li>
+                </ul>
+              </li>
+              <li class="has-sub">
+                <span class="sub-cat">Patio Installer</span>
+                <ul class="submenu">
+                  <li><a href={base + "services/patio-contractor-long-island-ny"}>Paver Patio Installation</a></li>
+                </ul>
+              </li>
             </ul>
           </li>
 
@@ -178,4 +218,9 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
 
   document.querySelector(".mobile_toggle")?.addEventListener("click", active_toggle);
   document.querySelector(".mobile_blur")?.addEventListener("click", active_toggle);
+
+  // Toggle del submenú de Services en móvil (abre/cierra al tocar la flecha)
+  document.querySelector(".services-toggle")?.addEventListener("click", (e) => {
+    e.currentTarget.closest(".dropdown")?.classList.toggle("open");
+  });
 </script>
