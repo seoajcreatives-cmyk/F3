@@ -439,16 +439,16 @@
   background: black;
 }
 
-.services_section .card_box h2 {
+.services_section .card_box h3 {
   font-size: 30px;
 }
 
-.services_section .card_box:nth-child(odd) h2 {
+.services_section .card_box:nth-child(odd) h3 {
   color: red;
   z-index: 2;
 }
 
-.services_section .card_box:nth-child(even) h2 {
+.services_section .card_box:nth-child(even) h3 {
   color: white;
   z-index: 2;
 }
