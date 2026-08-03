@@ -1149,13 +1149,6 @@ header .header-desktop .header-left .menu .services-menu .submenu a {
   font-size: 0.875em;
 }
 
-/* Dropdown de About Us: mismo tamaño/peso que los enlaces de Services */
-header .header-desktop .header-left .menu .about-menu a {
-  font-weight: 400;
-  white-space: nowrap;
-  font-size: 0.875em;
-}
-
 @media (max-width: 996px) {
   header .line-address {
     display: grid;
@@ -1244,11 +1237,6 @@ header .header-desktop .header-left .menu .about-menu a {
   }
 
   header .mobile-header .mobile-header-container .side-bar-box .services-menu .submenu a {
-    font-size: 12px;
-    font-weight: 400;
-  }
-
-  header .mobile-header .mobile-header-container .side-bar-box .about-menu a {
     font-size: 12px;
     font-weight: 400;
   }
