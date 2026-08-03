@@ -41,7 +41,13 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
       <div class="menu">
         <ul>
           <li><a href={base}>Home</a></li>
-          <li><a href={base + "about"}>About Us</a></li>
+
+          <li class="dropdown">
+            <a href={base + "about"}>About Us <Icon name="angle-down" /></a>
+            <ul class="dropdown-menu">
+              <li><a href={base + "reviews"}>Reviews</a></li>
+            </ul>
+          </li>
 
           <li class="dropdown">
             <a href={base + "services"}>Services <Icon name="angle-down" /></a>
@@ -145,6 +151,14 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
         <ul class="menu">
           <li><a href={base}> Home</a></li>
           <li><a href={base + "about"}> About Us</a></li>
+
+          <li class="dropdown">
+            <p class="about-toggle"><Icon name="angle-down" /></p>
+            <ul class="dropdown-menu">
+              <li><a href={base + "reviews"}>Reviews</a></li>
+            </ul>
+          </li>
+
           <li><a href={base + "services"}>Services</a></li>
 
           <li class="dropdown">
@@ -219,8 +233,10 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
   document.querySelector(".mobile_toggle")?.addEventListener("click", active_toggle);
   document.querySelector(".mobile_blur")?.addEventListener("click", active_toggle);
 
-  // Toggle del submenú de Services en móvil (abre/cierra al tocar la flecha)
-  document.querySelector(".services-toggle")?.addEventListener("click", (e) => {
-    e.currentTarget.closest(".dropdown")?.classList.toggle("open");
+  // Toggle de submenús en móvil (Services y About Us): abre/cierra al tocar la flecha
+  document.querySelectorAll(".services-toggle, .about-toggle").forEach((el) => {
+    el.addEventListener("click", (e) => {
+      e.currentTarget.closest(".dropdown")?.classList.toggle("open");
+    });
   });
 </script>

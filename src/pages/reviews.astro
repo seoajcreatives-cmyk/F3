@@ -1,0 +1,329 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumb from '@components/Breadcrumb.astro';
+import { Image } from 'astro:assets';
+import GoogleMap from '@components/GoogleMap.astro';
+import Icon from '@components/Icon.astro';
+import '../styles/reviews.css';
+
+// Metadatos
+const metaTitle = "F3 Construction Reviews | Trusted Contractor Long Island NY";
+const metaDescription = "Read verified F3 Construction reviews: 5.0 stars on Google, 5.0 on HomeAdvisor and an A+ BBB rating from Long Island homeowners.";
+const canonical = "https://f3constructionny.com/reviews/";
+const keywords = "f3 construction reviews, general contractor reviews Long Island, contractor reviews Central Islip NY";
+
+// Imágenes locales optimizadas
+import heroImg from '../../public/media/webp/jpg/workers.webp';
+import teamImg from '../../public/media/jpg/workers.jpg';
+import review1 from '../../public/media/png/review-1.png';
+import review2 from '../../public/media/png/review-2.png';
+import review3 from '../../public/media/png/review-3.png';
+import review4 from '../../public/media/png/review-4.png';
+import bbbBadge from '../../public/media/png/acreditation-f3-2.png';
+import wolfBadge from '../../public/media/png/certified wolf pro_f3 construction.png';
+import trexBadge from '../../public/media/png/trex_rain_escape_certified_olman_flores_f3-.png';
+import certrebelBadge from '../../public/media/png/CertRebel_logo_-_f3.png';
+
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
+
+// Enlaces externos a los perfiles reales
+const GOOGLE_URL = "https://www.google.com/maps/place/F3+Construction+Corp+General+Contractor/data=!4m2!3m1!1s0x0:0x3c6a06c628b18ae0";
+const HOMEADVISOR_URL = "https://www.homeadvisor.com/rated.F3ConstructionCorp.157759413.html";
+const BBB_URL = "https://www.bbb.org/us/ny/central-islip/profile/home-improvement/f3-constructions-corp-0121-87182765";
+const YELP_URL = "https://www.yelp.com/biz/f3-construction-central-islip-2";
+
+// Reseñas reales publicadas en el Google Business Profile de F3
+const reviews = [
+  {
+    name: "Jeanette Lutin",
+    time: "3 months ago",
+    avatar: review1,
+    url: "https://share.google/zxOy7l25Kj0boMoPz",
+    text: "I recently had my bathroom renovated, and I could not be happier with the results! From start to finish, the entire process was smooth, professional and stress-free. The team was punctual, respectful of my home and communicated clearly every step of the way.",
+  },
+  {
+    name: "John Penza",
+    time: "1 year ago",
+    avatar: review2,
+    url: "https://share.google/DxXBa7pspvcuea8E0",
+    text: "F3 was highly recommended by our neighbor. The owner Olman brought samples and sat down with us to review all the options. I can't say enough about the crew and the GM Ivis. They were very respectful, cleaned up and checked with us every evening before leaving.",
+  },
+  {
+    name: "George Macrelli",
+    time: "3 months ago",
+    avatar: review3,
+    url: "https://share.google/7OYALSND55mHnAk3b",
+    text: "I highly recommend F3. They had to rebuild a cedar pool deck where the structure was failing. They did a great job in making it structurally sound for years to come. F3 has a very detailed professional staff that really care about the quality of their service.",
+  },
+  {
+    name: "Laura Parker",
+    time: "3 months ago",
+    avatar: review4,
+    url: "https://share.google/6rkMKiYknk4fmVoJv",
+    text: "Olman and his crew completed a beautiful job in my home, installing crown molding throughout. They were efficient, meticulous, courteous, well priced, and neat. Looks gorgeous! Would highly recommend!",
+  },
+];
+
+const faqs = [
+  {
+    q: "What rating does F3 Construction have?",
+    a: "A 5.0-star rating on Google from 41 homeowner reviews, a 5.0-star rating on HomeAdvisor from 6 reviews, and an A+ rating as a BBB Accredited Business with zero complaints on file.",
+  },
+  {
+    q: "Are F3 Construction reviews verified?",
+    a: "Yes. Every rating on this page comes from an independent third-party platform — Google, HomeAdvisor (Angi) and the Better Business Bureau — not from testimonials we collected ourselves.",
+  },
+  {
+    q: "Does F3 Construction have any complaints or negative reviews?",
+    a: "Our BBB file shows zero complaints, and both our Google and HomeAdvisor profiles show a 100% five-star distribution with no ratings at four stars or below.",
+  },
+  {
+    q: "Is F3 Construction licensed and insured?",
+    a: "Yes. We are a fully licensed and insured general contractor, licensed by the Nassau County Department of Consumer Affairs, and a Certified Wolf Pro, Trex RainEscape Certified installer and CertRebel Certified Partner.",
+  },
+  {
+    q: "How can I leave a review for F3 Construction?",
+    a: "You can leave a review on our Google Business Profile, our HomeAdvisor page, Yelp, or directly on our BBB profile. Honest feedback is how future homeowners decide who to trust with their home.",
+  },
+];
+
+// Schema: FAQ
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map((f) => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a },
+  })),
+};
+
+// Schema: negocio con calificación real y reseñas reales
+const businessSchema = {
+  "@context": "https://schema.org",
+  "@type": "GeneralContractor",
+  "@id": "https://f3constructionny.com/#business",
+  "name": "F3 Construction Corp",
+  "image": "https://f3constructionny.com/media/webp/png/logo.webp",
+  "url": "https://f3constructionny.com/",
+  "telephone": "+1-631-278-8693",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "290 Earle St",
+    "addressLocality": "Central Islip",
+    "addressRegion": "NY",
+    "postalCode": "11722",
+    "addressCountry": "US",
+  },
+  "areaServed": { "@type": "Place", "name": "Long Island, NY" },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "bestRating": "5",
+    "reviewCount": "41",
+  },
+  "review": reviews.map((r) => ({
+    "@type": "Review",
+    "author": { "@type": "Person", "name": r.name },
+    "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1" },
+    "reviewBody": r.text,
+  })),
+};
+---
+<BaseLayout title={metaTitle} description={metaDescription} canonical={canonical}>
+  <Fragment slot="head">
+    <meta name="keywords" content={keywords} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(businessSchema)} />
+  </Fragment>
+
+  <main class="reviews-page">
+    <!-- HERO -->
+    <section class="reviews-hero">
+      <div class="reviews-hero-media">
+        <Image src={heroImg} alt="F3 Construction crew on a finished project in Long Island, NY" widths={[600, 900, 1400]} sizes="100vw" format="webp" quality={70} loading="eager" fetchpriority="high" />
+        <div class="reviews-hero-overlay"></div>
+      </div>
+      <div class="reviews-hero-content">
+        <div class="hero-rating">
+          <span class="stars" aria-hidden="true"><Icon name="star" /><Icon name="star" /><Icon name="star" /><Icon name="star" /><Icon name="star" /></span>
+          <span class="hero-rating-text">5.0 · Verified Reviews</span>
+        </div>
+        <h1>F3 Construction Reviews: What Long Island Homeowners Say</h1>
+        <p>Before you hand your home to a contractor, you want proof — not promises. Every rating below sits on an independent platform: 5.0 stars on Google, 5.0 stars on HomeAdvisor, and an A+ rating as a BBB Accredited Business. Open any of them and check for yourself.</p>
+      </div>
+    </section>
+
+    <Breadcrumb />
+
+    <!-- FRANJA DE CONFIANZA -->
+    <section class="trust-strip">
+      <div class="trust-item">
+        <span class="stars" aria-hidden="true"><Icon name="star" /><Icon name="star" /><Icon name="star" /><Icon name="star" /><Icon name="star" /></span>
+        <strong>5.0</strong>
+        <span>Google · 41 reviews</span>
+      </div>
+      <div class="trust-item">
+        <span class="stars" aria-hidden="true"><Icon name="star" /><Icon name="star" /><Icon name="star" /><Icon name="star" /><Icon name="star" /></span>
+        <strong>5.0</strong>
+        <span>HomeAdvisor · 6 reviews</span>
+      </div>
+      <div class="trust-item">
+        <strong class="grade">A+</strong>
+        <span>BBB Accredited Business</span>
+      </div>
+    </section>
+
+    <!-- GOOGLE -->
+    <section class="platform-section">
+      <h2>Google Reviews — 5.0 Stars from 41 Long Island Homeowners</h2>
+      <p>Every single review on our Google Business Profile is a five-star review, covering bathroom remodels, decks, crown molding, basements, masonry and full-home renovations across Suffolk County. Reviewers name our team directly — owner Olman Flores and general manager Ivis appear again and again — and the same themes repeat: communication, cleanliness, and quotes honored without surprises.</p>
+
+      <!-- WIDGET — Google reviews.
+           Google no ofrece embed oficial. Pegar aquí el widget de un tercero
+           (Elfsight, EmbedSocial o Trustindex) alimentado con el Place ID de F3.
+           Mientras no exista, esta sección funciona igual con el botón de abajo. -->
+      <div class="widget-slot" data-widget="google-reviews"></div>
+
+      <a class="btn-banner review-cta" href={GOOGLE_URL} target="_blank" rel="noopener noreferrer"><span>Read all our Google reviews</span></a>
+    </section>
+
+    <!-- RESEÑAS REALES -->
+    <section class="reviews-quotes">
+      <h2>What Our Clients Actually Wrote</h2>
+      <div class="review-grid">
+        {reviews.map((r) => (
+          <article class="rv-card">
+            <div class="rv-head">
+              <Image class="rv-avatar" src={r.avatar} alt={`Review by ${r.name}`} width={56} height={56} loading="lazy" />
+              <div>
+                <h3 class="rv-name">{r.name}</h3>
+                <span class="stars" aria-label="5 out of 5 stars"><Icon name="star" /><Icon name="star" /><Icon name="star" /><Icon name="star" /><Icon name="star" /></span>
+                <p class="rv-meta">{r.time} · Google</p>
+              </div>
+            </div>
+            <p class="rv-text">{r.text}</p>
+            <a class="rv-link" href={r.url} target="_blank" rel="noopener noreferrer">Read on Google</a>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <!-- HOMEADVISOR -->
+    <section class="platform-section alt">
+      <h2>HomeAdvisor Reviews — 5.0 Stars, 100% Five-Star Ratings</h2>
+      <p>Our HomeAdvisor (Angi) profile carries a 5.0 overall rating with a perfect distribution: 100% of ratings are five stars, none at four stars or below. The profile lists us under Deck or Porch, Basement Remodeling and Bathroom Remodel, offers free estimates, and notes that we speak Spanish — se habla español.</p>
+
+      <!-- WIDGET — HomeAdvisor.
+           Badge de calificación disponible desde el panel de HomeAdvisor Pro.
+           Si no está disponible, se puede usar una imagen de badge estática. -->
+      <div class="widget-slot" data-widget="homeadvisor"></div>
+
+      <a class="btn-banner review-cta" href={HOMEADVISOR_URL} target="_blank" rel="noopener noreferrer"><span>See our HomeAdvisor profile</span></a>
+    </section>
+
+    <!-- BBB -->
+    <section class="platform-section">
+      <h2>BBB Accredited Business with an A+ Rating</h2>
+      <p>F3 Constructions Corp has been a BBB Accredited Business since October 31, 2025, through BBB Serving Metropolitan New York, and holds an A+ rating — the highest grade the BBB issues — with zero complaints on file. Accreditation is not automatic: it means we committed to the BBB Standards for Trust.</p>
+
+      <div class="bbb-block">
+        <!-- WIDGET — BBB Dynamic Seal.
+             El sello dinámico oficial se genera desde la cuenta BBB del negocio
+             y enlaza al perfil en vivo. Mientras tanto se muestra el badge de acreditación. -->
+        <div class="widget-slot bbb-seal" data-widget="bbb-seal">
+          <a href={BBB_URL} target="_blank" rel="noopener noreferrer">
+            <Image src={bbbBadge} alt="F3 Construction — BBB Accredited Business, A+ Rating" width={200} height={90} loading="lazy" />
+          </a>
+        </div>
+      </div>
+
+      <a class="btn-banner review-cta" href={BBB_URL} target="_blank" rel="noopener noreferrer"><span>View our BBB profile</span></a>
+    </section>
+
+    <!-- YELP -->
+    <section class="platform-section alt">
+      <h2>Find Us on Yelp</h2>
+      <p>Our Yelp profile covers our Central Islip location, hours, photos and the full range of interior and exterior home improvement work we take on.</p>
+
+      <!-- WIDGET — Yelp badge.
+           Badge generado desde la cuenta de Yelp for Business. -->
+      <div class="widget-slot" data-widget="yelp"></div>
+
+      <a class="btn-banner review-cta" href={YELP_URL} target="_blank" rel="noopener noreferrer"><span>Find us on Yelp</span></a>
+    </section>
+
+    <!-- PATRONES -->
+    <section class="patterns">
+      <h2>The Patterns Behind Our Five-Star Reviews</h2>
+      <div class="patterns-grid">
+        <div class="pattern-col">
+          <h3>What Homeowners Praise Most</h3>
+          <ul>
+            <li>Clear, upfront quotes with no hidden surprises.</li>
+            <li>Crews on time, every day of the project.</li>
+            <li>Daily clean-up, and the owner involved from samples to final walkthrough.</li>
+          </ul>
+        </div>
+        <div class="pattern-col">
+          <h3>Services Most Mentioned in Reviews</h3>
+          <ul>
+            <li><a href={base + "services/bathroom-renovation-long-island-ny"}>Bathroom renovation</a> and full remodels.</li>
+            <li><a href={base + "services/deck-builders-long-island-ny"}>Deck rebuilds</a> and structural repair.</li>
+            <li><a href={base + "services/crown-molding-long-island-ny"}>Crown molding</a>, trim carpentry, masonry and basements.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- POR QUÉ NOS RECOMIENDAN -->
+    <section class="why-recommend">
+      <div class="why-text">
+        <h2>Why Long Island Homeowners Keep Recommending F3 Construction</h2>
+        <p>Our team has more than 20 years of experience across every field of home improvement, and F3 Construction Corp is fully licensed and insured by the Nassau County Department of Consumer Affairs. Our success comes from a steadfast commitment to the client's vision and a culture built on balance, integrity, leadership and loyalty.</p>
+        <div class="why-links">
+          <a href={base + "about"}>About Us</a>
+          <a href={base + "services"}>Our Services</a>
+          <a href={base + "gallery"}>View Gallery</a>
+        </div>
+        <div class="cert-badges">
+          <Image src={wolfBadge} alt="Certified Wolf Pro" height={64} width={120} loading="lazy" />
+          <Image src={trexBadge} alt="Trex RainEscape Certified installer" height={64} width={120} loading="lazy" />
+          <Image src={certrebelBadge} alt="CertRebel Certified Partner" height={64} width={120} loading="lazy" />
+        </div>
+      </div>
+      <div class="why-media">
+        <Image src={teamImg} alt="F3 Construction team on site in Long Island, NY" widths={[400, 700]} sizes="(max-width: 900px) 100vw, 45vw" format="webp" quality={70} loading="lazy" />
+      </div>
+    </section>
+
+    <!-- CÓMO ENCONTRARNOS -->
+    <section class="find-us-section">
+      <div class="box-map">
+        <div class="info-map">
+          <h2>How to Find Us</h2>
+          <p>Visit us in Long Island, NY for a consultation and a personalized estimate. We proudly serve Central Islip and nearby areas including Brentwood, Ronkonkoma, Hauppauge, Islip Terrace and all of Suffolk County.</p>
+          <p><strong>290 Earle St. Central Islip, NY 11722</strong></p>
+          <p><a href="tel:+16312788693">631-278-8693</a> · Mon–Fri 9:00 am – 6:00 pm · Sat 9:00 am – 2:00 pm</p>
+          <p><i class="fa-solid fa-location-dot"><Icon name="location-dot" /></i> View on Google Maps <i class="fa-solid fa-arrow-right"><Icon name="arrow-right" /></i></p>
+          <a href={base + "contact"}>Contact Us Now</a>
+        </div>
+        <GoogleMap />
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list">
+        {faqs.map((f) => (
+          <details class="faq-item">
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+  </main>
+</BaseLayout>
