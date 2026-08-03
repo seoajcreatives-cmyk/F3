@@ -1197,14 +1197,16 @@ header .header-desktop .header-left .menu .services-menu .submenu a {
     color: white;
   }
 
-  header .mobile-header .mobile-header-container .side-bar-box .services-toggle {
+  header .mobile-header .mobile-header-container .side-bar-box .services-toggle,
+  header .mobile-header .mobile-header-container .side-bar-box .about-toggle {
     cursor: pointer;
     user-select: none;
     -webkit-tap-highlight-color: transparent;
     outline: none;
   }
 
-  header .mobile-header .mobile-header-container .side-bar-box .dropdown.open .services-toggle {
+  header .mobile-header .mobile-header-container .side-bar-box .dropdown.open .services-toggle,
+  header .mobile-header .mobile-header-container .side-bar-box .dropdown.open .about-toggle {
     transform: rotate(180deg);
   }
 
