@@ -247,22 +247,6 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
     <!-- Ruta de Navegación (Breadcrumbs) -->
     <Breadcrumb />
 
-    <!-- Sección Ubicación & Mapa Google Maps -->
-    {service.mapText && service.slug !== 'patio-contractor-long-island-ny' && (
-      <section class="find-us-section">
-        <div class="box-map">
-          <div class="info-map">
-            <h2>How to Find Us</h2>
-            <p set:html={service.mapText}></p>
-            <p><i class="fa-solid fa-location-dot"><Icon name="location-dot" /></i> View on Google Maps <i class="fa-solid fa-arrow-right"><Icon name="arrow-right" /></i></p>
-            {service.mapSubtext && <p set:html={service.mapSubtext}></p>}
-            {service.mapCtaText && <a href={base + "contact"}>{service.mapCtaText}</a>}
-          </div>
-          <GoogleMap />
-        </div>
-      </section>
-    )}
-
     <!-- Información General del Servicio -->
     <section class="info-services-section">
       <h2 set:html={service.infoTitle}></h2>
@@ -433,8 +417,8 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
       <Reviews />
     </section>
 
-    <!-- Sección Ubicación & Mapa Google Maps (Para Patio en la parte inferior) -->
-    {service.mapText && service.slug === 'patio-contractor-long-island-ny' && (
+    <!-- Sección Ubicación & Mapa Google Maps -->
+    {service.mapText && (
       <section class="find-us-section">
         <div class="box-map">
           <div class="info-map">
