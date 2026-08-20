@@ -7,6 +7,7 @@ import GoogleMap from '@components/GoogleMap.astro';
 import Icon from '@components/Icon.astro';
 import servicesData from '../../data/services.json';
 import '../../styles/internal-services.css';
+import '../../styles/landings.css';
 
 const cleanMediaUrl = (url: string) => {
   if (!url) return '';
@@ -48,7 +49,7 @@ const whyImagePath = cleanPath(service.whyImageSrc);
 const processImageObj = images[processImagePath] ? (await images[processImagePath]()).default : null;
 const whyImageObj = images[whyImagePath] ? (await images[whyImagePath]()).default : null;
 
-// Nuevos datos de Schema JSON-LD para las 16 páginas de servicio
+// Nuevos datos de Schema JSON-LD para las páginas de servicio
 const serviceSchemasData = [
   {"slug":"basement-solutions-long-island-ny","serviceName":"Basement Solutions in Long Island, NY","serviceType":"Basement Waterproofing & Remodeling","author":"Michael R.","date":"2026-03-14","review":"Our basement in Ronkonkoma had recurring leaks every spring. F3 installed a full drainage system with a sump pump and then finished the space into a family room. It stayed completely dry all winter and looks amazing. Highly recommend their basement work."},
   {"slug":"kitchen-remodeling-long-island-ny","serviceName":"Kitchen Remodeling in Long Island, NY","serviceType":"Kitchen Renovation","author":"Sandra M.","date":"2026-01-22","review":"F3 remodeled our kitchen from top to bottom — new cabinets, quartz countertops, and layered lighting. Olman helped us pick the layout and the crew kept everything clean and on schedule. It is now our favorite room in the house."},
@@ -65,7 +66,10 @@ const serviceSchemasData = [
   {"slug":"deck-builders-long-island-ny","serviceName":"Deck Builders in Long Island, NY","serviceType":"Deck Construction","author":"Brian K.","date":"2025-09-02","review":"I highly recommend F3. They had to rebuild our cedar pool deck where the structure was failing. They did a great job making it structurally sound for years to come, and the finished deck looks fantastic."},
   {"slug":"portico-contractor-long-island-ny","serviceName":"Portico Contractor in Long Island, NY","serviceType":"Portico Construction","author":"Jennifer S.","date":"2026-04-28","review":"F3 designed and built a new front portico with columns and a pitched roof. It completely changed the entrance of our home. Quality materials, clean workmanship, and great attention to detail from start to finish."},
   {"slug":"tile-installation-service-long-island-ny","serviceName":"Tile Installation Service in Long Island, NY","serviceType":"Tile Installation","author":"Nicole F.","date":"2025-10-09","review":"F3 installed the tile for our kitchen backsplash and bathroom floor. Perfect alignment, clean grout lines, and the pattern layout was exactly what we asked for. They even finished ahead of schedule."},
-  {"slug":"patio-contractor-long-island-ny","serviceName":"Paver Patio Installation in Long Island, NY","serviceType":"Patio Installation","author":"David A.","date":"2026-06-25","review":"F3 installed a paver patio around our pool with a built-in seating area. The design process was easy — they brought samples and laid out options with us. The result is stunning and we use it every weekend."}
+  {"slug":"patio-contractor-long-island-ny","serviceName":"Paver Patio Installation in Long Island, NY","serviceType":"Patio Installation","author":"David A.","date":"2026-06-25","review":"F3 installed a paver patio around our pool with a built-in seating area. The design process was easy — they brought samples and laid out options with us. The result is stunning and we use it every weekend."},
+  {"slug":"outdoor-structure-builder-long-island-ny","serviceName":"Outdoor Structure Builder in Long Island, NY","serviceType":"Outdoor Structure Building","author":"Mark P.","date":"2026-05-12","review":"F3 Construction designed and built our custom deck and portico in Central Islip. Exceptional quality, sturdy framing, and finished on time. Highly recommend for any outdoor structure build!"},
+  {"slug":"interior-renovation-contractor-long-island-ny","serviceName":"Interior Renovation Contractor in Long Island, NY","serviceType":"Interior Renovation","author":"Sandra M.","date":"2026-04-18","review":"F3 handled our entire interior renovation including kitchen remodel and trim carpentry. Professional team, fantastic attention to detail, and seamless sequencing throughout."},
+  {"slug":"exterior-improvement-contractor-long-island-ny","serviceName":"Exterior Improvement Contractor in Long Island, NY","serviceType":"Exterior Home Improvement","author":"Robert G.","date":"2026-03-22","review":"From new siding to window installation and painting, F3 completely transformed the outside of our home. Exceptional curb appeal and top-tier craftsmanship."}
 ];
 
 const customSchemaData = serviceSchemasData.find(d => d.slug === service.slug);

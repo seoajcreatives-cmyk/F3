@@ -1,0 +1,28 @@
+/* Landings Specific Styles */
+
+.banner-outdoor-structure {
+    padding: 0;
+    height: 80vh;
+    background-image: url("../media/jpg/banner-deck.jpg");
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.6);
+    background-blend-mode: overlay;
+}
+
+.banner-interior-renovation {
+    padding: 0;
+    height: 80vh;
+    background-image: url("../media/jpg/banner-kitchen-remodeling.jpg");
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.6);
+    background-blend-mode: overlay;
+}
+
+.banner-exterior-improvement {
+    padding: 0;
+    height: 80vh;
+    background-image: url("../media/jpg/banner-siding.jpg");
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.6);
+    background-blend-mode: overlay;
+}
