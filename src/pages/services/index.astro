@@ -147,6 +147,27 @@ const collectionSchema = {
       "name": "Garage Builder",
       "serviceType": "Garage Builder",
       "url": "https://f3constructionny.com/services/garage-builder-long-island-ny"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://f3constructionny.com/services/outdoor-structure-builder-long-island-ny#service",
+      "name": "Outdoor Structure Builder",
+      "serviceType": "Outdoor Structure Builder",
+      "url": "https://f3constructionny.com/services/outdoor-structure-builder-long-island-ny"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://f3constructionny.com/services/interior-renovation-contractor-long-island-ny#service",
+      "name": "Interior Renovation Contractor",
+      "serviceType": "Interior Renovation Contractor",
+      "url": "https://f3constructionny.com/services/interior-renovation-contractor-long-island-ny"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://f3constructionny.com/services/exterior-improvement-contractor-long-island-ny#service",
+      "name": "Exterior Improvement Contractor",
+      "serviceType": "Exterior Improvement Contractor",
+      "url": "https://f3constructionny.com/services/exterior-improvement-contractor-long-island-ny"
     }
   ]
 };
@@ -431,6 +452,42 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
           </div>
           <div class="service-media left">
             <Image src={garageImg} alt="garage builder services ny" loading="lazy" width={2000} height={1331} />
+          </div>
+        </div>
+
+        <!-- Outdoor Structure Builder -->
+        <div class="service-item">
+          <div class="service-text">
+            <h3>OUTDOOR STRUCTURE BUILDER</h3>
+            <p>From decks and garages to patios and porticos, our outdoor structure builders in Long Island, NY deliver custom solutions built to handle the elements. One experienced team handles every phase — from framing to finishing.</p>
+            <a href={base + "services/outdoor-structure-builder-long-island-ny"}>Free Quote Outdoor Structure Builder Services</a>
+          </div>
+          <div class="service-media right">
+            <Image src={patioImg} alt="outdoor structure builder services ny" loading="lazy" width={2000} height={1331} />
+          </div>
+        </div>
+
+        <!-- Interior Renovation Contractor -->
+        <div class="service-item order">
+          <div class="service-text">
+            <h3>INTERIOR RENOVATION CONTRACTOR</h3>
+            <p>Looking for a complete interior renovation? From the basement to the kitchen, bathroom, and trim work, our interior renovation contractors in Long Island manage every phase with quality and craftsmanship.</p>
+            <a href={base + "services/interior-renovation-contractor-long-island-ny"}>Free Quote Interior Renovation Services</a>
+          </div>
+          <div class="service-media left">
+            <Image src={kitchenSlideImg} alt="interior renovation contractor services ny" loading="lazy" width={1100} height={900} />
+          </div>
+        </div>
+
+        <!-- Exterior Improvement Contractor -->
+        <div class="service-item">
+          <div class="service-text">
+            <h3>EXTERIOR IMPROVEMENT CONTRACTOR</h3>
+            <p>Protect and upgrade the outside of your home with our exterior improvement services. From siding and replacement windows to door installation, house painting, and power washing — one team handles it all.</p>
+            <a href={base + "services/exterior-improvement-contractor-long-island-ny"}>Free Quote Exterior Improvement Services</a>
+          </div>
+          <div class="service-media right">
+            <Image src={sidingSlideImg} alt="exterior improvement contractor services ny" loading="lazy" width={1100} height={900} />
           </div>
         </div>
 
