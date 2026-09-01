@@ -2,6 +2,7 @@
 import Header from '@components/Header.astro';
 import Footer from '@components/Footer.astro';
 import Tracker from '@components/Tracker.astro';
+import CookieConsent from '@components/CookieConsent.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -332,5 +333,6 @@ const poppinsFontFace = [400, 500, 600, 700, 800]
       <slot />
     </main>
     <Footer />
+    <CookieConsent />
   </body>
 </html>
