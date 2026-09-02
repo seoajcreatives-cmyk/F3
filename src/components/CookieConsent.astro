@@ -12,6 +12,7 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
     </div>
     <div class="cookie-buttons">
       <button id="acceptCookies" class="accept-btn">Accept</button>
+      <button id="rejectCookies" class="reject-btn">Reject Non-Essential</button>
     </div>
   </div>
 </div>
@@ -86,7 +87,23 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
   .accept-btn:hover {
     opacity: 0.9;
   }
-  
+  .reject-btn {
+    background: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 8px 20px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+  }
+  .reject-btn:hover {
+    background: #fff;
+    color: #000;
+  }
+
   @keyframes slideUp {
     from { transform: translateY(100%); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
@@ -106,8 +123,10 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
     }
     .cookie-buttons {
       width: 100%;
+      flex-direction: column;
     }
-    .accept-btn {
+    .accept-btn,
+    .reject-btn {
       width: 100%;
     }
   }
@@ -117,14 +136,15 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
   document.addEventListener('DOMContentLoaded', () => {
     const banner = document.getElementById('cookieBanner');
     const acceptBtn = document.getElementById('acceptCookies');
-    
+    const rejectBtn = document.getElementById('rejectCookies');
+
     if (!banner || !acceptBtn) return;
 
-    // Check if user already accepted cookies
-    const hasAccepted = localStorage.getItem('f3_cookiesAccepted');
-    
-    if (!hasAccepted) {
-      // Show banner if not accepted
+    // Check if user already made a choice
+    const hasChosen = localStorage.getItem('f3_cookiesAccepted');
+
+    if (!hasChosen) {
+      // Show banner if no choice yet
       setTimeout(() => {
         banner.classList.add('show');
       }, 500); // slight delay before showing
@@ -132,6 +152,11 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
 
     acceptBtn.addEventListener('click', () => {
       localStorage.setItem('f3_cookiesAccepted', 'true');
+      banner.classList.remove('show');
+    });
+
+    rejectBtn?.addEventListener('click', () => {
+      localStorage.setItem('f3_cookiesAccepted', 'rejected');
       banner.classList.remove('show');
     });
   });
