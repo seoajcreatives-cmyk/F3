@@ -46,6 +46,9 @@ Redirect 301 /gallery.php /gallery
 Redirect 301 /privacy.php /privacy
 Redirect 301 /terms.php /terms
 Redirect 301 /services.php /services
+Redirect 301 /reviews.php /reviews
+Redirect 301 /review.php /reviews
+Redirect 301 /review /reviews
 Redirect 301 /404.php /404
 
 # Services 301 Redirects
