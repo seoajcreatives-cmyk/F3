@@ -197,7 +197,17 @@
     },
     "infoCtaText": "Free Quote Service",
     "whyCtaText": "Free Quote Service",
-    "mapCtaText": "Free Quote Service"
+    "mapCtaText": "Free Quote Service",
+    "pricing": {
+      "heroBadge": "Bathroom Transformation: $18,000+",
+      "sectionTitle": "Project Pricing",
+      "tiers": [
+        {
+          "name": "Bathroom Transformation",
+          "price": "$18,000+"
+        }
+      ]
+    }
   },
   {
     "slug": "crown-molding-long-island-ny",
@@ -661,7 +671,17 @@
     "reviewsSubheading": "See what Long Island homeowners say about their kitchen transformations with F3 Construction:",
     "infoCtaText": "Free Quote Service",
     "whyCtaText": "Free Quote Service",
-    "mapCtaText": "Contact Us Now"
+    "mapCtaText": "Contact Us Now",
+    "pricing": {
+      "heroBadge": "Kitchen Transformation: $35,000-$45,000+",
+      "sectionTitle": "Project Pricing",
+      "tiers": [
+        {
+          "name": "Kitchen Transformation",
+          "price": "$35,000-$45,000+"
+        }
+      ]
+    }
   },
   {
     "slug": "masonry-contractors-long-island-ny",
@@ -1520,7 +1540,17 @@
         "a": "Common mistakes include poor leveling, insufficient drainage, failing to calculate enough space for large vehicles, choosing inappropriate materials, and not managing construction permits correctly. These errors can cause cracks, water pooling, or structural problems in the future."
       }
     ],
-    "reviewsSubheading": "See what homeowners say about the construction of their new garages and carports with F3 Construction:"
+    "reviewsSubheading": "See what homeowners say about the construction of their new garages and carports with F3 Construction:",
+    "pricing": {
+      "heroBadge": "Garage Construction: Start around $50,000+",
+      "sectionTitle": "Project Pricing",
+      "tiers": [
+        {
+          "name": "Garage Construction",
+          "price": "Typical projects may start around $50,000+"
+        }
+      ]
+    }
   },
   {
     "slug": "outdoor-structure-builder-long-island-ny",
@@ -1623,7 +1653,25 @@
     ],
     "reviewsSubheading": "See what homeowners say about their outdoor structure projects with F3 Construction:",
     "infoCtaText": "Free Quote Service",
-    "whyCtaText": "Free Quote Service"
+    "whyCtaText": "Free Quote Service",
+    "pricing": {
+      "heroBadge": "Outdoor Living & Structural Projects: $12,000+ - $35,000+",
+      "sectionTitle": "Outdoor Living & Structural Projects",
+      "tiers": [
+        {
+          "name": "Pressure-treated",
+          "price": "from around $12,000+"
+        },
+        {
+          "name": "Composite / Trex",
+          "price": "from around $18,000+"
+        },
+        {
+          "name": "Custom multi-level",
+          "price": "often $35,000+"
+        }
+      ]
+    }
   },
   {
     "slug": "interior-renovation-contractor-long-island-ny",

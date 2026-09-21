@@ -198,6 +198,15 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
       <div class="banner-container banner-split">
         <!-- LEFT (Título y Llamada a Acción) -->
         <div class="banner-left">
+          {service.pricing?.heroBadge && (
+            <a href="#pricing-guide" class="hero-pricing-pill">
+              <span class="pill-dot"></span>
+              <span class="pill-text">{service.pricing.heroBadge}</span>
+              <span class="pill-arrow">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+              </span>
+            </a>
+          )}
           <h1 set:html={service.h1}></h1>
           <div class="banner-cta">
             <a href="tel:+16312788693" class="btn-banner"><span>Call Us Today</span></a>
@@ -261,6 +270,37 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
         <a href={base + "contact"} class="btn-banner">{service.infoCtaText || "Free Quote Service"}</a>
       </div>
     </section>
+
+    <!-- Sección de Precios (Si está configurado) -->
+    {service.pricing && (
+      <section class="service-pricing-section" id="pricing-guide">
+        <div class="pricing-container">
+          <div class="pricing-header">
+            <span class="pricing-tag">PRICING GUIDE</span>
+            <h2 set:html={service.pricing.sectionTitle || "Project Pricing"}></h2>
+          </div>
+
+          <div class={`pricing-grid ${service.pricing.tiers.length === 1 ? 'single-tier' : service.pricing.tiers.length === 2 ? 'two-tiers' : 'three-tiers'}`}>
+            {service.pricing.tiers.map((tier) => (
+              <div class="pricing-card">
+                <div class="card-header">
+                  <h3 class="card-name">{tier.name}</h3>
+                  <div class="card-price-wrap">
+                    <span class="price-val">{tier.price}</span>
+                  </div>
+                </div>
+
+                <div class="card-action">
+                  <a href={base + "contact"} class="btn-pricing">
+                    <span>Free Estimate</span>
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
 
     <!-- Explicación de Qué es el Servicio -->
     {service.whatIsTitle && service.whatIsParagraphs && service.whatIsParagraphs.length > 0 && (
