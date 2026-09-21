@@ -531,9 +531,11 @@
     transform: translateY(2px);
 }
 
-.info-pricing-wrapper {
+.info-pricing-wrapper,
+#pricing-box {
     margin-top: 35px;
     width: 100%;
+    scroll-margin-top: 175px;
 }
 
 .info-pricing-wrapper.single-tier {
@@ -630,6 +632,11 @@
         margin: 0 auto 16px auto;
     }
 
+    .info-pricing-wrapper,
+    #pricing-box {
+        scroll-margin-top: 100px;
+    }
+
     .info-pricing-wrapper.multi-tier {
         grid-template-columns: 1fr;
         max-width: 500px;
@@ -679,6 +686,11 @@
     .hero-pricing-pill {
         font-size: 0.78rem;
         padding: 5px 12px;
+    }
+
+    .info-pricing-wrapper,
+    #pricing-box {
+        scroll-margin-top: 80px;
     }
 
     .info-pricing-box {

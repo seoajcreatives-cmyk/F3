@@ -489,6 +489,23 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
     if (submitBtn) {
       submitBtn.addEventListener("click", sendmail);
     }
+
+    const pricingPill = document.querySelector(".hero-pricing-pill");
+    if (pricingPill) {
+      pricingPill.addEventListener("click", function(e) {
+        const target = document.getElementById("pricing-box");
+        if (target) {
+          e.preventDefault();
+          const header = document.querySelector("header");
+          const headerHeight = header ? header.offsetHeight : 140;
+          const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - (headerHeight + 25);
+          window.scrollTo({
+            top: targetPosition,
+            behavior: "smooth"
+          });
+        }
+      });
+    }
   });
 
   function sendmail(event) {
