@@ -468,19 +468,21 @@
 .hero-pricing-pill {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
+    justify-content: center;
+    gap: 8px;
     background: rgba(17, 24, 39, 0.85);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(227, 30, 36, 0.7);
-    padding: 8px 20px;
+    padding: 7px 18px;
     border-radius: 9999px;
     margin-bottom: 20px;
     text-decoration: none;
     color: #ffffff;
     font-size: 0.95rem;
     font-weight: 600;
-    width: fit-content;
+    max-width: 100%;
+    box-sizing: border-box;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -493,8 +495,8 @@
 }
 
 .hero-pricing-pill .pill-dot {
-    width: 9px;
-    height: 9px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
     background: #22c55e;
     box-shadow: 0 0 10px #22c55e;
@@ -532,7 +534,7 @@
 /* Service Pricing Section (Dark Contrast Background) */
 .service-pricing-section {
     background: radial-gradient(circle at 50% 0%, #1f293d 0%, #111827 55%, #0b0f17 100%);
-    padding: 90px 8%;
+    padding: 80px 8%;
     color: #ffffff;
     position: relative;
     overflow: hidden;
@@ -558,7 +560,7 @@
 .service-pricing-section .pricing-header {
     text-align: center;
     max-width: 820px;
-    margin: 0 auto 55px;
+    margin: 0 auto 45px;
 }
 
 .service-pricing-section .pricing-tag {
@@ -571,38 +573,30 @@
     border: 1px solid rgba(227, 30, 36, 0.35);
     padding: 6px 18px;
     border-radius: 50px;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
     text-transform: uppercase;
 }
 
 .service-pricing-section .pricing-header h2 {
-    font-size: 2.5rem;
+    font-size: 2.3rem;
     font-weight: 700;
     color: #ffffff;
     line-height: 1.25;
-    margin-bottom: 16px;
-}
-
-.service-pricing-section .pricing-subtitle {
-    font-size: 1.05rem;
-    color: #9ca3af;
-    line-height: 1.65;
-    font-weight: 400;
-    margin: 0;
+    margin-bottom: 0;
 }
 
 /* Pricing Grid */
 .pricing-grid {
     display: grid;
-    gap: 30px;
+    gap: 25px;
     align-items: stretch;
-    margin-bottom: 35px;
+    margin-bottom: 0;
 }
 
 .pricing-grid.single-tier {
     display: flex;
     justify-content: center;
-    max-width: 780px;
+    max-width: 650px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -626,8 +620,8 @@
 .pricing-card {
     background: #1a2233;
     border: 1px solid #334155;
-    border-radius: 24px;
-    padding: 38px 30px;
+    border-radius: 20px;
+    padding: 34px 26px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -635,6 +629,7 @@
     position: relative;
     transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    box-sizing: border-box;
 }
 
 .pricing-card:hover {
@@ -648,12 +643,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     width: 100%;
 }
 
 .pricing-card .card-name {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     font-weight: 700;
     color: #ffffff;
     margin: 0;
@@ -661,11 +656,11 @@
 }
 
 .pricing-card .card-price-wrap {
-    margin: 8px 0 12px;
+    margin: 6px 0 10px;
 }
 
 .pricing-card .price-val {
-    font-size: 2.1rem;
+    font-size: 2rem;
     font-weight: 800;
     color: #ffffff;
     letter-spacing: -0.5px;
@@ -676,7 +671,7 @@
 /* CTA in Card */
 .pricing-card .card-action {
     width: 100%;
-    max-width: 240px;
+    max-width: 220px;
     margin-top: 8px;
 }
 
@@ -691,12 +686,13 @@
     color: #ffffff;
     font-weight: 700;
     font-size: 0.95rem;
-    padding: 12px 24px;
+    padding: 12px 22px;
     text-decoration: none;
     border-radius: 12px;
     transform: skewX(-10deg);
     transition: all 0.35s ease;
     text-align: center;
+    box-sizing: border-box;
 }
 
 .pricing-card .btn-pricing span {
@@ -714,20 +710,47 @@
 @media (max-width: 1080px) {
     .pricing-grid.three-tiers {
         grid-template-columns: 1fr;
-        max-width: 550px;
+        max-width: 500px;
         margin-left: auto;
         margin-right: auto;
-        gap: 25px;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 996px) {
+    .banner-services .banner-left .hero-pricing-pill {
+        margin: 0 auto 16px auto;
     }
 }
 
 @media (max-width: 768px) {
+    .hero-pricing-pill {
+        padding: 6px 14px;
+        font-size: 0.82rem;
+        gap: 6px;
+        max-width: 95%;
+        margin: 0 auto 14px auto;
+    }
+    
+    .hero-pricing-pill .pill-dot {
+        width: 7px;
+        height: 7px;
+    }
+
+    .hero-pricing-pill .pill-arrow {
+        display: none;
+    }
+
     .service-pricing-section {
-        padding: 50px 6%;
+        padding: 45px 5%;
+    }
+
+    .service-pricing-section .pricing-header {
+        margin-bottom: 30px;
     }
 
     .service-pricing-section .pricing-header h2 {
-        font-size: 1.8rem;
+        font-size: 1.65rem;
     }
 
     .pricing-grid.two-tiers {
@@ -735,11 +758,47 @@
     }
 
     .pricing-card {
-        padding: 30px 20px;
+        padding: 26px 18px;
+        border-radius: 16px;
+    }
+
+    .pricing-card .card-name {
+        font-size: 1.15rem;
     }
 
     .pricing-card .price-val {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
+    }
+
+    .pricing-card .card-action {
+        max-width: 190px;
+    }
+
+    .pricing-card .btn-pricing {
+        padding: 10px 18px;
+        font-size: 0.88rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner-services .banner-left h1 {
+        font-size: 28px;
+        line-height: 1.2;
+    }
+
+    .banner-services .btn-banner {
+        padding: 10px 22px;
+        font-size: 14px;
+        max-width: 90%;
+    }
+
+    .hero-pricing-pill {
+        font-size: 0.78rem;
+        padding: 5px 12px;
+    }
+
+    .pricing-card .price-val {
+        font-size: 1.45rem;
     }
 }
 
