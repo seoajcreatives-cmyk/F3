@@ -142,6 +142,15 @@
     background-blend-mode: overlay;
 }
 
+.banner-location {
+    padding: 0;
+    height: 80vh;
+    background-image: url("../media/webp/jpg/fondo-locations.webp"), url("../media/jpg/fondo-locations.jpg");
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.6);
+    background-blend-mode: overlay;
+}
+
 .banner-services {
     position: relative;
     min-height: 80vh;

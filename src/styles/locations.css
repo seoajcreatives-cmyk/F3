@@ -1,74 +1,5 @@
-section {
-  padding: 80px 8% !important;
-}
-
-/*h1, h2 {
-  color: var(--red);
-  font-weight: 700;
-  line-height: 1;
-  text-align: center;
-  font-size: 2rem;
-}
-p {
-  color: black;
-  font-size: 1.3rem;
-  margin: 10px 0;
-} */
-#banner-services {
-  position: relative;
-  height: 80vh;
-  background-image: url(../media/jpg/fondo-locations.jpg) !important;
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-#banner-services::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.65);
-  z-index: 1;
-}
-
-#banner-services .banner-container {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  color: white;
-}
-
-#banner-services .banner-container h2 {
-  font-size: clamp(1.8rem, 3vw + 1rem, 3.5rem);
-  color: white;
-  line-height: 1.2;
-  max-width: 900px;
-  margin: 0 auto 1rem;
-}
-
-#banner-services .banner-container p {
-  font-size: clamp(1rem, 1.2vw + 0.6rem, 1.25rem);
-  color: white;
-  line-height: 1.6;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-#banner-services .banner-container .banner-text h1 {
-  color: white;
-  text-align: center;
-  font-size: 4vw;
-  padding: 0 2rem 0.8rem;
-}
-
-#banner-services .banner-container .banner-text p {
-  color: white;
-  text-align: center;
-  font-size: clamp(1rem, 1.2vw + 0.6rem, 1.25rem);
-  padding: 0 2rem;
-  line-height: 1.6;
+section:not(.banner-services) {
+  padding: 80px 8%;
 }
 
 .message-location {
@@ -95,10 +26,6 @@ p {
   .message-location .text-message p {
     font-size: 4vw;
     padding: 0 10px;
-  }
-
-  #banner-services .banner-container .banner-text h1 {
-    font-size: 10vw;
   }
 }
 
@@ -432,8 +359,8 @@ p {
 }
 
 @media(max-width: 768px) and (min-width: 401px) {
-  section {
-    padding: 60px 6% !important;
+  section:not(.banner-services) {
+    padding: 60px 6%;
   }
 
   .services-duo {
@@ -451,14 +378,6 @@ p {
 
   .work-container {
     flex-direction: column;
-  }
-
-  #banner-services .banner-container .banner-text h2 {
-    margin: 0;
-  }
-
-  #banner-services {
-    height: 95vh;
   }
 }
 
@@ -489,75 +408,7 @@ p {
   margin-top: 30px;
 }
 
-/* Formulario de contacto */
-.contact-form-section .request-ctn .form-ctn {
-  display: grid;
-  row-gap: 20px;
-  column-gap: 20px;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-}
 
-.contact-form-section .request-ctn .form-ctn #message {
-  grid-column: 1/3;
-  grid-row: 3;
-}
-
-.contact-form-section .request-ctn .form-ctn input {
-  background: transparent;
-  border: 1px solid #00000070;
-  padding: 10px 20px;
-  color: var(--red);
-  border-radius: 20px;
-}
-
-.contact-form-section .request-ctn .form-ctn input:focus-visible {
-  outline: none;
-}
-
-.contact-form-section .request-ctn .form-ctn input:focus-visible::placeholder {
-  transform: scale(0.9);
-}
-
-.contact-form-section .request-ctn .form-ctn input::placeholder {
-  color: #00000070;
-  transition: all 0.3s;
-}
-
-/* Estilos para el botón SEND REQUEST */
-.submit-btn {
-  display: flex;
-  justify-content: center;
-  padding: 3vw 0 0 0;
-}
-
-.contact-form-section .submit-btn button {
-  background: linear-gradient(to right, white 50%, var(--red) 50%);
-  background-size: 200%;
-  background-position: 100%;
-  color: white;
-  border: none;
-  padding: 5px 40px;
-  font-weight: 700;
-  font-size: 1.1rem;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: inline-block;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-.contact-form-section .submit-btn button:hover {
-  background-position: 0%;
-  color: var(--red);
-}
-
-.contact-form-section .submit-btn button:focus {
-  outline: 2px solid var(--red);
-  outline-offset: 2px;
-}
 
 /* ==========================================================================
    FORCE RESET PARA EVITAR DESBORDE (SOLO MÓVIL)
@@ -572,19 +423,12 @@ p {
     width: 100%;
   }
 
-  section {
-    padding: 40px 15px !important;
+  section:not(.banner-services) {
+    padding: 40px 15px;
     /* Padding más pequeño y seguro */
     width: 100%;
     box-sizing: border-box;
     /* Asegura que el padding no sume ancho extra */
-  }
-
-  /* 2. Arreglar el banner que se sale */
-  #banner-services .banner-container .banner-text h1 {
-    font-size: 1.8rem;
-    /* Tamaño fijo más seguro que vw */
-    padding: 0 10px;
   }
 
   /* 3. Forzar a que las columnas ocupen el 100% y no 400px */
@@ -615,12 +459,5 @@ p {
     /* El skew a veces causa desbordes fantasmas */
     width: 90%;
     margin: 0 auto;
-  }
-
-  .contact-form-section .request-ctn .form-ctn {
-    display: flex;
-    row-gap: 20px;
-    column-gap: 20px;
-    flex-direction: column;
   }
 }
