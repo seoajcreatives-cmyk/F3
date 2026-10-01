@@ -10,5 +10,6 @@ Disallow: /includes/
 Disallow: /cgi-bin/
 Disallow: /tmp/
 
-# Sitemap
+# Sitemaps
 Sitemap: https://f3constructionny.com/sitemap.xml
+Sitemap: https://f3constructionny.com/blog/sitemap_index.xml
