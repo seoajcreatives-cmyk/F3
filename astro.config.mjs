@@ -14,7 +14,7 @@ export default defineConfig({
   output: 'static',
   site: 'https://f3constructionny.com',
   base,
-  trailingSlash: 'never',
+  trailingSlash: 'always',
   image: {
     domains: ['f3constructionny.com'],
   },
