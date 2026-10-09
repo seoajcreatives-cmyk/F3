@@ -195,7 +195,7 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
 
   <main>
     <!-- Banner de Servicios con Formulario -->
-    <section class={`banner-services ${service.bannerClass}`}>
+    <section class={`banner-services ${service.bannerClass}`} style={service.slug === 'office-renovation-contractor-long-island-ny' ? `background-image: url('${base}media/webp/jpg/banner-office-renovation.webp');` : undefined}>
       <div class="banner-container banner-split">
         <!-- LEFT (Título y Llamada a Acción) -->
         <div class="banner-left">
