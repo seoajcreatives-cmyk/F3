@@ -1,4 +1,4 @@
-﻿---
+---
 import BaseLayout from '@layouts/BaseLayout.astro';
 import Breadcrumb from '@components/Breadcrumb.astro';
 import { Image } from 'astro:assets';
@@ -28,6 +28,7 @@ import powerWashImg from '../../../public/media/webp/jpg/power-wash.webp';
 import basementImg from '../../../public/media/webp/jpg/basement.webp';
 import patioImg from '../../../public/media/webp/jpg/banner-patio-contractor.webp';
 import garageImg from '../../../public/media/jpg/garage-attached-house.jpg';
+import galleryImg from '../../../public/media/jpg/gallery1.jpg';
 
 // Collection Schema Markup estructurado
 const collectionSchema = {
@@ -168,6 +169,13 @@ const collectionSchema = {
       "name": "Exterior Improvement Contractor",
       "serviceType": "Exterior Improvement Contractor",
       "url": "https://f3constructionny.com/services/exterior-improvement-contractor-long-island-ny"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://f3constructionny.com/services/office-renovation-contractor-long-island-ny#service",
+      "name": "Office Renovation Contractor",
+      "serviceType": "Office Renovation Contractor",
+      "url": "https://f3constructionny.com/services/office-renovation-contractor-long-island-ny"
     }
   ]
 };
@@ -488,6 +496,18 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
           </div>
           <div class="service-media right">
             <Image src={sidingSlideImg} alt="exterior improvement contractor services ny" loading="lazy" width={1100} height={900} />
+          </div>
+        </div>
+
+        <!-- Office Renovation Contractor -->
+        <div class="service-item order">
+          <div class="service-text">
+            <h3>OFFICE RENOVATION CONTRACTOR</h3>
+            <p>Transform your commercial workspace with expert office renovations, build-outs, and tenant improvements in Long Island, NY. Designed for productivity, brand appeal, and minimal business downtime.</p>
+            <a href={base + "services/office-renovation-contractor-long-island-ny/"}>Free Quote Office Renovation Services</a>
+          </div>
+          <div class="service-media left">
+            <Image src={galleryImg} alt="office renovation contractor services ny" loading="lazy" width={1100} height={900} />
           </div>
         </div>
 

@@ -46,7 +46,13 @@
   <!-- Service Category Pages -->
   <url>
     <loc>https://f3constructionny.com/services/interior-renovation-contractor-long-island-ny/</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://f3constructionny.com/services/office-renovation-contractor-long-island-ny/</loc>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
