@@ -9,6 +9,7 @@ import Icon from './Icon.astro';
 const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
 ---
 <header>
+  <span class="sr-only">F3 Construction Corp</span>
   <div class="line-address">
     <a href="https://goo.gl/maps/2JWRRVgKfv4YvGaCA" target="_blank"><Icon name="location-dot" /><span>290 Earle St. Central Islip, NY 11722</span></a>
     <a href="tel:+16312788693"><Icon name="phone" /><span>631-278-8693</span></a>
@@ -25,10 +26,11 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
   <div class="header-desktop">
     <div class="header-left">
       <div class="logo" style="width: 160px; height: 109px; flex-shrink: 0; display: block;">
-        <a href={base} aria-label="F3 Construction Logo" style="display: block; width: 100%; height: 100%;">
+        <a href={base} aria-label="F3 Construction Corp" style="display: block; width: 100%; height: 100%;">
+          <span class="sr-only">F3 Construction Corp</span>
           <Image class="primary-logo" 
                  src={logoImg} 
-                 alt="F3 Construction" 
+                 alt="F3 Construction Corp" 
                  widths={[120, 160, 240, 320]}
                  sizes="(max-width: 996px) 120px, 160px"
                  format="webp"
@@ -128,10 +130,11 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
   <div class="mobile-header" id="mobile-header">
     <div class="mobile-header-container">
       <div style="width: 120px; aspect-ratio: 300 / 205; flex-shrink: 0; overflow: hidden; display: block;">
-        <a href={base} aria-label="logo" style="display: block; width: 100%; height: 100%;">
+        <a href={base} aria-label="F3 Construction Corp" style="display: block; width: 100%; height: 100%;">
+          <span class="sr-only">F3 Construction Corp</span>
           <Image class="primary-logo" 
                  src={logoImg} 
-                 alt="F3 Construction" 
+                 alt="F3 Construction Corp" 
                  widths={[120, 160, 240, 320]}
                  sizes="(max-width: 996px) 120px, 160px"
                  format="webp"

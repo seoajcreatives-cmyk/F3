@@ -1,6 +1,18 @@
 /* Los @font-face de Poppins se inyectan inline desde BaseLayout.astro
    para que la ruta respete el base del entorno (raíz o /test). */
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .banner-about-section {
   padding: 3% 0 0 0;
 }

@@ -84,7 +84,7 @@ if (customSchemaData) {
     "@type": "GeneralContractor",
     "@id": `https://f3constructionny.com/services/${customSchemaData.slug}/#localbusiness`,
     "name": "F3 Construction Corp",
-    "image": "https://f3constructionny.com/_astro/logo.CvoXPzJr_Z3Cs5c.webp",
+    "image": "https://f3constructionny.com/media/webp/png/logo.webp",
     "url": `https://f3constructionny.com/services/${customSchemaData.slug}/`,
     "telephone": "+1-631-278-8693",
     "priceRange": "$$",
@@ -97,6 +97,12 @@ if (customSchemaData) {
       "addressCountry": "US"
     },
     "areaServed": { "@type": "Place", "name": "Long Island, NY" },
+    "isPartOf": {
+      "@type": "WebSite",
+      "@id": "https://f3constructionny.com/#website",
+      "name": "F3 Construction Corp",
+      "url": "https://f3constructionny.com/"
+    },
     "makesOffer": {
       "@type": "Offer",
       "itemOffered": {
@@ -123,6 +129,7 @@ if (customSchemaData) {
     "description": service.metaDescription,
     "provider": {
       "@type": "HomeAndConstructionBusiness",
+      "@id": "https://f3constructionny.com/#business",
       "name": "F3 Construction Corp",
       "address": {
         "@type": "PostalAddress",
@@ -136,6 +143,12 @@ if (customSchemaData) {
     "areaServed": {
       "@type": "Place",
       "name": "Long Island, NY"
+    },
+    "isPartOf": {
+      "@type": "WebSite",
+      "@id": "https://f3constructionny.com/#website",
+      "name": "F3 Construction Corp",
+      "url": "https://f3constructionny.com/"
     },
     "image": "https://f3constructionny.com/media/webp/png/logo.webp"
   };

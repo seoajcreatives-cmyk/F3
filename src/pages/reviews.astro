@@ -1,4 +1,4 @@
-﻿---
+---
 import BaseLayout from '@layouts/BaseLayout.astro';
 import Breadcrumb from '@components/Breadcrumb.astro';
 import { Image } from 'astro:assets';
@@ -117,6 +117,12 @@ const businessSchema = {
     "addressCountry": "US",
   },
   "areaServed": { "@type": "Place", "name": "Long Island, NY" },
+  "isPartOf": {
+    "@type": "WebSite",
+    "@id": "https://f3constructionny.com/#website",
+    "name": "F3 Construction Corp",
+    "url": "https://f3constructionny.com/"
+  },
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "5.0",

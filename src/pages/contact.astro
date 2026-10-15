@@ -1,4 +1,4 @@
-﻿---
+---
 import BaseLayout from '@layouts/BaseLayout.astro';
 import Breadcrumb from '@components/Breadcrumb.astro';
 import GoogleMap from '@components/GoogleMap.astro';
@@ -28,6 +28,12 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
           "inLanguage": "en",
           "about": {
               "@id": "https://f3constructionny.com/#business"
+          },
+          "isPartOf": {
+              "@type": "WebSite",
+              "@id": "https://f3constructionny.com/#website",
+              "name": "F3 Construction Corp",
+              "url": "https://f3constructionny.com/"
           },
           "primaryImageOfPage": {
               "@type": "ImageObject",
