@@ -206,7 +206,7 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
           </div>
         </div>
         <div class="banner-form-container contact-form-section">
-          <form id="contact_form_id" class="form-tag" method="post" novalidate>
+          <form id="contact_form_id" class="form-tag" method="post" novalidate data-base={base}>
             <div class="request-ctn">
               <div class="title">
                 <h2>CONNECT WITH US</h2>
@@ -529,6 +529,13 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
     if (submitBtn) {
       submitBtn.addEventListener("click", sendmail);
     }
+    const form = document.getElementById("contact_form_id");
+    if (form) {
+      form.addEventListener("submit", function(e) {
+        e.preventDefault();
+        sendmail(e);
+      });
+    }
   });
 
   function sendmail(event) {
@@ -596,18 +603,18 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
       try {
         var res = JSON.parse(result);
         if (res.success) {
-          const msgBox = document.getElementById("message_box");
-          if (msgBox) {
-            msgBox.innerHTML = "<p style='color:#b71c1c; font-weight:700;'>Sent successfully!</p>";
-            msgBox.style.display = "block";
-          }
           if (contactForm) {
             contactForm.reset();
           }
-          grecaptcha.reset();
+          if (typeof grecaptcha !== 'undefined') {
+            grecaptcha.reset();
+          }
+          window.location.href = base + "thank-you/";
         } else {
           alert(res.message || "Error");
-          grecaptcha.reset();
+          if (typeof grecaptcha !== 'undefined') {
+            grecaptcha.reset();
+          }
         }
       } catch (e) {
         alert("Sent, but check server response.");

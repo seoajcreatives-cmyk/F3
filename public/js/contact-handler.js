@@ -1,21 +1,33 @@
-if (typeof sendmail === "undefined") {
+// Global Contact Form Handler - F3 Construction Corp
+(function() {
+  function getBaseUrl(formEl) {
+    if (formEl && formEl.getAttribute("data-base")) {
+      var b = formEl.getAttribute("data-base");
+      return b.endsWith("/") ? b : b + "/";
+    }
+    return "/";
+  }
+
   window.sendmail = function(event) {
     if (event) event.preventDefault();
 
-    const aceptCheck = document.getElementById("acept");
+    var contactForm = document.getElementById("contact_form_id");
+    var base = getBaseUrl(contactForm);
+
+    var aceptCheck = document.getElementById("acept");
     if (aceptCheck && !aceptCheck.checked) {
       alert("Please accept the Privacy Policy.");
       return false;
     }
 
-    const captchaResponse = typeof grecaptcha !== "undefined" ? grecaptcha.getResponse() : "";
+    var captchaResponse = typeof grecaptcha !== "undefined" ? grecaptcha.getResponse() : "";
     if (!captchaResponse) {
       alert("Please verify the reCAPTCHA.");
       return false;
     }
 
-    const submitBtn = document.getElementById("submit_button");
-    const loaderEl = document.getElementById("load_form");
+    var submitBtn = document.getElementById("submit_button");
+    var loaderEl = document.getElementById("load_form");
 
     if (submitBtn) {
       submitBtn.disabled = true;
@@ -25,14 +37,13 @@ if (typeof sendmail === "undefined") {
       loaderEl.style.display = "block";
     }
 
-    const nameVal = document.getElementById("name")?.value || "";
-    const lastNameVal = document.getElementById("lastName")?.value || "";
-    const phoneVal = document.getElementById("phone")?.value || "";
-    const emailVal = document.getElementById("email")?.value || "";
-    const messageVal = document.getElementById("message")?.value || "";
-    const privacyConsentEl = document.getElementById("privacy_consent");
+    var nameVal = document.getElementById("name") ? document.getElementById("name").value : "";
+    var lastNameVal = document.getElementById("lastName") ? document.getElementById("lastName").value : "";
+    var phoneVal = document.getElementById("phone") ? document.getElementById("phone").value : "";
+    var emailVal = document.getElementById("email") ? document.getElementById("email").value : "";
+    var messageVal = document.getElementById("message") ? document.getElementById("message").value : "";
 
-    const urlParams = new URLSearchParams({
+    var urlParams = new URLSearchParams({
       name: nameVal,
       lastName: lastNameVal,
       phone: phoneVal,
@@ -41,18 +52,17 @@ if (typeof sendmail === "undefined") {
       "g-recaptcha-response": captchaResponse
     });
 
-    // Envío principal al script PHP
-    const contactForm = document.getElementById("contact_form_id");
-
-    fetch("/sendmail/send_contact.php", {
+    fetch(base + "sendmail/send_contact.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded"
       },
       body: urlParams
     })
-    .then(response => response.text())
-    .then(result => {
+    .then(function(response) {
+      return response.text();
+    })
+    .then(function(result) {
       if (loaderEl) loaderEl.style.display = "none";
       if (submitBtn) {
         submitBtn.disabled = false;
@@ -60,26 +70,26 @@ if (typeof sendmail === "undefined") {
       }
 
       try {
-        const res = JSON.parse(result);
+        var res = JSON.parse(result);
         if (res.success) {
-          const msgBox = document.getElementById("message_box");
-          if (msgBox) {
-            msgBox.innerHTML = "<p style='color:#b71c1c; font-weight:700;'>Sent successfully!</p>";
-            msgBox.style.display = "block";
-          }
           if (contactForm) {
             contactForm.reset();
           }
-          grecaptcha.reset();
+          if (typeof grecaptcha !== "undefined") {
+            grecaptcha.reset();
+          }
+          window.location.href = base + "thank-you/";
         } else {
           alert(res.message || "Error");
-          grecaptcha.reset();
+          if (typeof grecaptcha !== "undefined") {
+            grecaptcha.reset();
+          }
         }
       } catch (e) {
         alert("Sent, but check server response.");
       }
     })
-    .catch(err => {
+    .catch(function(err) {
       if (loaderEl) loaderEl.style.display = "none";
       if (submitBtn) {
         submitBtn.disabled = false;
@@ -88,4 +98,26 @@ if (typeof sendmail === "undefined") {
       alert("An error occurred during submission.");
     });
   };
-}
+
+  function initContactForm() {
+    var submitBtn = document.getElementById("submit_button");
+    if (submitBtn) {
+      submitBtn.removeEventListener("click", window.sendmail);
+      submitBtn.addEventListener("click", window.sendmail);
+    }
+
+    var contactForm = document.getElementById("contact_form_id");
+    if (contactForm) {
+      contactForm.addEventListener("submit", function(e) {
+        e.preventDefault();
+        window.sendmail(e);
+      });
+    }
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initContactForm);
+  } else {
+    initContactForm();
+  }
+})();

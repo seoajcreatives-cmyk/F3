@@ -1,0 +1,105 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumb from '@components/Breadcrumb.astro';
+import Icon from '@components/Icon.astro';
+import '../styles/thank-you.css';
+
+const metaTitle = "Thank You – We Received Your Request | F3 Construction Corp";
+const metaDescription = "Thank you for reaching out to F3 Construction Corp. Our team has received your project details and will contact you within 24 business hours.";
+const canonical = "https://f3constructionny.com/thank-you/";
+
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
+---
+
+<BaseLayout title={metaTitle} description={metaDescription} canonical={canonical}>
+  <Fragment slot="head">
+    <!-- Prevents indexing of the conversion thank you page to avoid skewed analytics -->
+    <meta name="robots" content="noindex, nofollow" />
+  </Fragment>
+
+  <Breadcrumb />
+
+  <main class="thank-you-wrapper">
+    <div class="thank-you-card">
+      
+      <!-- Animated Success Check Badge -->
+      <div class="success-icon-badge" aria-hidden="true">
+        <Icon name="check" />
+      </div>
+
+      <!-- Header Content -->
+      <div class="thank-you-header">
+        <span class="badge-tag">Request Received</span>
+        <h1>Thank You for <span>Reaching Out!</span></h1>
+        <p>
+          We've received your project inquiry. Our team of remodeling and general contracting specialists is reviewing your information and will be in touch with you within 24 business hours.
+        </p>
+      </div>
+
+      <!-- Steps / What Happens Next -->
+      <section class="what-next-section" aria-label="What happens next">
+        <h2>What Happens Next?</h2>
+        <div class="steps-grid">
+          <div class="step-card">
+            <span class="step-number">1</span>
+            <h3>Project Review</h3>
+            <p>Our specialists analyze your project details, location, and specific remodeling or construction requirements.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-number">2</span>
+            <h3>Direct Consultation</h3>
+            <p>We'll call or email you to discuss material options, architectural preferences, and estimated timeframes.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-number">3</span>
+            <h3>Transparent Estimate</h3>
+            <p>You'll receive a clear, comprehensive, and competitive free estimate tailored specifically to your budget.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Urgent Contact Callout -->
+      <div class="urgent-contact-box">
+        <div class="urgent-text">
+          <h3>Need Immediate Assistance?</h3>
+          <p>If your project is urgent or you prefer speaking directly with our team, feel free to give us a call.</p>
+        </div>
+        <div class="urgent-actions">
+          <a href="tel:+16312788693" class="urgent-phone-btn" aria-label="Call F3 Construction Corp">
+            <Icon name="phone" />
+            <span>(631) 278-8693</span>
+          </a>
+          <a href="mailto:F3ccorp@gmail.com" class="urgent-email-btn" aria-label="Email F3 Construction Corp">
+            <Icon name="envelope" />
+            <span>f3ccorp@gmail.com</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Action Navigation Buttons -->
+      <div class="action-buttons">
+        <a href={base} class="btn-primary-home" id="btn_thankyou_home">
+          <span>Back to Homepage</span>
+          <Icon name="arrow-right" />
+        </a>
+        <a href={base + "services/"} class="btn-secondary-services" id="btn_thankyou_services">
+          <span>Explore Our Services</span>
+        </a>
+        <a href={base + "reviews/"} class="btn-tertiary-reviews" id="btn_thankyou_reviews">
+          <Icon name="star" />
+          <span>See Client Reviews</span>
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Push conversion event to GTM / dataLayer for analytics and advertising tracking -->
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      'event': 'form_submission_success',
+      'page_type': 'thank_you'
+    });
+  </script>
+</BaseLayout>
