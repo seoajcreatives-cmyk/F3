@@ -381,12 +381,14 @@ section:not(.banner-services) {
   }
 }
 
-/* Contact Now button - About section */
-.about-f3-section .cta-button a {
+/* Contact Now button - About / Why Choose F3 section */
+.about-f3-section .cta-button a,
+.why-choose-f3 .cta-button a {
   background: linear-gradient(to right, white 50%, var(--red) 50%);
   width: fit-content;
-  padding: 2% 10%;
+  padding: 14px 42px;
   font-weight: 700;
+  font-size: 1rem;
   background-size: 200%;
   background-position: 100%;
   transform: skewX(-15deg);
@@ -395,14 +397,20 @@ section:not(.banner-services) {
   align-items: center;
   color: white;
   text-decoration: none;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  transition: all 0.3s ease;
 }
 
-.about-f3-section .cta-button a:hover {
+.about-f3-section .cta-button a:hover,
+.why-choose-f3 .cta-button a:hover {
   color: var(--red);
   background-position: 0%;
+  border-color: var(--red);
 }
 
-.about-f3-section .cta-button {
+.about-f3-section .cta-button,
+.why-choose-f3 .cta-button {
   display: flex;
   justify-content: center;
   margin-top: 30px;
