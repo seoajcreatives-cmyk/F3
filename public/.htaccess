@@ -73,3 +73,8 @@ Redirect 301 /trim-carpentry-services-long-island-ny.php /services/trim-carpentr
 
 # Locations 301 Redirects (destino directo con barra final)
 Redirect 301 /locations/290-earle-st-central.islip-ny-11722.php /locations/290-earle-st-central.islip-ny-11722/
+
+RedirectMatch 301 ^/locations/290-earle-st-central\.islip-ny-11722\..*$ /locations/290-earle-st-central.islip-ny-11722/
+
+# Erratas y enlaces cortados detectados en Search Console
+Redirect 301 /kitchen-remodeling-lo /services/kitchen-remodeling-long-island-ny/
