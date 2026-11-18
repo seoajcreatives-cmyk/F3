@@ -16,19 +16,19 @@ if (!empty($honeypot)) {
     exit();
 }
 
-// 3. Verificación de Google reCAPTCHA
-$secretKey = "6Lc2YOsrAAAAAOl927DoXMIeb_fyHNi-Gl2995EA";
-$responseKey = $_POST['g-recaptcha-response'] ?? '';
+// 3. Verificación de Cloudflare Turnstile
+$turnstileSecret = "0x4AAAAAAGHol444mJiJaOlonBxqp0vUL6o";
+$turnstileResponse = $_POST['cf-turnstile-response'] ?? $_POST['g-recaptcha-response'] ?? '';
 
-if (empty($responseKey)) {
-    echo json_encode(array("success" => false, "message" => "Please verify the reCAPTCHA."));
+if (empty($turnstileResponse)) {
+    echo json_encode(array("success" => false, "message" => "Please complete the security check."));
     exit();
 }
 
-$verifyUrl = "https://www.google.com/recaptcha/api/siteverify";
+$verifyUrl = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
 $verifyData = [
-    'secret' => $secretKey,
-    'response' => $responseKey,
+    'secret' => $turnstileSecret,
+    'response' => $turnstileResponse,
     'remoteip' => $userIP
 ];
 
@@ -37,12 +37,13 @@ curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($verifyData));
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_TIMEOUT, 10);
-$captchaResponse = curl_exec($ch);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
+$turnstileResult = curl_exec($ch);
 curl_close($ch);
 
-$responseKeys = json_decode($captchaResponse, true);
-if (!$responseKeys || empty($responseKeys["success"])) {
-    echo json_encode(array("success" => false, "message" => "reCAPTCHA verification failed. Please try again."));
+$turnstileKeys = json_decode($turnstileResult, true);
+if (!$turnstileKeys || empty($turnstileKeys["success"])) {
+    echo json_encode(array("success" => false, "message" => "Security verification failed. Please try again."));
     exit();
 }
 

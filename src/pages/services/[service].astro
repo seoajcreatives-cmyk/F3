@@ -202,7 +202,7 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
 >
   <!-- Inyección de fragmento head con schemas dinámicos por servicio -->
   <Fragment slot="head">
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <script type="application/ld+json" is:inline set:html={JSON.stringify(serviceSchema)} />
     {faqSchema && <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />}
     <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
@@ -256,8 +256,8 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
                 </label>
               </div>
 
-              <!-- Google reCAPTCHA -->
-              <div class="g-recaptcha" data-sitekey="6Lc2YOsrAAAAANLQTo2_5XtXZqgH0neFNyTRMAhU"></div>
+              <!-- Cloudflare Turnstile -->
+              <div class="cf-turnstile" data-sitekey="0x4AAAAAAGHol9Tz5f4Y1oZD" data-theme="light"></div>
 
               <div class="submit-btn">
                 <button type="button" id="submit_button" class="btn-submit-gtm">SEND REQUEST</button>
@@ -544,9 +544,9 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
       return false;
     }
     
-    var captchaResponse = typeof grecaptcha !== "undefined" ? grecaptcha.getResponse() : "";
-    if (!captchaResponse) {
-      alert("Please verify the reCAPTCHA.");
+    var turnstileResponse = typeof turnstile !== "undefined" ? turnstile.getResponse() : (typeof grecaptcha !== "undefined" ? grecaptcha.getResponse() : "");
+    if (!turnstileResponse) {
+      alert("Please complete the security check.");
       return false;
     }
 
@@ -575,7 +575,8 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
       email: emailVal,
       message: messageVal,
       company_website: honeypotVal,
-      "g-recaptcha-response": captchaResponse
+      "cf-turnstile-response": turnstileResponse,
+      "g-recaptcha-response": turnstileResponse
     };
 
     // Envío principal al script PHP ubicado en la ruta absoluta
@@ -605,14 +606,14 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
           if (contactForm) {
             contactForm.reset();
           }
-          if (typeof grecaptcha !== 'undefined') {
-            grecaptcha.reset();
+          if (typeof turnstile !== 'undefined') {
+            turnstile.reset();
           }
           window.location.href = base + "thank-you/";
         } else {
           alert(res.message || "Error");
-          if (typeof grecaptcha !== 'undefined') {
-            grecaptcha.reset();
+          if (typeof turnstile !== 'undefined') {
+            turnstile.reset();
           }
         }
       } catch (e) {
