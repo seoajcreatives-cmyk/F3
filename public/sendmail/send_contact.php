@@ -1,10 +1,8 @@
 <?php
 header("Content-Type: application/json; charset=UTF-8");
 
-$logFile = __DIR__ . '/debug_log.txt';
 function logMsg($msg) {
-    global $logFile;
-    @file_put_contents($logFile, date('Y-m-d H:i:s') . ' | ' . $msg . "\n", FILE_APPEND);
+    // Debug logging disabled in production
 }
 
 logMsg("--- NEW INCOMING SUBMISSION ---");
