@@ -20,9 +20,12 @@
       return false;
     }
 
+    var turnstileResponse = typeof turnstile !== "undefined" ? turnstile.getResponse() : "";
     var captchaResponse = typeof grecaptcha !== "undefined" ? grecaptcha.getResponse() : "";
-    if (!captchaResponse) {
-      alert("Please verify the reCAPTCHA.");
+    var securityToken = turnstileResponse || captchaResponse;
+
+    if (!securityToken) {
+      alert("Please complete the security verification.");
       return false;
     }
 
@@ -42,6 +45,7 @@
     var phoneVal = document.getElementById("phone") ? document.getElementById("phone").value : "";
     var emailVal = document.getElementById("email") ? document.getElementById("email").value : "";
     var messageVal = document.getElementById("message") ? document.getElementById("message").value : "";
+    var honeypotVal = document.getElementById("company_website") ? document.getElementById("company_website").value : "";
 
     var urlParams = new URLSearchParams({
       name: nameVal,
@@ -49,7 +53,9 @@
       phone: phoneVal,
       email: emailVal,
       message: messageVal,
-      "g-recaptcha-response": captchaResponse
+      company_website: honeypotVal,
+      "cf-turnstile-response": securityToken,
+      "g-recaptcha-response": securityToken
     });
 
     fetch(base + "sendmail/send_contact.php", {
@@ -75,12 +81,18 @@
           if (contactForm) {
             contactForm.reset();
           }
+          if (typeof turnstile !== "undefined") {
+            turnstile.reset();
+          }
           if (typeof grecaptcha !== "undefined") {
             grecaptcha.reset();
           }
           window.location.href = base + "thank-you/";
         } else {
           alert(res.message || "Error");
+          if (typeof turnstile !== "undefined") {
+            turnstile.reset();
+          }
           if (typeof grecaptcha !== "undefined") {
             grecaptcha.reset();
           }
