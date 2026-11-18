@@ -153,9 +153,13 @@ function enviarAGoogleSheets($name, $lastName, $phone, $email, $message) {
     curl_setopt($ch, CURLOPT_HTTPHEADER, ["Content-Type: application/json"]);
     curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($payload));
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_TIMEOUT, 8);
-    curl_exec($ch);
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+    curl_setopt($ch, CURLOPT_AUTOREFERER, true);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 12);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
+    $res = curl_exec($ch);
     curl_close($ch);
+    return $res;
 }
 
 function enviarAZapier($name, $lastName, $phone, $email, $message) {
