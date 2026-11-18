@@ -1,6 +1,7 @@
 .banner-services {
   padding: 0;
-  min-height: 80vh;
+  height: auto;
+  min-height: clamp(560px, 80vh, 760px);
   background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url("../media/webp/jpg/composicion-de-construccion-de-mezcla-de-hombre-de-tiro-completo.webp");
   background-size: cover;
   background-position: center;

@@ -183,8 +183,8 @@ const poppinsFontFace = [400, 500, 600, 700, 800]
       }
       .banner-section {
         width: 100vw;
-        height: 100vh;
-        min-height: 100vh;
+        height: auto;
+        min-height: min(100vh, 900px);
         padding: 0;
         position: relative;
         overflow: hidden;
@@ -197,7 +197,7 @@ const poppinsFontFace = [400, 500, 600, 700, 800]
         overflow: hidden;
         width: 100%;
         height: 100%;
-        min-height: 100vh;
+        min-height: min(100vh, 900px);
       }
       .banner-container video, .banner-container img {
         position: absolute;
@@ -339,9 +339,7 @@ const poppinsFontFace = [400, 500, 600, 700, 800]
     <!-- @font-face Poppins con ruta base del entorno -->
     <style is:inline set:html={poppinsFontFace}></style>
 
-    <!-- CSS libraries -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" media="print" onload="this.media='all'" />
-    
+
     <!-- Custom Contact Form Handler Script -->
     <script src={base + "js/contact-handler.js"} defer></script>
 

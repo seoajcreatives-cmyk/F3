@@ -1,6 +1,5 @@
 .banner-kitchen {
     padding: 0;
-    height: 80vh;
     background-image: url("../media/jpg/banner-kitchen-remodeling.jpg");
     background-size: cover;
     background-color: rgba(0, 0, 0, 0.6);
@@ -9,7 +8,6 @@
 
 .banner-deck {
     padding: 0;
-    height: 80vh;
     background-image: url("../media/jpg/banner-deck.jpg");
     background-size: cover;
     background-color: rgba(0, 0, 0, 0.6);
@@ -18,7 +16,6 @@
 
 .banner-crown {
     padding: 0;
-    height: 80vh;
     background-image: url("../media/jpg/banner-crown.jpg");
     background-size: cover;
     background-color: rgba(0, 0, 0, 0.6);
@@ -27,7 +24,6 @@
 
 .banner-portico {
     padding: 0;
-    height: 80vh;
     background-image: url("../media/jpg/banner-portico.jpg");
     background-size: cover;
     background-color: rgba(0, 0, 0, 0.6);
@@ -36,7 +32,6 @@
 
 .banner-tile {
     padding: 0;
-    height: 80vh;
     background-image: url("../media/jpg/banner-tile.jpg");
     background-size: cover;
     background-color: rgba(0, 0, 0, 0.6);
@@ -45,7 +40,6 @@
 
 .banner-siding {
     padding: 0;
-    height: 80vh;
     background-image: url("../media/jpg/banner-siding.jpg");
     background-size: cover;
     background-color: rgba(0, 0, 0, 0.6);
@@ -54,7 +48,6 @@
 
 .banner-bathroom {
     padding: 0;
-    height: 80vh;
     background-image: url("../media/jpg/banner-bathroom.jpg");
     background-size: cover;
     background-color: rgba(0, 0, 0, 0.6);
@@ -63,7 +56,6 @@
 
 .banner-stairs {
     padding: 0;
-    height: 80vh;
     background-image: url("../media/jpg/banner-stairs.jpg");
     background-size: cover;
     background-color: rgba(0, 0, 0, 0.6);
@@ -72,7 +64,6 @@
 
 .banner-masonry {
     padding: 0;
-    height: 80vh;
     background-image: url("../media/jpg/banner-masonry.jpg");
     background-size: cover;
     background-color: rgba(0, 0, 0, 0.6);
@@ -81,7 +72,6 @@
 
 .banner-trim {
     padding: 0;
-    height: 80vh;
     background-image: url("../media/jpg/banner-trim.jpg");
     background-size: cover;
     background-color: rgba(0, 0, 0, 0.6);
@@ -90,7 +80,6 @@
 
 .banner-window {
     padding: 0;
-    height: 80vh;
     background-image: url("../media/jpg/banner-window.jpg");
     background-size: cover;
     background-color: rgba(0, 0, 0, 0.6);
@@ -99,7 +88,6 @@
 
 .banner-door {
     padding: 0;
-    height: 80vh;
     background-image: url("../media/jpg/banner-door.jpg");
     background-size: cover;
     background-color: rgba(0, 0, 0, 0.6);
@@ -108,7 +96,6 @@
 
 .banner-house {
     padding: 0;
-    height: 80vh;
     background-image: url("../media/jpg/banner-house.jpg");
     background-size: cover;
     background-color: rgba(0, 0, 0, 0.6);
@@ -117,7 +104,6 @@
 
 .banner-power-wash {
     padding: 0;
-    height: 80vh;
     background-image: url("../media/jpg/banner-power-wash.jpg");
     background-size: cover;
     background-color: rgba(0, 0, 0, 0.6);
@@ -126,7 +112,6 @@
 
 .banner-patio {
     padding: 0;
-    height: 80vh;
     background-image: url("../media/jpg/banner-patio-contractor.jpg");
     background-size: cover;
     background-color: rgba(0, 0, 0, 0.6);
@@ -135,7 +120,6 @@
 
 .banner-garage {
     padding: 0;
-    height: 80vh;
     background-image: url("../media/jpg/banner-garage.jpg");
     background-size: cover;
     background-color: rgba(0, 0, 0, 0.6);
@@ -144,7 +128,6 @@
 
 .banner-location {
     padding: 0;
-    height: 80vh;
     background-image: url("../media/webp/jpg/fondo-locations.webp"), url("../media/jpg/fondo-locations.jpg");
     background-size: cover;
     background-color: rgba(0, 0, 0, 0.6);
@@ -153,7 +136,8 @@
 
 .banner-services {
     position: relative;
-    min-height: 80vh;
+    height: auto;
+    min-height: clamp(560px, 80vh, 760px);
     padding: 0;
     background-size: cover;
     background-position: center;
@@ -220,7 +204,7 @@
     align-items: center;
     gap: 60px;
     padding: 0 8%;
-    min-height: 80vh;
+    min-height: clamp(560px, 80vh, 760px);
     text-align: left;
 }
 
@@ -339,6 +323,7 @@
 
 @media (max-width: 996px) {
     .banner-services {
+        height: auto;
         min-height: 700px;
         padding: 60px 0;
     }

@@ -10,7 +10,7 @@
   .banner-about-section .banner-about-container .banner-media {
     background-image: url("../media/jpg/banner-about.jpg");
     border-radius: 0 600px 600px 0;
-    height: 60vh;
+    height: min(60vh, 520px);
     background-size: cover;
     padding: 20px 0 0 0;
     overflow: hidden;
@@ -128,7 +128,7 @@
   @media (max-width: 996px) {
 
     .banner-about-section .banner-about-container .banner-media {
-      height: 30vh;
+      height: min(30vh, 300px);
     }
 
 

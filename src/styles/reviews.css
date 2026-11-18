@@ -32,7 +32,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  min-height: 62vh;
+  min-height: clamp(500px, 62vh, 650px);
   padding: 8% 6%;
   overflow: hidden;
 }
@@ -457,7 +457,7 @@
   }
 
   .reviews-hero {
-    min-height: 70vh;
+    min-height: clamp(450px, 70vh, 580px);
     padding: 22% 7% 14%;
   }
 }

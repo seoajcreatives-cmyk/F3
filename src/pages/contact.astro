@@ -75,7 +75,7 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
       
       <div class="contact-container">
         <div class="media-ctn">
-          <video muted playsinline loop autoplay>
+          <video muted playsinline loop autoplay poster={base + "media/contact-poster.webp"} preload="metadata">
             <source src={base + "media/video/contact.mp4"} type="video/mp4" />
           </video>
         </div>
