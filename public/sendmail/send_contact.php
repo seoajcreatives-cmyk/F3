@@ -1,17 +1,27 @@
 <?php
 header("Content-Type: application/json; charset=UTF-8");
 
-// 1. Obtener la IP auténtica del visitante (soporte para Cloudflare / Proxies)
+$logFile = __DIR__ . '/debug_log.txt';
+function logMsg($msg) {
+    global $logFile;
+    @file_put_contents($logFile, date('Y-m-d H:i:s') . ' | ' . $msg . "\n", FILE_APPEND);
+}
+
+logMsg("--- NEW INCOMING SUBMISSION ---");
+logMsg("RAW POST: " . json_encode($_POST));
+
+// 1. Obtener la IP auténtica del visitante
 $userIP = $_SERVER['HTTP_CF_CONNECTING_IP'] ?? $_SERVER['HTTP_X_FORWARDED_FOR'] ?? $_SERVER['REMOTE_ADDR'] ?? '0.0.0.0';
 if (strpos($userIP, ',') !== false) {
     $ips = explode(',', $userIP);
     $userIP = trim($ips[0]);
 }
+logMsg("Client IP: " . $userIP);
 
-// 2. Técnica Honeypot (Campo trampa invisible para humanos)
-// Si un bot rellena este campo oculto, respondemos éxito simulado pero cancelamos todo envío.
+// 2. Técnica Honeypot
 $honeypot = trim($_POST['company_website'] ?? '');
 if (!empty($honeypot)) {
+    logMsg("BLOCKED BY HONEYPOT: value = '" . $honeypot . "'");
     echo json_encode(array("success" => true, "message" => "Request processed successfully."));
     exit();
 }
@@ -21,6 +31,7 @@ $turnstileSecret = "0x4AAAAAAGHol444mJiJaOlonBxqp0vUL6o";
 $turnstileResponse = $_POST['cf-turnstile-response'] ?? $_POST['g-recaptcha-response'] ?? '';
 
 if (empty($turnstileResponse)) {
+    logMsg("BLOCKED: Turnstile token empty");
     echo json_encode(array("success" => false, "message" => "Please complete the security check."));
     exit();
 }
@@ -39,10 +50,15 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_TIMEOUT, 10);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
 $turnstileResult = curl_exec($ch);
+$cfHttpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+$cfError = curl_error($ch);
 curl_close($ch);
+
+logMsg("Turnstile API (HTTP $cfHttpCode): " . $turnstileResult . ($cfError ? " Err: $cfError" : ""));
 
 $turnstileKeys = json_decode($turnstileResult, true);
 if (!$turnstileKeys || empty($turnstileKeys["success"])) {
+    logMsg("BLOCKED: Turnstile verification failed");
     echo json_encode(array("success" => false, "message" => "Security verification failed. Please try again."));
     exit();
 }
@@ -55,12 +71,14 @@ $email = trim($_POST["email"] ?? "");
 $message = trim($_POST["message"] ?? "");
 
 if ($name === "" || $lastName === "" || $phone === "" || $email === "") {
+    logMsg("BLOCKED: Required fields empty");
     echo json_encode(array("success" => false, "message" => "Please fill in all required fields."));
     exit();
 }
 
 // 5. Validación de formato de Email
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    logMsg("BLOCKED: Invalid email format: " . $email);
     echo json_encode(array("success" => false, "message" => "Please enter a valid email address."));
     exit();
 }
@@ -68,20 +86,16 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 // 6. Validación de Teléfono (al menos 10 dígitos numéricos)
 $phoneDigits = preg_replace('/[^0-9]/', '', $phone);
 if (strlen($phoneDigits) < 10 || strlen($phoneDigits) > 15) {
+    logMsg("BLOCKED: Invalid phone digits length (" . strlen($phoneDigits) . "): " . $phone);
     echo json_encode(array("success" => false, "message" => "Please enter a valid phone number (at least 10 digits)."));
     exit();
 }
 
 // 7. Filtros anti-spam de contenido (Black Hole / Descarte Silencioso)
 $allText = $name . ' ' . $lastName . ' ' . $message;
-
-// 7a. Enlaces y URLs: clientes de construcción en NY no envían enlaces web en primer contacto
 $hasLinks = preg_match('/(https?:\/\/|www\.|\.ru\b|\.top\b|\.xyz\b|\.cn\b|<a\b|\[url\b)/i', $allText);
-
-// 7b. Caracteres cirílicos (rusos) o alfabetos asiáticos no latinos
 $hasCyrillic = preg_match('/[\p{Cyrillic}\p{Han}]/u', $allText);
 
-// 7c. Palabras clave inequívocas de spam automatizado
 $spamPatterns = [
     '/\b(seo\s+services?|seo\s+agency|seo\s+expert|seo\s+audit)\b/i',
     '/\b(guest\s*posts?|buy\s+backlinks?|rank\s+on\s+google|google\s+ranking)\b/i',
@@ -99,13 +113,20 @@ foreach ($spamPatterns as $pattern) {
     }
 }
 
-// Si es detectado como spam, respondemos éxito simulado pero cancelamos el envío
 if ($hasLinks || $hasCyrillic || $hasSpamKeyword) {
+    logMsg("BLOCKED BY CONTENT FILTER: links=" . ($hasLinks ? 1 : 0) . " cyrillic=" . ($hasCyrillic ? 1 : 0) . " keyword=" . ($hasSpamKeyword ? 1 : 0));
     echo json_encode(array("success" => true, "message" => "Thank you! Your request has been sent successfully."));
     exit();
 }
 
-// 8. Envío de Correo Legítimo
+// 8. Ejecución independiente de envíos (Google Sheets NO debe depender de mail())
+logMsg("PASSES ALL CHECKS: Processing legitimate lead");
+
+// 8a. Google Sheets
+$gsResult = enviarAGoogleSheets($name, $lastName, $phone, $email, $message);
+logMsg("Google Sheets Response: " . $gsResult);
+
+// 8b. Envío de Correo
 $to = "antoniagallegom2@gmail.com";
 $subject = "F3 Construction Corp - Contact Form";
 $headers  = "From: noreply@f3constructionny.com\r\n";
@@ -128,13 +149,13 @@ $fullmessage = "
     <p><strong>Message:</strong><br>$safeMessage</p>
 ";
 
-if (mail($to, $subject, $fullmessage, $headers)) {
-    enviarAGoogleSheets($name, $lastName, $phone, $email, $message);
-    enviarAZapier($name, $lastName, $phone, $email, $message);
-    echo json_encode(array("success" => true));
-} else {
-    echo json_encode(array("success" => false, "message" => "Server error. Please try again."));
-}
+$mailSent = @mail($to, $subject, $fullmessage, $headers);
+logMsg("Mail sent result: " . ($mailSent ? "SUCCESS" : "FAILED"));
+
+// 8c. Zapier (opcional)
+enviarAZapier($name, $lastName, $phone, $email, $message);
+
+echo json_encode(array("success" => true));
 
 function enviarAGoogleSheets($name, $lastName, $phone, $email, $message) {
     $gs_url = "https://script.google.com/macros/s/AKfycbxONf11PQ0jpZ9T73_abZ76_1DkIrsd8lpTlUTtRK81Tc_oPDlEXm3L5S42Xj_i3Tvu/exec";
@@ -159,8 +180,10 @@ function enviarAGoogleSheets($name, $lastName, $phone, $email, $message) {
     curl_setopt($ch, CURLOPT_TIMEOUT, 12);
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
     $res = curl_exec($ch);
+    $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    $err = curl_error($ch);
     curl_close($ch);
-    return $res;
+    return "HTTP $code | $res" . ($err ? " | Err: $err" : "");
 }
 
 function enviarAZapier($name, $lastName, $phone, $email, $message) {
@@ -179,7 +202,7 @@ function enviarAZapier($name, $lastName, $phone, $email, $message) {
     curl_setopt($ch, CURLOPT_HTTPHEADER, ["Content-Type: application/json"]);
     curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($payload));
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_TIMEOUT, 8);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 5);
     curl_exec($ch);
     curl_close($ch);
 }
