@@ -125,9 +125,9 @@ $gsResult = enviarAGoogleSheets($name, $lastName, $phone, $email, $message);
 logMsg("Google Sheets Response: " . $gsResult);
 
 // 8b. Envío de Correo
-$to = "antoniagallegom2@gmail.com";
+$to = "f3ccorp@gmail.com, ajconversionsseo@gmail.com";
 $subject = "F3 Construction Corp - Contact Form";
-$headers  = "From: noreply@f3constructionny.com\r\n";
+$headers  = "From: F3 Construction <noreply@f3constructionny.com>\r\n";
 $headers .= "Reply-To: $email\r\n";
 $headers .= "MIME-Version: 1.0\r\n";
 $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
@@ -147,7 +147,7 @@ $fullmessage = "
     <p><strong>Message:</strong><br>$safeMessage</p>
 ";
 
-$mailSent = @mail($to, $subject, $fullmessage, $headers);
+$mailSent = @mail($to, $subject, $fullmessage, $headers, "-f noreply@f3constructionny.com");
 logMsg("Mail sent result: " . ($mailSent ? "SUCCESS" : "FAILED"));
 
 // 8c. Zapier (opcional)
